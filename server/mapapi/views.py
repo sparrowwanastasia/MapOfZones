@@ -21,19 +21,55 @@ from .serializers import (
 
 @api_view(["GET", "POST"])
 @permission_classes([IsAuthenticatedOrReadOnly])  # читать могут все, писать только авторизованные
-def districts_list_create(request):
+def districts_list(request):
+    if request.method == "GET":
+        # Список районов
+        qs = District.objects.all()
+        data = DistrictSerializer(qs, many=True).data
+        return Response(data, status=status.HTTP_200_OK)
+def districts_list_sort_by_name(request):
     if request.method == "GET":
         # Список районов, отсортированных по имени
         qs = District.objects.all().order_by("name")
         data = DistrictSerializer(qs, many=True).data
         return Response(data, status=status.HTTP_200_OK)
-
+def districts_list_sort_by_rating(request):
+    if request.method == "GET":
+        # Список районов, отсортированных по рейтингу
+        qs = District.objects.all().order_by("rating")
+        data = DistrictSerializer(qs, many=True).data
+        return Response(data, status=status.HTTP_200_OK)
+def districts_list_create(request):
     # POST — создание нового района из JSON тела запроса
     ser = DistrictSerializer(data=request.data)
     if ser.is_valid():
         ser.save()  # создаст запись в БД
         return Response(ser.data, status=status.HTTP_201_CREATED)
     return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
+def districts_detail(request, pk: int):
+    if request.method == "GET":
+        # Получаем район по его первичному ключу (id). Если нет — вернём 404.
+        obj = get_object_or_404(District, pk=pk)
+        return Response(DistrictSerializer(obj).data)
+def districts_detail_update(request, pk: int):
+    if request.method in ("PUT", "PATCH"):
+        # Получаем район по его первичному ключу (id). Если нет — вернём 404.
+        obj = get_object_or_404(District, pk=pk)
+        # PUT — полная замена; PATCH — частичное обновление
+        partial = (request.method == "PATCH")
+        ser = DistrictSerializer(obj, data=request.data, partial=partial)
+        if ser.is_valid():
+            if ser.save():
+                return Response(ser.data)
+            else:
+                return Response(ser.errors, status=status.HTTP_400_BAD_REQUEST)
+def districts_detail_delete(request, pk: int):
+    if request.method == "DELETE":
+        # Получаем район по его первичному ключу (id). Если нет — вернём 404.
+        obj = get_object_or_404(District, pk=pk)
+        obj.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 @api_view(["GET", "PUT", "PATCH", "DELETE"])
 @permission_classes([IsAuthenticatedOrReadOnly])
