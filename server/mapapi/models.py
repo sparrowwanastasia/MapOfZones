@@ -4,7 +4,7 @@ from django.db import models
 class District(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True) 
 
     class Meta:
         indexes = [models.Index(fields=["slug"])]

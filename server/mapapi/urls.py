@@ -12,7 +12,7 @@ app_name = "mapapi"
 
 urlpatterns = [
 
-    # District
+    # District - смущает, что нет явного указания метода
     path("api/districts/", views.districts_list_create, name="districts_list_create"),
     path("api/districts/<int:pk>/", views.districts_detail, name="districts_detail"),
 
