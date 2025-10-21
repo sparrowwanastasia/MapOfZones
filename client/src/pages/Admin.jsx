@@ -1,12 +1,11 @@
 import Header from "../components/Header/Header";
-
-function Compare() {
+function Admin() {
   return (
     <div>
       <Header />
-      <h1>Compare</h1>
+      <h1>Admin</h1>
     </div>
   );
 }
 
-export default Compare;
+export default Admin;
