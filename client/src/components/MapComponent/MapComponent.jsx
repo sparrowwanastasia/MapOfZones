@@ -1,160 +1,124 @@
-import react from "react";
+// client/src/components/MapComponent/MapComponent.jsx
+import React, { useEffect, useRef, useState } from "react";
+import L from "leaflet";
+import styles from "./MapComponents.module.css"; // просто чтобы задать высоту контейнера
 
-const MapComponent = () => {
-  <div></div>;
+const GEOJSON_URL = "/mapapp/moscow_districts.geojson"; // положи файл в client/public/mapapp/
+
+const defaultStyle = {
+  color: "#3388ff",
+  weight: 1,
+  fillOpacity: 0.3,
 };
 
-export default MapComponent;
-
-/*
-
-<div id="map"></div>
-<div id="error-message"></div>
-
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
-<script>
-    // Initialize the map
-    const map = L.map('map').setView([55.7558, 37.6173], 10); // Moscow
-
-    // Add OpenStreetMap tile layer
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    const geojsonPath = "http://localhost:5500/static/mapapp/moscow_districts.geojson";
-    function styleFeature(feature) {
-return {
-    color: "#3388ff",
-    weight: 1,
-    fillOpacity: 0.3
+const selectedStyle = {
+  color: "#ff3333",
+  weight: 2,
+  fillColor: "#ff3333",
+  fillOpacity: 0.55,
 };
 
-}
+export default function MapComponent() {
+  const mapRef = useRef(null);        // ссылка на DOM-элемент <div>
+  const leafletRef = useRef(null);    // экземпляр карты L.Map
+  const geojsonRef = useRef(null);    // слой L.GeoJSON
+  const [selected, setSelected] = useState(() => new Set()); // выбранные районы
 
-    let selectedDistrictNames = new Set(); // Use Set for fast lookup
+  // 1) создаём карту единожды
+  useEffect(() => {
+    if (leafletRef.current) return; // уже создана
+    const map = L.map(mapRef.current).setView([55.7558, 37.6173], 10);
+    leafletRef.current = map;
 
-function onEachFeature(feature, layer) {
-const districtName = feature.properties.district || feature.properties.DISTRICT || "Unknown";
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+  }, []);
 
-layer.on('click', function () {
-    if (selectedDistrictNames.has(districtName)) {
-        // Deselect visually
-        layer.setStyle({
-            color: "#3388ff",
-            weight: 1,
-            fillOpacity: 0.3
-        });
+  // 2) грузим GeoJSON и вешаем обработчики
+  useEffect(() => {
+    if (!leafletRef.current) return;
 
-        selectedDistrictNames.delete(districtName);
-        saveSelection(districtName, 'remove');
-    } else {
-        // Select visually
-        layer.setStyle({
-            color: 'red',
-            weight: 2,
-            fillColor: 'red',
-            fillOpacity: 0.6
-        });
+    fetch(GEOJSON_URL)
+      .then((r) => {
+        if (!r.ok) throw new Error("Не удалось загрузить GeoJSON");
+        return r.json();
+      })
+      .then((data) => {
+        // если раньше уже был слой — удалим
+        if (geojsonRef.current) {
+          geojsonRef.current.remove();
+          geojsonRef.current = null;
+        }
 
-        selectedDistrictNames.add(districtName);
-        saveSelection(districtName, 'add');
-    }
-});
+        const layer = L.geoJSON(data, {
+          style: (feature) => {
+            const name =
+              feature?.properties?.district ||
+              feature?.properties?.DISTRICT ||
+              "Unknown";
+            return selected.has(name) ? selectedStyle : defaultStyle;
+          },
+          onEachFeature: (feature, lyr) => {
+            const name =
+              feature?.properties?.district ||
+              feature?.properties?.DISTRICT ||
+              "Unknown";
 
-}
+            // небольшая подпись при наведении
+            lyr.bindTooltip(name, { sticky: true });
 
-// Update the saveSelection function to send the 'action' parameter
-function saveSelection(districtName, action) {
-fetch('/toggle-district-selection/', {
-method: 'POST',
-headers: {
-'Content-Type': 'application/json',
-'X-CSRFToken': getCookie('csrftoken')
-},
-body: JSON.stringify({ district: districtName, action: action })
-})
-.then(response => {
-if (!response.ok) throw new Error('Failed to toggle district selection');
-return response.json();
-})
-.then(data => {
-console.log(`District ${action}ed:`, districtName);
-})
-.catch(err => {
-document.getElementById('error-message').textContent = 'Error toggling district: ' + err.message;
-});
-}
-
-function loadSelectedDistricts() {
-fetch('/get-selected-districts/')
-.then(response => response.json())
-.then(data => {
-const selected = new Set(data.selectedDistricts);
-selectedDistrictNames = selected; // Set global set
-console.log("Selected districts:", Array.from(selectedDistrictNames));
-
-        if (geojson) {
-            geojson.eachLayer(layer => {
-                const name = layer.feature.properties.district || layer.feature.properties.DISTRICT;
-                if (selected.has(name)) {
-                    layer.setStyle({
-                        color: 'red',
-                        weight: 2,
-                        fillColor: 'red',
-                        fillOpacity: 0.6
-                    });
+            lyr.on("click", () => {
+              setSelected((prev) => {
+                const next = new Set(prev);
+                if (next.has(name)) {
+                  next.delete(name);
+                  lyr.setStyle(defaultStyle);
+                  // sendSelection(name, "remove"); // опционально — запрос на бэк
+                } else {
+                  next.add(name);
+                  lyr.setStyle(selectedStyle);
+                  // sendSelection(name, "add"); // опционально — запрос на бэк
                 }
+                return next;
+              });
             });
-        }
-    })
-    .catch(err => {
-        document.getElementById('error-message').textContent = 'Error loading selected districts: ' + err.message;
-    });
-    
-}
+          },
+        }).addTo(leafletRef.current);
 
-    // Utility function to get CSRF token from cookie (for Django)
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
+        geojsonRef.current = layer;
+      })
+      .catch((e) => {
+        console.error(e);
+        // можно показать тост/сообщение на странице
+      });
+  }, [selected]); // пересчёт стилей при изменении выбранных
+
+  // 3) (опционально) отправка выбора на бэкенд
+  async function sendSelection(districtName, action) {
+    try {
+      await fetch("/api/selected-districts/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // "X-CSRFToken": getCookie("csrftoken"), // если нужно
+        },
+        body: JSON.stringify({ district: districtName, action }),
+      });
+    } catch (e) {
+      console.warn("Не удалось отправить выбор:", e);
     }
+  }
 
-    let geojson;
-
-    fetch(geojsonPath)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to load the GeoJSON file');
-            }
-            return response.json();
-        })
-        .then(geojsonData => {
-            geojson = L.geoJSON(geojsonData, {
-                onEachFeature: onEachFeature,
-                style: {
-                    color: "#3388ff",
-                    weight: 1,
-                    fillOpacity: 0.3
-                }
-            }).addTo(map);
-            
-            // Load selected districts from the server after loading the GeoJSON data
-            loadSelectedDistricts();
-        })
-        .catch(err => {
-            document.getElementById('error-message').textContent = 'Error loading GeoJSON data: ' + err.message;
-        });
-</script>
-
-*/
+  return (
+    <div className={styles.wrapper}>
+      <div ref={mapRef} className={styles.map} />
+      {/* пример: счётчик выбранных */}
+      <div className={styles.sidebar}>
+        Выбрано районов: {selected.size}
+      </div>
+    </div>
+  );
+}
