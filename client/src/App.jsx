@@ -1,18 +1,26 @@
-// client/src/App.jsx
-import styles from "./App.module.css";
-import { Routes, Navigate, Route } from "react-router-dom"; // импортируем Routes из react-router-dom для маршрутизации, если необходимо. В данном случае он используется просто для структуры кода.
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import styles from './App.module.css';
 
-import Admin from "./pages/Admin"; // импортируем компонент Admin
-import Compare from "./pages/Compare"; // импортируем компонент Compare
-import Main from "./pages/Main"; // импортируем компонент Main
+import Header from './components/Header/Header';
+import Main from './pages/Main';
+import MapPage from './pages/Map';
+import Compare from './pages/Compare';
+import Admin from './pages/Admin';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/admin" element={<Admin />} />
-      <Route path="/compare" element={<Compare />} />
-      <Route path="/" element={<Main />} />
-    </Routes>
+    <div className={styles.app}>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/map" element={<MapPage />} />
+        <Route path="/compare" element={<Compare />} />
+        <Route path="/admin" element={<Admin />} />
+        {/* всё остальное перенаправляем на главную */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </div>
   );
 }
 

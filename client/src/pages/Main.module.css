@@ -1,0 +1,4 @@
+.hero { padding:40px 24px; max-width:960px; margin:0 auto; }
+.actions { display:flex; gap:12px; margin-top:16px; }
+.btn { padding:10px 14px; border-radius:10px; background:#2b6; color:#fff; text-decoration:none; }
+.link { padding:10px 14px; border-radius:10px; background:#2a2a2a; color:#eee; text-decoration:none; }

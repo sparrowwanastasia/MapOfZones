@@ -1,28 +1,24 @@
-import { Link } from "react-router-dom";
-import styles from "./Header.module.css"; // Import the CSS module for styling
-import SearchForm from "../SearchForm/SearchForm";
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import styles from './Header.module.css';
+import SearchForm from '../SearchForm/SearchForm';
 
-function Header() {
+const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.headerContainer}>
-        <nav role={"navigation"} className={styles.headerNav}>
-          <ul className={styles.headerNavList}>
-            <li>
-              <Link to={"/"}>Main</Link>
-            </li>
-            <li>
-              <Link to={"/compare"}>Compare</Link>
-            </li>
-            <li>
-              <Link to={"/admin"}>Admin</Link>
-            </li>
-          </ul>
-        </nav>
-        <SearchForm />
-      </div>
+      <Link to="/" className={styles.logo}>MapOfZones</Link>
+
+      <nav className={styles.nav}>
+        <NavLink to="/" className={({isActive}) => isActive ? styles.active : ''}>Главная</NavLink>
+        <NavLink to="/map" className={({isActive}) => isActive ? styles.active : ''}>Карта</NavLink>
+        <NavLink to="/compare" className={({isActive}) => isActive ? styles.active : ''}>Сравнение</NavLink>
+        <NavLink to="/admin" className={({isActive}) => isActive ? styles.active : ''}>Админ</NavLink>
+      </nav>
+
+      <SearchForm />
     </header>
   );
-}
+};
 
 export default Header;
+
