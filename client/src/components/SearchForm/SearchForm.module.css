@@ -1,4 +1,7 @@
-.form { display:flex; gap:8px; }
-.input { flex:1; padding:8px 10px; border-radius:8px; border:1px solid #444; background:#1a1a1a; color:#eee; }
+.form { display:flex; gap:8px; align-items:center; }
+.inputWrapper { position:relative; display:flex; flex:1; }
+.input { width:100%; flex:1; padding:8px 32px 8px 12px; border-radius:8px; border:1px solid #444; background:#1a1a1a; color:#eee; }
+.clearButton { position:absolute; top:50%; right:12px; transform:translateY(-50%); background:transparent; border:none; cursor:pointer; color:#bbb; font-size:18px; line-height:1; display:flex; align-items:center; justify-content:center; height:100%; width:18px; }
+.clearButton:hover { color:#fff; }
 .button { padding:8px 12px; border-radius:8px; border:1px solid #444; background:#2a2a2a; color:#eee; cursor:pointer; }
 .button:hover { background:#333; }

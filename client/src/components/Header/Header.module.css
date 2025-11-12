@@ -4,20 +4,38 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #282c34;
+}
+.logo {
+  color: #fff;
 }
 .headerContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  margin: 0 auto;
-  max-width: 1440px;
-}
-.headerNav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  margin: 0 auto;
+  max-width: 960px;
+  min-width: 960px;
+}
+
+.headerInfoContainer {
+  width: fit-content;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 30px;
+}
+
+.headerNav {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  gap: 15px;
 }
 .headerNavList {
   width: 100%;
@@ -26,4 +44,9 @@
   flex-direction: row;
   list-style-type: none;
   gap: 15px;
+}
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
 }
