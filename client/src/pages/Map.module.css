@@ -1,6 +1,32 @@
-.layout { display:flex; gap:0; }
-.mapArea { flex:1; height: calc(100vh - 64px); }
-.title { margin:0 0 10px; font-size:18px; }
-.box { margin-top:16px; padding:10px; border:1px solid #2a2a2a; border-radius:8px; }
-.caption { font-weight:600; margin-bottom:6px; }
-.text { color:#bbb; font-size:14px; }
+/* Map.module.css */
+.layout {
+  display: flex;
+  gap: 0;
+}
+.mapArea {
+  flex: 1;
+  height: calc(100vh - 64px);
+}
+.title {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+.box {
+  margin-top: 16px;
+  padding: 10px;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+}
+.caption {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.text {
+  color: #bbb;
+  font-size: 14px;
+}
+.error {
+  color: #f66;
+  font-size: 14px;
+  margin: 8px 0;
+}

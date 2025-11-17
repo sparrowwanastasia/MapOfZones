@@ -1,4 +1,29 @@
-.wrap { display: grid; gap: 8px; grid-template-columns: repeat(2, minmax(0,1fr)); }
-.btn { padding: 8px 10px; border: 1px solid #444; background: #222; color: #eee; border-radius: 8px; cursor: pointer; }
-.btn:hover { background:#2a2a2a; }
-.active { outline: 2px solid #4fa; background:#1f332a; border-color:#1f332a; }
+/* LayerToggles.module.css */
+.wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(20, 20, 20, 0.7);
+  justify-content: center;
+  z-index: 1000;
+}
+.btn {
+  padding: 8px 10px;
+  border: 1px solid #444;
+  background: #222;
+  color: #eee;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #2a2a2a;
+}
+.active {
+  outline: 2px solid #4fa;
+  background: #1f332a;
+  border-color: #1f332a;
+}

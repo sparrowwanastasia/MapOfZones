@@ -1,8 +1,9 @@
+// LayerToggles.jsx
 import React from "react";
 import styles from "./LayerToggles.module.css";
+import { LayersContext } from "../../context/LayersContext";
 
-// Простой набор переключателей слоёв (пока без логики)
-export default function LayerToggles({ active = {}, onToggle = () => {} }) {
+export default function LayerToggles({ active = [], onToggle = () => {} }) {
   const layers = [
     { key: "eco", label: "Экология" },
     { key: "social", label: "Социальный" },
@@ -14,11 +15,11 @@ export default function LayerToggles({ active = {}, onToggle = () => {} }) {
 
   return (
     <div className={styles.wrap}>
-      {layers.map(l => (
+      {layers.map((l) => (
         <button
           key={l.key}
           type="button"
-          className={`${styles.btn} ${active[l.key] ? styles.active : ""}`}
+          className={`${styles.btn} ${active.includes(l.key) ? styles.active : ""}`}
           onClick={() => onToggle(l.key)}
         >
           {l.label}

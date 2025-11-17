@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import styles from "./App.module.css";
+import { LayersProvider } from "./context/LayersContext";
+
 
 import Header from "./components/Header/Header";
 import Main from "./pages/Main";

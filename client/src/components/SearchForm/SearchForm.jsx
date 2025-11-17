@@ -1,15 +1,22 @@
 import React, { useState, useMemo } from "react";
+// useState - для хранения состояния (поискового запроса)
+// useMemo - для оптимизации вычислений
 import { useNavigate, useSearchParams } from "react-router-dom";
 import styles from "./SearchForm.module.css";
 
 const SearchForm = () => {
   const [params] = useSearchParams();
+  // params - объект, который содержит все параметры из URL
+  // Например: если URL = /map?q=москва, то params.get("q") = "москва"
   const [query, setQuery] = useState(() => params.get("q") ?? "");
+
+
+
   const navigate = useNavigate();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const trimmed = query.trim();
+     const trimmed = query.trim(); // Убираем пробелы в начале и конце запроса
     // переходим на карту с параметром q (дальше Map будет реагировать)
     navigate(trimmed ? `/map?q=${encodeURIComponent(trimmed)}` : "/map");
   };

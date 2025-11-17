@@ -1,15 +1,14 @@
-// client/src/components/MapComponent/MapComponent.jsx
-import React, {
-  useEffect,
-  useRef,
-  useState,
-  useContext,
-  useCallback,
-} from "react";
+
+
+// MapComponent.jsx
+import React, { useEffect, useRef, useState, useContext, useCallback } from "react";
 import { SelectedMapsContext } from "../../context/SelectedMapsContext.js";
 import L from "leaflet";
-import styles from "./MapComponents.module.css"; // просто чтобы задать высоту контейнера
+import { LayersContext } from "../../context/LayersContext";
+import styles from "./MapComponents.module.css";
 import { MAP_CONFIGS, GEOJSON_URL } from "../../config/constants/constants.js";
+
+const PARKS_API_URL = `https://apidata.mos.ru/v1/datasets/1465/features?api_key=ВАШ_API_КЛЮЧ`;
 
 export const defaultStyle = {
   color: "#3388ff",
@@ -31,154 +30,107 @@ const highlightStyle = {
   fillColor: "#ff3333",
 };
 
-const normalizeDistrictName = (name) =>
-  (name ?? "").toString().trim().toLowerCase();
+const normalizeDistrictName = (name) => (name ?? "").toString().trim().toLowerCase();
 
-const MapComponent = ({ options, highLightDistrict }) => {
-  const mapRef = useRef(null); // ссылка на DOM-элемент
-  const leafletRef = useRef(null); // экземпляр карты L.Map
-  const geojsonRef = useRef(null); // слой L.GeoJSON
-  const [selected, setSelected] = useState(() => new Set()); // выбранные районы
-
-  const { setSelectedMaps } = useContext(SelectedMapsContext);
+const MapComponent = ({ options, highLightDistrict, activeDistrictName, onDistrictClick, activeLayers = [] }) => {
+  const mapRef = useRef(null);
+  const leafletRef = useRef(null);
+  const geojsonRef = useRef(null);
+  const ecoLayerRef = useRef(null);
+  const [selected, setSelected] = useState(new Set());
+  const { selectedMaps, setSelectedMaps } = useContext(SelectedMapsContext);
   const layersByDistrictRef = useRef(new Map());
   const highlightedLayerRef = useRef(null);
   const highlightDistrictValueRef = useRef("");
+  const selectedNamesRef = useRef(new Set());
+  const activeNameRef = useRef(activeDistrictName);
+  const onDistrictClickRef = useRef(onDistrictClick);
 
-  // TODO - починить свойство для поиска highlightedDistrict
-  // console.log(highLightDistrict);
-  // console.log(options);
+  useEffect(() => { activeNameRef.current = activeDistrictName; }, [activeDistrictName]);
+  useEffect(() => { onDistrictClickRef.current = onDistrictClick; }, [onDistrictClick]);
 
   useEffect(() => {
-    if (selected.size > 0) {
-      // если выбран хоть один район — показываем тост
-      // или можно показать сообщение на странице
-      //console.log(selected);
+    const newSelected = new Set();
+    selectedMaps.forEach((item) => {
+      let nm = (item?.name ?? item).toString().trim();
+      const prefix = nm.split(" ")[0].toLowerCase();
+      const nameWithPrefix = prefix === "район" ? nm : `район ${nm}`;
+      newSelected.add(nameWithPrefix);
+    });
+    setSelected(newSelected);
+  }, [selectedMaps]);
+
+  const applyHighlight = useCallback((districtName) => {
+    const normalized = normalizeDistrictName(districtName);
+    highlightDistrictValueRef.current = districtName;
+    const layersMap = layersByDistrictRef.current;
+    if (!layersMap) return;
+
+    const currentLayer = highlightedLayerRef.current;
+    if (currentLayer) {
+      const layerDistrictName = currentLayer.__districtName;
+      const isStillSelected = layerDistrictName && selected.has(layerDistrictName);
+      currentLayer.setStyle(isStillSelected ? selectedStyle : defaultStyle);
+      highlightedLayerRef.current = null;
     }
-  }, [selected]); // эффект срабатывает при изменении selected
+
+    if (!normalized) return;
+    const targetLayer = layersMap.get(normalized);
+    if (!targetLayer) return;
+    targetLayer.setStyle(highlightStyle);
+    highlightedLayerRef.current = targetLayer;
+    if (targetLayer.openTooltip) targetLayer.openTooltip();
+    if (leafletRef.current && targetLayer.getBounds) {
+      leafletRef.current.fitBounds(targetLayer.getBounds(), { padding: [40, 40], maxZoom: 14 });
+    }
+  }, [selected]);
 
   useEffect(() => {
-    setSelectedMaps(Array.from(selected));
-  }, [selected, setSelectedMaps]);
-
-  const applyHighlight = useCallback(
-    (districtName) => {
-      const normalized = normalizeDistrictName(districtName);
-      highlightDistrictValueRef.current = districtName;
-
-      const layersMap = layersByDistrictRef.current;
-      if (!layersMap) return;
-
-      const resetHighlightedLayer = () => {
-        const currentLayer = highlightedLayerRef.current;
-        if (!currentLayer) return;
-
-        const layerDistrictName = currentLayer.__districtName;
-        const isStillSelected =
-          layerDistrictName && selected.has(layerDistrictName);
-
-        currentLayer.setStyle(isStillSelected ? selectedStyle : defaultStyle);
-        highlightedLayerRef.current = null;
-      };
-
-      resetHighlightedLayer();
-
-      if (!normalized) return;
-
-      const targetLayer = layersMap.get(normalized);
-      if (!targetLayer) return;
-
-      targetLayer.setStyle(highlightStyle);
-      highlightedLayerRef.current = targetLayer;
-
-      if (targetLayer.openTooltip) {
-        targetLayer.openTooltip();
-      }
-
-      if (leafletRef.current && targetLayer.getBounds) {
-        leafletRef.current.fitBounds(targetLayer.getBounds(), {
-          padding: [40, 40],
-          maxZoom: 14,
-        });
-      }
-    },
-    [selected]
-  );
-
-  // 1) создаём карту единожды
-  useEffect(() => {
-    if (leafletRef.current) return; // уже создана
-    const map = L.map(mapRef.current).setView(
-      [MAP_CONFIGS.INITIAL_LAT, MAP_CONFIGS.INITIAL_LONG],
-      MAP_CONFIGS.INITIAL_ZOOM
-    );
+    if (leafletRef.current) return;
+    const map = L.map(mapRef.current).setView([MAP_CONFIGS.INITIAL_LAT, MAP_CONFIGS.INITIAL_LONG], MAP_CONFIGS.INITIAL_ZOOM);
     leafletRef.current = map;
-
-    L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-      {
-        attribution:
-          '&copy; <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains: "abcd",
-        maxZoom: 19,
-      }
-    ).addTo(map);
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+      attribution: '&copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: "abcd",
+      maxZoom: 19,
+    }).addTo(map);
   }, []);
 
-  // 2) грузим GeoJSON и вешаем обработчики
   useEffect(() => {
     if (!leafletRef.current) return;
-
     fetch(GEOJSON_URL)
-      .then((r) => {
-        if (!r.ok) throw new Error("Не удалось загрузить GeoJSON");
-        return r.json();
+      .then((res) => {
+        if (!res.ok) throw new Error("Не удалось загрузить GeoJSON");
+        return res.json();
       })
       .then((data) => {
-        // если раньше уже был слой — удалим
-        if (geojsonRef.current) {
-          geojsonRef.current.remove();
-          geojsonRef.current = null;
-        }
-
+        if (geojsonRef.current) geojsonRef.current.remove();
+        geojsonRef.current = null;
         layersByDistrictRef.current.clear();
 
         const layer = L.geoJSON(data, {
           style: (feature) => {
-            const name =
-              feature?.properties?.district ||
-              feature?.properties?.DISTRICT ||
-              "Unknown";
+            const name = feature?.properties?.district || feature?.properties?.DISTRICT || "Unknown";
             return selected.has(name) ? selectedStyle : defaultStyle;
           },
           onEachFeature: (feature, lyr) => {
-            const name =
-              feature?.properties?.district ||
-              feature?.properties?.DISTRICT ||
-              "Unknown";
+            const name = feature?.properties?.district || feature?.properties?.DISTRICT || "Unknown";
             const normalizedName = normalizeDistrictName(name);
-
             lyr.__districtName = name;
             layersByDistrictRef.current.set(normalizedName, lyr);
-
-            // небольшая подпись при наведении
             lyr.bindTooltip(name, { sticky: true });
-
-            // Клик по району на карте
             lyr.on("click", () => {
-              setSelected((prev) => {
-                const next = new Set(prev);
-                if (next.has(name)) {
-                  next.delete(name);
-                  lyr.setStyle(defaultStyle);
-                  // sendSelection(name, "remove"); // опционально — запрос на бэк
-                } else {
-                  next.add(name);
-                  lyr.setStyle(selectedStyle);
-                  // sendSelection(name, "add"); // опционально — запрос на бэк
-                }
-                return next;
-              });
+              const alreadySelected = selectedNamesRef.current.has(name);
+              if (alreadySelected) {
+                setSelectedMaps((prev) => prev.filter((item) => (item?.name ?? item) !== name));
+                lyr.setStyle(defaultStyle);
+                if (name === activeNameRef.current) onDistrictClickRef.current(null);
+              } else {
+                applyHighlight(name);
+                const displayName = name.replace(/^район\s+/i, "");
+                const formattedName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+                onDistrictClickRef.current(formattedName);
+              }
             });
           },
         }).addTo(leafletRef.current);
@@ -186,28 +138,51 @@ const MapComponent = ({ options, highLightDistrict }) => {
         geojsonRef.current = layer;
         applyHighlight(highlightDistrictValueRef.current);
       })
-      .catch((e) => {
-        console.error(e);
-        // можно показать тост/сообщение на странице
-      });
-  }, [selected, applyHighlight]); // пересчёт стилей при изменении выбранных
+      .catch((e) => console.error(e));
+  }, [selected, applyHighlight]);
+
+  useEffect(() => {
+    if (!leafletRef.current || !activeLayers.includes("eco")) {
+      if (ecoLayerRef.current) {
+        leafletRef.current.removeLayer(ecoLayerRef.current);
+        ecoLayerRef.current = null;
+      }
+      return;
+    }
+
+    fetch(PARKS_API_URL)
+      .then((res) => res.json())
+      .then((data) => {
+        if (ecoLayerRef.current) leafletRef.current.removeLayer(ecoLayerRef.current);
+        const layer = L.geoJSON(data, {
+          style: {
+            color: "#2a7f32",
+            fillColor: "#7ed68b",
+            fillOpacity: 0.4,
+            weight: 1,
+          },
+          onEachFeature: (feature, lyr) => {
+            const name = feature?.properties?.Attributes?.Name;
+            if (name) lyr.bindTooltip(name);
+          }
+        }).addTo(leafletRef.current);
+        ecoLayerRef.current = layer;
+      })
+      .catch((err) => console.error("Ошибка загрузки парков: ", err));
+  }, [activeLayers]);
 
   useEffect(() => {
     const districtName = (() => {
-      if (!highLightDistrict) return highLightDistrict;
+      if (!highLightDistrict) return "";
       const [prefix] = highLightDistrict.split(" ");
-      return prefix === "район"
-        ? highLightDistrict
-        : `район ${highLightDistrict}`;
+      return prefix === "район" ? highLightDistrict : `район ${highLightDistrict}`;
     })();
-
     applyHighlight(districtName);
   }, [highLightDistrict, applyHighlight]);
 
   return (
     <div className={styles.wrapper}>
       <div ref={mapRef} className={styles.map} />
-      {/* пример: счётчик выбранных */}
       <div className={styles.sidebar}>Выбрано районов: {selected.size}</div>
     </div>
   );
