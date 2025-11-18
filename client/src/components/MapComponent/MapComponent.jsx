@@ -1,10 +1,7 @@
-
-
-// MapComponent.jsx
+// MapComponent.jsx (исправленный)
 import React, { useEffect, useRef, useState, useContext, useCallback } from "react";
 import { SelectedMapsContext } from "../../context/SelectedMapsContext.js";
 import L from "leaflet";
-import { LayersContext } from "../../context/LayersContext";
 import styles from "./MapComponents.module.css";
 import { MAP_CONFIGS, GEOJSON_URL } from "../../config/constants/constants.js";
 
@@ -14,6 +11,7 @@ export const defaultStyle = {
   color: "#3388ff",
   weight: 1,
   fillOpacity: 0.3,
+  fillColor: "#3388ff"
 };
 
 const selectedStyle = {
@@ -24,10 +22,10 @@ const selectedStyle = {
 };
 
 const highlightStyle = {
-  ...selectedStyle,
-  weight: selectedStyle.weight + 1,
-  fillOpacity: Math.min(1, selectedStyle.fillOpacity + 0.15),
+  color: "#ff3333",
+  weight: 3,
   fillColor: "#ff3333",
+  fillOpacity: 0.7,
 };
 
 const normalizeDistrictName = (name) => (name ?? "").toString().trim().toLowerCase();
@@ -49,6 +47,7 @@ const MapComponent = ({ options, highLightDistrict, activeDistrictName, onDistri
   useEffect(() => { activeNameRef.current = activeDistrictName; }, [activeDistrictName]);
   useEffect(() => { onDistrictClickRef.current = onDistrictClick; }, [onDistrictClick]);
 
+  // Обновление selected при изменении selectedMaps
   useEffect(() => {
     const newSelected = new Set();
     selectedMaps.forEach((item) => {
@@ -58,7 +57,28 @@ const MapComponent = ({ options, highLightDistrict, activeDistrictName, onDistri
       newSelected.add(nameWithPrefix);
     });
     setSelected(newSelected);
+    selectedNamesRef.current = newSelected;
   }, [selectedMaps]);
+
+  // Функция обновления стилей всех слоев
+  const updateAllLayerStyles = useCallback(() => {
+    const layersMap = layersByDistrictRef.current;
+    if (!layersMap) return;
+
+    layersMap.forEach((layer) => {
+      const districtName = layer.__districtName;
+      const isSelected = selected.has(districtName);
+      const isHighlighted = highlightedLayerRef.current === layer;
+
+      if (isHighlighted) {
+        layer.setStyle(highlightStyle);
+      } else if (isSelected) {
+        layer.setStyle(selectedStyle);
+      } else {
+        layer.setStyle(defaultStyle);
+      }
+    });
+  }, [selected]);
 
   const applyHighlight = useCallback((districtName) => {
     const normalized = normalizeDistrictName(districtName);
@@ -85,40 +105,49 @@ const MapComponent = ({ options, highLightDistrict, activeDistrictName, onDistri
     }
   }, [selected]);
 
+  // Инициализация карты - только один раз
   useEffect(() => {
     if (leafletRef.current) return;
-    const map = L.map(mapRef.current).setView([MAP_CONFIGS.INITIAL_LAT, MAP_CONFIGS.INITIAL_LONG], MAP_CONFIGS.INITIAL_ZOOM);
+
+    const map = L.map(mapRef.current, {
+      preferCanvas: true, // Включить canvas рендеринг
+      renderer: L.canvas() // Явно указать canvas рендерер
+    }).setView([MAP_CONFIGS.INITIAL_LAT, MAP_CONFIGS.INITIAL_LONG], MAP_CONFIGS.INITIAL_ZOOM);
+
     leafletRef.current = map;
+
     L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
       attribution: '&copy; <a href="https://carto.com/attributions">CARTO</a>',
       subdomains: "abcd",
       maxZoom: 19,
+      tileSize: 256,
+  detectRetina: false,
+  keepBuffer: 8
     }).addTo(map);
-  }, []);
 
-  useEffect(() => {
-    if (!leafletRef.current) return;
+    // Загрузить GeoJSON
     fetch(GEOJSON_URL)
       .then((res) => {
         if (!res.ok) throw new Error("Не удалось загрузить GeoJSON");
         return res.json();
       })
       .then((data) => {
-        if (geojsonRef.current) geojsonRef.current.remove();
-        geojsonRef.current = null;
+        if (geojsonRef.current) {
+          leafletRef.current.removeLayer(geojsonRef.current);
+          geojsonRef.current = null;
+        }
         layersByDistrictRef.current.clear();
 
         const layer = L.geoJSON(data, {
-          style: (feature) => {
-            const name = feature?.properties?.district || feature?.properties?.DISTRICT || "Unknown";
-            return selected.has(name) ? selectedStyle : defaultStyle;
-          },
+          style: defaultStyle, // Единый стиль по умолчанию
           onEachFeature: (feature, lyr) => {
             const name = feature?.properties?.district || feature?.properties?.DISTRICT || "Unknown";
             const normalizedName = normalizeDistrictName(name);
+
             lyr.__districtName = name;
             layersByDistrictRef.current.set(normalizedName, lyr);
             lyr.bindTooltip(name, { sticky: true });
+
             lyr.on("click", () => {
               const alreadySelected = selectedNamesRef.current.has(name);
               if (alreadySelected) {
@@ -138,9 +167,15 @@ const MapComponent = ({ options, highLightDistrict, activeDistrictName, onDistri
         geojsonRef.current = layer;
         applyHighlight(highlightDistrictValueRef.current);
       })
-      .catch((e) => console.error(e));
-  }, [selected, applyHighlight]);
+      .catch((e) => console.error("Ошибка загрузки GeoJSON:", e));
+  }, []);
 
+  // Обновление стилей при изменении selected
+  useEffect(() => {
+    updateAllLayerStyles();
+  }, [selected, updateAllLayerStyles]);
+
+  // Эко-слои
   useEffect(() => {
     if (!leafletRef.current || !activeLayers.includes("eco")) {
       if (ecoLayerRef.current) {
@@ -171,6 +206,7 @@ const MapComponent = ({ options, highLightDistrict, activeDistrictName, onDistri
       .catch((err) => console.error("Ошибка загрузки парков: ", err));
   }, [activeLayers]);
 
+  // Подсветка района
   useEffect(() => {
     const districtName = (() => {
       if (!highLightDistrict) return "";

@@ -1,17 +1,32 @@
-/* client/src/index.css */
-html,
-body,
-#root {
-  height: 100%;
-  margin: 0;
-}
 
-* {
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
+body {
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .leaflet-container {
   width: 100%;
   height: 100vh; /* карта на всю высоту окна */
+}
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100vh;
 }

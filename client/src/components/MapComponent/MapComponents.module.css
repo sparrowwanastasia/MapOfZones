@@ -1,6 +1,17 @@
 /* client/src/components/MapComponent/MapComponents.module.css */
-.wrapper { position: relative; height: 100vh; }
-.map { height: 100%; }
+/* MapComponents.module.css */
+.wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+  background: #1a1a1a; /* Фон на случай если карта не загрузится */
+}
+
 .sidebar {
   position: absolute;
   top: 12px;
@@ -10,4 +21,5 @@
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
   font-size: 14px;
+  z-index: 1000; /* Убедитесь, что поверх карты */
 }

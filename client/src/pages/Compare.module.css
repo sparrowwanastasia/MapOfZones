@@ -1,9 +1,85 @@
-.wrap { padding:24px; }
-.slider { display:flex; gap:16px; overflow:auto; padding-bottom:8px; }
-.card { min-width:320px; background:#141414; border:1px solid #2a2a2a; border-radius:12px; overflow:hidden; }
+.wrap {
+  padding: 24px;
+}
 
-.body { padding:12px; }
-.title { font-weight:700; margin-bottom:8px; }
-.metrics { list-style:none; padding:0; margin:0 0 10px; color:#ddd; }
-.remove { padding:8px 10px; border:1px solid #444; background:#262626; color:#eee; border-radius:8px; cursor:pointer; }
-.remove:hover { background:#303030; }
+.wrap h2 {
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.slider {
+  display: flex;
+  gap: 16px;
+  overflow: auto;
+  padding-bottom: 8px;
+}
+
+.card {
+  min-width: 320px;
+  background: #fff;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Пастельные фоны для карточек по порядковому номеру */
+.slider .card:nth-child(1) {
+  background: #E3F2FD;
+}
+.slider .card:nth-child(2) {
+  background: #E8F5E9;
+}
+.slider .card:nth-child(3) {
+  background: #F3E5F5;
+}
+.slider .card:nth-child(4) {
+  background: #FFF3E0;
+}
+.slider .card:nth-child(5) {
+  background: #FCE4EC;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.body {
+  padding: 12px;
+}
+
+.title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.metrics {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  color: #555;
+}
+
+.metrics b {
+  color: #333;
+}
+
+.remove {
+  padding: 8px 10px;
+  border: 1px solid #ba68c8;
+  background: transparent;
+  color: #ba68c8;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.remove:hover {
+  background: #ba68c8;
+  color: #fff;
+  border-color: #ba68c8;
+}

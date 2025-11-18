@@ -1,14 +1,15 @@
 .header {
   width: 100%;
-  height: 50px;
+  /* Убрана фиксированная высота, используем высоту по содержимому */
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #282c34;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* для поддержки Safari */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
-.logo {
-  color: #fff;
-}
+
 .headerContainer {
   display: flex;
   justify-content: space-between;
@@ -16,37 +17,36 @@
   padding: 1rem;
   margin: 0 auto;
   max-width: 960px;
-  min-width: 960px;
+  /* min-width убран для адаптивности */
+}
+
+.logo {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .headerInfoContainer {
-  width: fit-content;
-  height: auto;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 30px;
 }
 
 .headerNav {
-  width: 100%;
-  height: auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
   gap: 15px;
 }
-.headerNavList {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  gap: 15px;
-}
+
 .navLink {
-  color: #fff;
+  color: #333;
   text-decoration: none;
   cursor: pointer;
+  font-weight: 500;
+}
+
+.navLinkActive {
+  color: #ba68c8;
+  font-weight: 600;
 }

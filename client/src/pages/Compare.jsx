@@ -1,4 +1,3 @@
-// Compare.jsx
 import React, { useContext } from "react";
 import styles from "./Compare.module.css";
 import { SelectedMapsContext } from "../context/SelectedMapsContext";
@@ -25,6 +24,9 @@ const Compare = () => {
         <div className={styles.slider}>
           {selectedMaps.map((it) => (
             <div key={it?.id ?? it} className={styles.card}>
+              {it.image && (
+                <img src={it.image} alt={it.name} className={styles.image} />
+              )}
               <div className={styles.body}>
                 <div className={styles.title}>{it.name}</div>
                 {it.scores && (

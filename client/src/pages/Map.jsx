@@ -15,6 +15,7 @@ const MapPage = () => {
   const [activeLayers, setActiveLayers] = useState([]);
   const [activeDistrictName, setActiveDistrictName] = useState(null);
   const [error, setError] = useState("");
+  const [mapError, setMapError] = useState(""); // Добавлено для ошибок карты
   const { selectedMaps, setSelectedMaps } = useContext(SelectedMapsContext);
 
   const toggleLayer = (key) => {
@@ -27,7 +28,6 @@ const MapPage = () => {
   useEffect(() => {
     if (searchQuery) {
       setHighlightDistrict(searchQuery.trim().toLowerCase());
-      // Открываем боковую панель с отформатированным названием района
       let name = searchQuery.trim();
       if (name) {
         name = name.charAt(0).toUpperCase() + name.slice(1);
@@ -69,13 +69,12 @@ const MapPage = () => {
   const addToCompare = (districtName) => {
     if (!districtName) return;
     if (selectedMaps.some((item) => (item.name ?? item) === districtName)) {
-      return; // уже добавлен
+      return;
     }
     if (selectedMaps.length >= 4) {
       setError("Нельзя добавить более 4 районов");
       return;
     }
-    // Создаем новый объект с заглушечными данными
     const dummyScoresList = [
       { eco: 7.2, transport: 9.1, noise: 4.3 },
       { eco: 8.0, transport: 8.7, noise: 5.1 },
@@ -93,16 +92,22 @@ const MapPage = () => {
     setError("");
   };
 
-  // Обработчик выбора района (открытие/закрытие боковой панели)
+  // Обработчик выбора района
   const handleDistrictClick = (name) => {
     setActiveDistrictName(name);
     if (!name) setError("");
   };
 
+  // Обработчик ошибок карты
+  const handleMapError = (error) => {
+    console.error("Map error:", error);
+    setMapError("Ошибка загрузки карты");
+  };
+
   const mapOptions = useMemo(
     () => ({
       activeLayers,
-      // любые доп. настройки карты
+      onError: handleMapError, // Добавьте обработчик ошибок
     }),
     [activeLayers]
   );
@@ -128,11 +133,17 @@ const MapPage = () => {
           </Sidebar>
         )}
         <main className={styles.mapArea}>
+          {mapError && (
+            <div className={styles.error}>
+              {mapError}
+            </div>
+          )}
           <MapComponent
             options={mapOptions}
             highLightDistrict={highLightDistrict}
             activeDistrictName={activeDistrictName}
             onDistrictClick={handleDistrictClick}
+            onError={handleMapError}
           />
         </main>
       </div>
