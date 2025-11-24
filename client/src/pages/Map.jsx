@@ -1,4 +1,4 @@
-// MapPage.jsx
+// src/pages/Map.jsx
 import React, { useMemo, useState, useEffect, useContext } from "react";
 import { useSearchParams } from "react-router-dom";
 import Sidebar from "../components/Sidebar/Sidebar";
@@ -11,12 +11,16 @@ import styles from "./Map.module.css";
 const MapPage = () => {
   const [params] = useSearchParams();
   const searchQuery = params.get("q") || "";
+
   const [highLightDistrict, setHighlightDistrict] = useState("");
   const [activeLayers, setActiveLayers] = useState([]);
   const [activeDistrictName, setActiveDistrictName] = useState(null);
+  const [districtEcoStats, setDistrictEcoStats] = useState(null);
   const [error, setError] = useState("");
-  const [mapError, setMapError] = useState(""); // Добавлено для ошибок карты
+  const [mapError, setMapError] = useState("");
   const { selectedMaps, setSelectedMaps } = useContext(SelectedMapsContext);
+
+  const ecoActive = activeLayers.includes("eco");
 
   const toggleLayer = (key) => {
     setActiveLayers((prev) =>
@@ -33,10 +37,12 @@ const MapPage = () => {
         name = name.charAt(0).toUpperCase() + name.slice(1);
       }
       setActiveDistrictName(name || null);
+      setDistrictEcoStats(null);
     } else {
       setHighlightDistrict("");
       setActiveDistrictName(null);
       setError("");
+      setDistrictEcoStats(null);
     }
   }, [searchQuery]);
 
@@ -92,10 +98,18 @@ const MapPage = () => {
     setError("");
   };
 
-  // Обработчик выбора района
-  const handleDistrictClick = (name) => {
-    setActiveDistrictName(name);
-    if (!name) setError("");
+  // Обработчик выбора района (карта передаёт name и ecoStats)
+  const handleDistrictClick = (name, ecoStats) => {
+    setActiveDistrictName(name || null);
+    if (!name) {
+      setError("");
+      setDistrictEcoStats(null);
+    } else {
+      // ecoStats может быть undefined, подстрахуемся
+      setDistrictEcoStats(
+        ecoStats || { yards: 0, parks: 0, hazards: 0 }
+      );
+    }
   };
 
   // Обработчик ошибок карты
@@ -107,7 +121,7 @@ const MapPage = () => {
   const mapOptions = useMemo(
     () => ({
       activeLayers,
-      onError: handleMapError, // Добавьте обработчик ошибок
+      onError: handleMapError,
     }),
     [activeLayers]
   );
@@ -118,26 +132,48 @@ const MapPage = () => {
         {activeDistrictName && (
           <Sidebar>
             <h3 className={styles.title}>{activeDistrictName}</h3>
-            <p>
-              Оценочная информация: <span className={styles.text}>данные недоступны</span>
-            </p>
+
+            <div className={styles.infoBlock}>
+              <p>Оценочная информация:</p>
+
+              {ecoActive && districtEcoStats ? (
+                <>
+                  <p className={styles.text}>
+                    Дворовых территорий:{" "}
+                    <strong>{districtEcoStats.yards}</strong>
+                  </p>
+                  <p className={styles.text}>
+                    Парков: <strong>{districtEcoStats.parks}</strong>
+                  </p>
+                  <p className={styles.text}>
+                    Опасных объектов:{" "}
+                    <strong>{districtEcoStats.hazards}</strong>
+                  </p>
+                </>
+              ) : (
+                <p className={styles.text}>Данные недоступны</p>
+              )}
+            </div>
+
             {error ? (
               <p className={styles.error}>{error}</p>
-            ) : selectedMaps.some((item) => (item.name ?? item) === activeDistrictName) ? (
+            ) : selectedMaps.some(
+                (item) => (item.name ?? item) === activeDistrictName
+              ) ? (
               <button disabled>Добавлено</button>
             ) : selectedMaps.length >= 4 ? (
               <p className={styles.error}>Нельзя добавить более 4 районов</p>
             ) : (
-              <button onClick={() => addToCompare(activeDistrictName)}>Добавить в сравнение</button>
+              <button onClick={() => addToCompare(activeDistrictName)}>
+                Добавить в сравнение
+              </button>
             )}
           </Sidebar>
         )}
+
         <main className={styles.mapArea}>
-          {mapError && (
-            <div className={styles.error}>
-              {mapError}
-            </div>
-          )}
+          {mapError && <div className={styles.error}>{mapError}</div>}
+
           <MapComponent
             options={mapOptions}
             highLightDistrict={highLightDistrict}
@@ -147,6 +183,7 @@ const MapPage = () => {
           />
         </main>
       </div>
+
       <LayerToggles active={activeLayers} onToggle={toggleLayer} />
     </>
   );
