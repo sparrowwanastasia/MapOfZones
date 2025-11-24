@@ -50,9 +50,9 @@ const MapComponent = ({
   const geojsonRef = useRef(null);
 
   // Leaflet-слои с зелёными объектами
-  const ecoYardsLayerRef = useRef(null);   // дворы (64036)
-  const ecoParksLayerRef = useRef(null);   // парки (1465)
-  const ecoHazardLayerRef = useRef(null);  // опасные объекты (hazards.geojson)
+  const ecoYardsLayerRef = useRef(null); // дворы (64036)
+  const ecoParksLayerRef = useRef(null); // парки (1465)
+  const ecoHazardLayerRef = useRef(null); // опасные объекты (hazards.geojson)
 
   const [selected, setSelected] = useState(new Set());
   const { selectedMaps, setSelectedMaps } = useContext(SelectedMapsContext);
@@ -68,18 +68,9 @@ const MapComponent = ({
   const ecoActive = activeLayers.includes("eco");
 
   // данные экологии (загружаем всегда, чтобы могли считать статистику)
-  const {
-    data: yardsGeoJSON,
-    error: yardsError,
-  } = useEcologyData(true);
-  const {
-    data: parksGeoJSON,
-    error: parksError,
-  } = useParksData(true);
-  const {
-    data: hazardGeoJSON,
-    error: hazardError,
-  } = useHazardData(true);
+  const { data: yardsGeoJSON, error: yardsError } = useEcologyData(true);
+  const { data: parksGeoJSON, error: parksError } = useParksData(true);
+  const { data: hazardGeoJSON, error: hazardError } = useHazardData(true);
 
   useEffect(() => {
     activeNameRef.current = activeDistrictName;
@@ -204,9 +195,12 @@ const MapComponent = ({
     console.log(
       "Eco stats (bounds)",
       districtLayer.__districtName,
-      "yards:", result.yards,
-      "parks:", result.parks,
-      "hazards:", result.hazards
+      "yards:",
+      result.yards,
+      "parks:",
+      result.parks,
+      "hazards:",
+      result.hazards
     );
 
     return result;
@@ -229,7 +223,8 @@ const MapComponent = ({
     L.tileLayer(
       "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
       {
-        attribution: '&copy; <a href="https://carto.com/attributions">CARTO</a>',
+        attribution:
+          '&copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: "abcd",
         maxZoom: 19,
         tileSize: 256,
@@ -408,7 +403,7 @@ const MapComponent = ({
           }),
         onEachFeature: (feature, lyr) => {
           const props = feature.properties || {};
-          const attrs = props.Attributes || props;
+          const attrs = props.attributes || props;
 
           const name =
             attrs.Name ||
@@ -450,11 +445,7 @@ const MapComponent = ({
             props.title ||
             "Опасный объект";
 
-          const type =
-            props.type ||
-            props.category ||
-            props.kind ||
-            "";
+          const type = props.type || props.category || props.kind || "";
 
           const text = type ? `${type}: ${name}` : `Опасный объект: ${name}`;
           lyr.bindTooltip(text);
@@ -479,7 +470,9 @@ const MapComponent = ({
     const districtName = (() => {
       if (!highLightDistrict) return "";
       const [prefix] = highLightDistrict.split(" ");
-      return prefix === "район" ? highLightDistrict : `район ${highLightDistrict}`;
+      return prefix === "район"
+        ? highLightDistrict
+        : `район ${highLightDistrict}`;
     })();
     applyHighlight(districtName);
   }, [highLightDistrict, applyHighlight]);
