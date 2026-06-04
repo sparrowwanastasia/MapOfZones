@@ -17,11 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import RedirectView  # <<< добавь
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # корень сайта редиректим на удобный endpoint, например, список слоёв
-    path("", RedirectView.as_view(url="/api/layers/", permanent=False)),  # <<< добавь
-    path("", include("mapapi.urls")),  # твои api/... уже подключены внутри mapapi.urls
+    path("", RedirectView.as_view(url="/api/eco/summary/", permanent=False)),
+    path("", include("mapapi.urls")),
 ]

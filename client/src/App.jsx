@@ -9,6 +9,10 @@ import Main from "./pages/Main";
 import MapPage from "./pages/Map";
 import Compare from "./pages/Compare";
 import Admin from "./pages/Admin";
+import Legend from "./pages/Legend";
+
+
+import PracticePage from "./practice/PracticePage";
 
 import { SelectedMapsContext } from "./context/SelectedMapsContext";
 
@@ -35,6 +39,9 @@ function App() {
           <Route path="/map" element={<MapPage />} />
           <Route path="/compare" element={<Compare />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/legend" element={<Legend />} />
+          <Route path="/practice" element={<PracticePage />} />
+
           {/* всё остальное перенаправляем на главную */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

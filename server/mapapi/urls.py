@@ -1,39 +1,26 @@
-
-
-# Здесь мы сопоставляем URL → вью-функции.
-# В итоге получаем стандартный CRUD по каждому ресурсу.
-
-
 from django.urls import path
 from . import views
-from django.views.generic import RedirectView
 
 app_name = "mapapi"
 
 urlpatterns = [
+    path("api/geo/districts/", views.geo_districts, name="geo_districts"),
+    path("api/districts/", views.districts_list, name="districts_list"),
 
-    # District - смущает, что нет явного указания метода
-    path("api/districts/", views.districts_list_create, name="districts_list_create"),
-    path("api/districts/<int:pk>/", views.districts_detail, name="districts_detail"),
+    path("api/rating/summary/", views.district_rating_summary, name="district_rating_summary"),
 
-    # Layer
-    path("api/layers/", views.layers_list_create, name="layers_list_create"),
-    path("api/layers/<int:pk>/", views.layers_detail, name="layers_detail"),
+    path("api/eco/summary/", views.eco_summary, name="eco_summary"),
+    path("api/eco/district/<str:slug>/", views.eco_district_detail, name="eco_district_detail"),
 
-    # Category
-    path("api/categories/", views.categories_list_create, name="categories_list_create"),
-    path("api/categories/<int:pk>/", views.categories_detail, name="categories_detail"),
+    path("api/social/summary/", views.social_summary, name="social_summary"),
+    path("api/social/district/<str:slug>/", views.social_district_detail, name="social_district_detail"),
 
-    # Object (POI)
-    path("api/objects/", views.objects_list_create, name="objects_list_create"),
-    path("api/objects/<int:pk>/", views.objects_detail, name="objects_detail"),
-
-    # LayerScore
-    path("api/layer-scores/", views.layer_scores_list_create, name="layer_scores_list_create"),
-    path("api/layer-scores/<int:pk>/", views.layer_scores_detail, name="layer_scores_detail"),
-
-    # DistrictRating
-    path("api/district-ratings/", views.district_ratings_list_create, name="district_ratings_list_create"),
-    path("api/district-ratings/<int:pk>/", views.district_ratings_detail, name="district_ratings_detail"),
+    path("api/noise/summary/", views.noise_summary, name="noise_summary"),
+    path("api/noise/district/<str:slug>/", views.noise_district_detail, name="noise_district_detail"),
+path("api/admin/update-stats/", views.update_stats, name="update_stats"),
+path(
+    "api/recommendation/<str:slug>/",
+    views.district_recommendation,
+    name="district_recommendation",
+),
 ]
-

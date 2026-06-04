@@ -1,29 +1,40 @@
-/* LayerToggles.module.css */
 .wrap {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.bar {
+  pointer-events: auto;
   display: flex;
-  gap: 8px;
-  padding: 8px 12px;
-  background: rgba(20, 20, 20, 0.7);
-  justify-content: center;
-  z-index: 1000;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(30, 30, 30, 0.85);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
+
 .btn {
-  padding: 8px 10px;
-  border: 1px solid #444;
-  background: #222;
-  color: #eee;
-  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 12px;
   cursor: pointer;
+  transition: 0.15s ease;
 }
+
 .btn:hover {
-  background: #2a2a2a;
+  background: rgba(255,255,255,0.10);
 }
-.active {
-  outline: 2px solid #4fa;
-  background: #1f332a;
-  border-color: #1f332a;
+
+.btnOn {
+  border-color: rgba(46, 204, 113, 0.65);
+  background: rgba(46, 204, 113, 0.18);
+  box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.18) inset;
 }

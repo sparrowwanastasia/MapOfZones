@@ -1,52 +1,110 @@
 .header {
-  width: 100%;
-  /* Убрана фиксированная высота, используем высоту по содержимому */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(8, 8, 10, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.inner {
+  padding: 16px 48px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: start;
+  gap: 24px;
+}
+
+.brand {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* для поддержки Safari */
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-}
-
-.headerContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  margin: 0 auto;
-  max-width: 960px;
-  /* min-width убран для адаптивности */
-}
-
-.logo {
-  color: #333;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.headerInfoContainer {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 30px;
-}
-
-.headerNav {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.navLink {
-  color: #333;
-  text-decoration: none;
+  flex-direction: column;
+  line-height: 0.88;
+  font-size: 32px;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
   cursor: pointer;
-  font-weight: 500;
+  user-select: none;
 }
 
-.navLinkActive {
-  color: #ba68c8;
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 54px;
+  padding-top: 10px;
+}
+
+.link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 18px;
+  line-height: 1;
+  padding-bottom: 6px;
+  border-bottom: 2px solid transparent;
+}
+
+.link:hover {
+  color: #fff;
+}
+
+.active {
+  border-bottom-color: #fd8608;
+  color: #fff;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.cta {
+  min-width: 208px;
+  height: 58px;
+  border: none;
+  border-radius: 999px;
+  background: #fd8608;
+  color: #fff;
+  font-size: 18px;
   font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.24);
+}
+
+.cta:hover {
+  filter: brightness(1.04);
+}
+
+@media (max-width: 900px) {
+  .inner {
+    padding: 14px 16px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .nav {
+    justify-content: flex-start;
+    gap: 24px;
+    padding-top: 0;
+    flex-wrap: wrap;
+  }
+
+  .right {
+    justify-content: flex-start;
+    padding-top: 0;
+  }
+
+  .brand {
+    font-size: 26px;
+  }
+
+  .cta {
+    min-width: 170px;
+    height: 50px;
+    font-size: 16px;
+  }
 }

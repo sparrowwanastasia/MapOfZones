@@ -1,85 +1,286 @@
-.wrap {
-  padding: 24px;
+.page {
+  min-height: 100vh;
+  background: #0c0c0f;
+  color: #f3f3f3;
+  padding: 120px 48px 56px;
 }
 
-.wrap h2 {
-  text-align: center;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 16px;
+.inner {
+  width: min(1440px, calc(100% - 96px));
+  margin: 0 auto;
 }
 
-.slider {
+.head {
   display: flex;
-  gap: 16px;
-  overflow: auto;
-  padding-bottom: 8px;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.headButtons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.h2 {
+  font-size: clamp(34px, 4vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0 0 12px;
+}
+
+.sub {
+  margin: 0;
+  max-width: 820px;
+  font-size: 18px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.compareBtn,
+.downloadBtn {
+  height: 56px;
+  min-width: 180px;
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.24);
+}
+
+.compareBtn {
+  background: #fd8608;
+}
+
+.downloadBtn {
+  background: #1a1a1f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.compareBtn:disabled,
+.downloadBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.emptyTop {
+  margin-bottom: 22px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .card {
-  min-width: 320px;
-  background: #fff;
-  border: none;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height: 380px;
+  border-radius: 30px;
+  padding: 24px;
+  background:
+    linear-gradient(180deg, rgba(24, 24, 28, 0.98) 0%, rgba(24, 24, 28, 0.98) 72%, rgba(253, 134, 8, 0.16) 100%);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
-/* Пастельные фоны для карточек по порядковому номеру */
-.slider .card:nth-child(1) {
-  background: #E3F2FD;
-}
-.slider .card:nth-child(2) {
-  background: #E8F5E9;
-}
-.slider .card:nth-child(3) {
-  background: #F3E5F5;
-}
-.slider .card:nth-child(4) {
-  background: #FFF3E0;
-}
-.slider .card:nth-child(5) {
-  background: #FCE4EC;
+.emptyCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    linear-gradient(180deg, rgba(17, 17, 20, 0.98) 0%, rgba(17, 17, 20, 0.98) 100%);
 }
 
-.image {
-  width: 100%;
-  height: auto;
-  display: block;
+.emptyCardTitle {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-.body {
-  padding: 12px;
+.emptyCardText {
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.45;
 }
 
-.title {
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 8px;
+.recommendation {
+  display: inline-flex;
+  margin-bottom: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(253, 134, 8, 0.18);
+  color: #fd8608;
+  font-size: 14px;
+  font-weight: 700;
 }
 
-.metrics {
-  list-style: none;
-  margin: 0 0 10px;
-  padding: 0;
-  color: #555;
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
 }
 
-.metrics b {
-  color: #333;
+.cardTitle {
+  font-size: 28px;
+  line-height: 1.05;
+  margin: 0 0 8px;
 }
 
-.remove {
-  padding: 8px 10px;
-  border: 1px solid #ba68c8;
+.cardSub {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 14px;
+}
+
+.moreBtn {
+  border: 1px solid rgba(255, 255, 255, 0.14);
   background: transparent;
-  color: #ba68c8;
-  border-radius: 12px;
+  color: #f3f3f3;
+  border-radius: 999px;
+  padding: 10px 14px;
   cursor: pointer;
+  font-size: 14px;
+  flex: 0 0 auto;
 }
 
-.remove:hover {
-  background: #ba68c8;
-  color: #fff;
-  border-color: #ba68c8;
+.moreBtn:hover {
+  border-color: rgba(253, 134, 8, 0.6);
+  color: #fd8608;
+}
+
+.scaleBlock {
+  margin-bottom: 18px;
+}
+
+.scaleRow {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+}
+
+.scaleSegment {
+  height: 14px;
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.scaleFooter {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scaleText {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.54);
+}
+
+.scaleValue {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.cardActions {
+  margin-bottom: 16px;
+}
+
+.removeBtn {
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+}
+
+.removeBtn:hover {
+  color: #fd8608;
+}
+
+.details {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 16px;
+  display: grid;
+  gap: 16px;
+}
+
+.detailBlock {
+  display: grid;
+  gap: 8px;
+}
+
+.detailTitle {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.56);
+}
+
+.detailMain {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.detailHint {
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.metricList {
+  display: grid;
+  gap: 8px;
+}
+
+.metricRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.metricLabel {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.metricValue {
+  font-weight: 700;
+}
+
+@media (max-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 96px 16px 40px;
+  }
+
+  .inner {
+    width: min(1440px, calc(100% - 32px));
+  }
+
+  .head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .headButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
