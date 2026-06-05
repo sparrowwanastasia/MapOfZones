@@ -11,7 +11,7 @@ class Command(BaseCommand):
     help = "Import Moscow districts from GeoJSON"
 
     def handle(self, *args, **options):
-        base_dir = Path(__file__).resolve().parents[4]
+        base_dir = Path(__file__).resolve().parents[3]
 
         possible_paths = [
             base_dir / "data" / "moscow_districts.geojson",
