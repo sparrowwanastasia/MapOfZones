@@ -1,4 +1,5 @@
-export const API_BASE = "http://127.0.0.1:8002";
+export const API_BASE =
+  process.env.REACT_APP_API_URL || "http://127.0.0.1:8002";
 
 export const GEOJSON_URL = `${API_BASE}/api/geo/districts/`;
 export const DISTRICTS_INDEX_URL = `${API_BASE}/api/districts/`;
@@ -17,7 +18,6 @@ export const SOCIAL_DISTRICT_URL = (slug) =>
 export const NOISE_SUMMARY_URL = `${API_BASE}/api/noise/summary/`;
 export const NOISE_DISTRICT_URL = (slug) =>
   `${API_BASE}/api/noise/district/${encodeURIComponent(slug)}/`;
-
 
 export const MAP_CONFIGS = {
   INITIAL_LAT: 55.751244,
