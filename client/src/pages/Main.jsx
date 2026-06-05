@@ -7,7 +7,7 @@ const LAYERS = [
     id: "noise",
     title: "шум",
     description:
-  "Шумовая оценка района формируется на основе точек мониторинга уровней шума. Для каждого района агрегируются значения измерений, после чего рассчитываются средний и максимальный уровни шума. Итоговый балл приводится к шкале от 0 до 10, где более высокий балл соответствует более тихой и комфортной среде.",
+      "Шумовая оценка района формируется на основе точек мониторинга уровней шума. Для каждого района агрегируются значения измерений, после чего рассчитываются средний и максимальный уровни шума. Итоговый балл приводится к шкале от 0 до 10, где более высокий балл соответствует более тихой и комфортной среде.",
   },
   {
     id: "eco",
@@ -172,6 +172,13 @@ export default function Home() {
       </section>
 
       <section className={styles.layersSection}>
+        <img
+          className={styles.footerMapBg}
+          src="/data/karta-zadniy-fon.png"
+          alt=""
+          aria-hidden="true"
+        />
+
         <div className={styles.sectionInner}>
           <div
             className={styles.layersBlock}
@@ -199,7 +206,9 @@ export default function Home() {
                                 className={styles.socialGroupSwatch}
                                 style={{ backgroundColor: group.color }}
                               />
-                              <span className={styles.socialGroupTitle}>{group.title}</span>
+                              <span className={styles.socialGroupTitle}>
+                                {group.title}
+                              </span>
                             </div>
 
                             <div className={styles.socialItems}>
@@ -224,7 +233,9 @@ export default function Home() {
             {STEPS.map((step) => (
               <div
                 key={step.num}
-                className={`${styles.stepCard} ${step.wide ? styles.stepCardWide : ""}`}
+                className={`${styles.stepCard} ${
+                  step.wide ? styles.stepCardWide : ""
+                }`}
               >
                 <div className={styles.stepNum}>{step.num}</div>
                 <div className={styles.stepText}>{step.text}</div>

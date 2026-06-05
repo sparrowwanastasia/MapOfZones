@@ -5,6 +5,8 @@
 }
 
 .sectionInner {
+  position: relative;
+  z-index: 1;
   width: min(1440px, calc(100% - 96px));
   margin: 0 auto;
 }
@@ -196,9 +198,22 @@
 }
 
 .layersSection {
+  position: relative;
+  overflow: hidden;
   padding: 56px 0 84px;
   background:
     linear-gradient(180deg, #0c0c0f 0%, #111216 82%, #291606 100%);
+}
+
+.footerMapBg {
+  position: absolute;
+  right: -60px;
+  bottom: -90px;
+  width: min(44vw, 720px);
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.18));
 }
 
 .layersBlock {
@@ -293,8 +308,6 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* ===== social expanded groups ===== */
-
 .socialGroups {
   margin-top: 22px;
   display: grid;
@@ -357,8 +370,6 @@
   border: 1px dashed rgba(255, 255, 255, 0.24);
 }
 
-/* ===== end social expanded groups ===== */
-
 .stepsGrid {
   margin-top: 28px;
   display: grid;
@@ -387,12 +398,15 @@
 .stepCard:nth-child(1) {
   grid-area: one;
 }
+
 .stepCard:nth-child(2) {
   grid-area: two;
 }
+
 .stepCard:nth-child(3) {
   grid-area: three;
 }
+
 .stepCard:nth-child(4) {
   grid-area: four;
 }
@@ -610,5 +624,12 @@
 
   .bottomLogo {
     font-size: 58px;
+  }
+
+  .footerMapBg {
+    right: -170px;
+    bottom: -50px;
+    width: 520px;
+    opacity: 0.13;
   }
 }

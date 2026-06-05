@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Sidebar.module.css";
 
@@ -32,6 +32,11 @@ function legendRow(label, color, value) {
   );
 }
 
+function isMobileScreen() {
+  if (typeof window === "undefined") return false;
+  return window.innerWidth <= 768;
+}
+
 export default function Sidebar({
   isOpen,
   districtName,
@@ -42,6 +47,17 @@ export default function Sidebar({
   isInCompare,
 }) {
   const navigate = useNavigate();
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  useEffect(() => {
+    if (isOpen && isMobileScreen()) {
+      setIsCollapsed(true);
+    }
+
+    if (isOpen && !isMobileScreen()) {
+      setIsCollapsed(false);
+    }
+  }, [isOpen, districtName, activeLayer]);
 
   if (!isOpen) return null;
 
@@ -59,7 +75,13 @@ export default function Sidebar({
       navigate("/compare");
       return;
     }
+
     onAddToCompare?.();
+  };
+
+  const handleClose = () => {
+    setIsCollapsed(false);
+    onClose?.();
   };
 
   const noiseCategories = Array.isArray(stats?.categories)
@@ -67,16 +89,35 @@ export default function Sidebar({
     : [];
 
   return (
-    <aside className={styles.sidebar}>
+    <aside
+      className={`${styles.sidebar} ${
+        isCollapsed ? styles.sidebarCollapsed : ""
+      }`}
+    >
       <div className={styles.header}>
         <div className={styles.titleBlock}>
           <div className={styles.title}>{districtName}</div>
           <div className={styles.sub}>{layerTitle}</div>
         </div>
 
-        <button className={styles.closeBtn} onClick={onClose} type="button" aria-label="close">
-          ×
-        </button>
+        <div className={styles.headerActions}>
+          <button
+            className={styles.mobileToggle}
+            onClick={() => setIsCollapsed((prev) => !prev)}
+            type="button"
+          >
+            {isCollapsed ? "Показать" : "Свернуть"}
+          </button>
+
+          <button
+            className={styles.closeBtn}
+            onClick={handleClose}
+            type="button"
+            aria-label="close"
+          >
+            ×
+          </button>
+        </div>
       </div>
 
       <div className={styles.content}>

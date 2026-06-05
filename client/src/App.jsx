@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import styles from "./App.module.css";
 
-
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+
 import Main from "./pages/Main";
 import MapPage from "./pages/Map";
 import Compare from "./pages/Compare";
 import Admin from "./pages/Admin";
 import Legend from "./pages/Legend";
-
 
 import PracticePage from "./practice/PracticePage";
 
@@ -17,22 +17,15 @@ import { SelectedMapsContext } from "./context/SelectedMapsContext";
 
 function App() {
   const [selectedMaps, setSelectedMaps] = useState([]);
+  const location = useLocation();
 
-  useEffect(() => {
-    setSelectedMaps([
-      {
-        id: 1,
-        name: "Карта test",
-        description: "Описание карты 1",
-        image: "https://via.placeholder.com/150",
-      },
-    ]);
-  }, []);
+  const isMapPage = location.pathname === "/map";
 
   return (
     <SelectedMapsContext.Provider value={{ selectedMaps, setSelectedMaps }}>
       <div className={styles.app}>
         <Header />
+
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/map" element={<MapPage />} />
@@ -41,9 +34,10 @@ function App() {
           <Route path="/legend" element={<Legend />} />
           <Route path="/practice" element={<PracticePage />} />
 
-          {/* всё остальное перенаправляем на главную */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+
+        {!isMapPage && <Footer />}
       </div>
     </SelectedMapsContext.Provider>
   );

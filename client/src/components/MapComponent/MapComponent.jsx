@@ -42,21 +42,23 @@ function getEcoColor(score) {
 function getSocialColor(score) {
   const v = Number(score);
   if (!Number.isFinite(v)) return null;
-  if (v >= 8) return "#bfe6ff";
-  if (v >= 6) return "#caffbf";
-  if (v >= 4) return "#fdffb6";
-  if (v >= 2) return "#ffd6a5";
-  return "#ffadad";
+
+  if (v >= 8) return "#4f46e5";
+  if (v >= 6) return "#6366f1";
+  if (v >= 4) return "#818cf8";
+  if (v >= 2) return "#a5b4fc";
+  return "#dbeafe";
 }
 
 function getNoiseColor(score) {
   const v = Number(score);
   if (!Number.isFinite(v)) return null;
-  if (v >= 8) return "#39f73f";
-  if (v >= 6) return "#eaf739";
-  if (v >= 4) return "#fca903";
-  if (v >= 2) return "#ff5959";
-  return "#e74c3c";
+
+  if (v >= 8) return "#22c55e";
+  if (v >= 6) return "#a3e635";
+  if (v >= 4) return "#facc15";
+  if (v >= 2) return "#fb923c";
+  return "#ef4444";
 }
 
 function getTotalColor(score) {
@@ -725,21 +727,21 @@ export default function MapComponent({
       { color: "#39f73f", label: "9-10 - Отлично" }
     ];
 
-    const socialColorScale = [
-      { color: "#ffadad", label: "1-2 - Низкий" },
-      { color: "#ffd6a5", label: "3-4 - Ниже среднего" },
-      { color: "#fdffb6", label: "5-6 - Средний" },
-      { color: "#caffbf", label: "7-8 - Высокий" },
-      { color: "#bfe6ff", label: "9-10 - Очень высокий" }
-    ];
+  const socialColorScale = [
+  { color: "#dbeafe", label: "1-2 - Низкая обеспеченность" },
+  { color: "#a5b4fc", label: "3-4 - Ниже среднего" },
+  { color: "#818cf8", label: "5-6 - Средне" },
+  { color: "#6366f1", label: "7-8 - Хорошо" },
+  { color: "#4f46e5", label: "9-10 - Отлично" },
+];
 
-    const noiseColorScale = [
-      { color: "#e74c3c", label: "1-2 - Очень много обращений" },
-      { color: "#ff5959", label: "3-4 - Много обращений" },
-      { color: "#fca903", label: "5-6 - Умеренное количество" },
-      { color: "#eaf739", label: "7-8 - Мало обращений" },
-      { color: "#39f73f", label: "9-10 - Очень мало обращений" }
-    ];
+const noiseColorScale = [
+  { color: "#ef4444", label: "1-2 - Критично" },
+  { color: "#fb923c", label: "3-4 - Шумно" },
+  { color: "#facc15", label: "5-6 - Средне" },
+  { color: "#a3e635", label: "7-8 - Хорошо" },
+  { color: "#22c55e", label: "9-10 - Тихо" },
+];
 
     const colorScale = ecoOn ? ecoColorScale : socialOn ? socialColorScale : noiseColorScale;
     const title = ecoOn
