@@ -163,44 +163,44 @@
 
   .layerBar {
     position: fixed;
-    left: 12px;
-    right: 12px;
-    bottom: 104px;
+    left: 50%;
+    right: auto;
+    bottom: 96px;
+    transform: translateX(-50%);
     z-index: 1250;
 
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
+    width: calc(100vw - 24px);
+    max-width: 390px;
+    box-sizing: border-box;
 
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 
     padding: 8px;
     border-radius: 18px;
 
-    background: rgba(8, 8, 10, 0.86);
+    background: rgba(8, 8, 10, 0.88);
     backdrop-filter: blur(12px);
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
 
-    scrollbar-width: none;
-  }
-
-  .layerBar::-webkit-scrollbar {
-    display: none;
+    overflow: visible;
   }
 
   .layerBtn {
     flex: 0 0 auto;
-    min-width: max-content;
-    height: 42px;
-    padding: 0 14px;
-    font-size: 14px;
+    height: 38px;
+    padding: 0 12px;
+    font-size: 13px;
     border-radius: 999px;
+    white-space: nowrap;
   }
 
   .layerBtnActive {
     background: #fd8608;
     color: #ffffff;
+    border-color: #fd8608;
   }
 }
