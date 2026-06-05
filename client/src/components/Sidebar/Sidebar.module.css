@@ -137,15 +137,18 @@
     bottom: 12px;
     top: auto;
     width: auto;
-    max-height: 72vh;
+    max-height: 78px;
     border-radius: 20px;
-    z-index: 1200;
+    z-index: 1300;
     overflow: hidden;
-    transition: transform 0.25s ease, max-height 0.25s ease;
+  }
+
+  .sidebar:not(.sidebarCollapsed) {
+    max-height: 68vh;
   }
 
   .sidebarCollapsed {
-    max-height: 86px;
+    max-height: 78px;
   }
 
   .sidebarCollapsed .content {
@@ -154,24 +157,10 @@
 
   .mobileToggle {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .header {
-    min-height: 62px;
-  }
-
-  .title {
-    font-size: 16px;
-  }
-
-  .sub {
-    font-size: 12px;
   }
 
   .content {
-    max-height: calc(72vh - 76px);
+    max-height: calc(68vh - 76px);
     overflow-y: auto;
   }
 }

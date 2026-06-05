@@ -80,31 +80,54 @@
 }
 
 @media (max-width: 900px) {
+  .header {
+    height: 92px;
+  }
+
   .inner {
-    padding: 14px 16px;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .nav {
-    justify-content: flex-start;
-    gap: 24px;
-    padding-top: 0;
-    flex-wrap: wrap;
-  }
-
-  .right {
-    justify-content: flex-start;
-    padding-top: 0;
+    padding: 10px 12px 8px;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "brand right"
+      "nav nav";
+    align-items: center;
+    gap: 6px 12px;
   }
 
   .brand {
-    font-size: 26px;
+    grid-area: brand;
+    font-size: 23px;
+    line-height: 0.86;
+  }
+
+  .nav {
+    grid-area: nav;
+    justify-content: flex-start;
+    gap: 22px;
+    padding-top: 2px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .link {
+    font-size: 15px;
+    padding-bottom: 4px;
+  }
+
+  .right {
+    grid-area: right;
+    justify-content: flex-end;
+    padding-top: 0;
   }
 
   .cta {
-    min-width: 170px;
-    height: 50px;
-    font-size: 16px;
+    min-width: 130px;
+    height: 42px;
+    font-size: 14px;
   }
 }
