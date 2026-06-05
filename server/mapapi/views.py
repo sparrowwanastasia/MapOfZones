@@ -502,7 +502,6 @@ def run_command(command_name, *args, **kwargs):
     call_command(command_name, *args, stdout=output, stderr=output, **kwargs)
     return output.getvalue()
 
-
 @api_view(["GET"])
 @permission_classes([AllowAny])
 def admin_import_ecology(request):
@@ -511,13 +510,19 @@ def admin_import_ecology(request):
     if not api_key:
         return Response({"error": "DATA_MOS_API_KEY is not set"}, status=500)
 
-    result = run_command("import_ecology", api_key=api_key)
-
-    return Response({
-        "status": "ok",
-        "step": "import_ecology",
-        "result": result,
-    })
+    try:
+        result = run_command("import_ecology", api_key=api_key)
+        return Response({
+            "status": "ok",
+            "step": "import_ecology",
+            "result": result,
+        })
+    except Exception as error:
+        return Response({
+            "status": "error",
+            "step": "import_ecology",
+            "error": str(error),
+        }, status=500)
 
 
 @api_view(["GET"])
