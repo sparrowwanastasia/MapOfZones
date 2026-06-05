@@ -1,0 +1,5719 @@
+[
+{
+  "model": "mapapi.layer",
+  "pk": 1,
+  "fields": {
+    "slug": "eco",
+    "name": "Экология",
+    "description": "",
+    "is_active": true
+  }
+},
+{
+  "model": "mapapi.layer",
+  "pk": 2,
+  "fields": {
+    "slug": "social",
+    "name": "Социальный слой",
+    "description": "",
+    "is_active": true
+  }
+},
+{
+  "model": "mapapi.layer",
+  "pk": 3,
+  "fields": {
+    "slug": "noise",
+    "name": "Шумовой слой",
+    "description": "",
+    "is_active": true
+  }
+},
+{
+  "model": "mapapi.category",
+  "pk": 1,
+  "fields": {
+    "name": "Дворовые территории",
+    "slug": "yards",
+    "layer": 1
+  }
+},
+{
+  "model": "mapapi.category",
+  "pk": 2,
+  "fields": {
+    "name": "Парки",
+    "slug": "parks",
+    "layer": 1
+  }
+},
+{
+  "model": "mapapi.category",
+  "pk": 3,
+  "fields": {
+    "name": "Опасные объекты",
+    "slug": "hazards",
+    "layer": 1
+  }
+},
+{
+  "model": "mapapi.category",
+  "pk": 4,
+  "fields": {
+    "name": "Леса",
+    "slug": "forests",
+    "layer": 1
+  }
+},
+{
+  "model": "mapapi.category",
+  "pk": 5,
+  "fields": {
+    "name": "Образование",
+    "slug": "education",
+    "layer": 2
+  }
+},
+{
+  "model": "mapapi.category",
+  "pk": 6,
+  "fields": {
+    "name": "Здоровье",
+    "slug": "health",
+    "layer": 2
+  }
+},
+{
+  "model": "mapapi.category",
+  "pk": 7,
+  "fields": {
+    "name": "Культура и досуг",
+    "slug": "culture",
+    "layer": 2
+  }
+},
+{
+  "model": "mapapi.category",
+  "pk": 8,
+  "fields": {
+    "name": "Спорт",
+    "slug": "sport",
+    "layer": 2
+  }
+},
+{
+  "model": "mapapi.category",
+  "pk": 9,
+  "fields": {
+    "name": "Коммерция",
+    "slug": "commerce",
+    "layer": 2
+  }
+},
+{
+  "model": "mapapi.category",
+  "pk": 10,
+  "fields": {
+    "name": "Точки мониторинга шума",
+    "slug": "measurements",
+    "layer": 3
+  }
+},
+{
+  "model": "mapapi.category",
+  "pk": 11,
+  "fields": {
+    "name": "Обращения по шуму",
+    "slug": "noise_points",
+    "layer": 3
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 1,
+  "fields": {
+    "district": 1,
+    "parks": 11,
+    "forests": 2,
+    "hazards_count": 0,
+    "green_index": 2.8,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 5.7,
+    "updated_at": "2026-06-01T15:26:48.188Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 2,
+  "fields": {
+    "district": 2,
+    "parks": 13,
+    "forests": 1,
+    "hazards_count": 1,
+    "green_index": 1.2,
+    "hazard_index": 0.8,
+    "hazard_safe_index": 9.2,
+    "eco_score": 4.4,
+    "updated_at": "2026-06-01T15:26:48.189Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 3,
+  "fields": {
+    "district": 3,
+    "parks": 10,
+    "forests": 2,
+    "hazards_count": 1,
+    "green_index": 0.3,
+    "hazard_index": 2.1,
+    "hazard_safe_index": 7.9,
+    "eco_score": 3.3,
+    "updated_at": "2026-06-01T15:26:48.189Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 4,
+  "fields": {
+    "district": 4,
+    "parks": 7,
+    "forests": 225,
+    "hazards_count": 4,
+    "green_index": 5.8,
+    "hazard_index": 1.6,
+    "hazard_safe_index": 8.4,
+    "eco_score": 6.8,
+    "updated_at": "2026-06-01T15:26:48.189Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 5,
+  "fields": {
+    "district": 5,
+    "parks": 9,
+    "forests": 12,
+    "hazards_count": 7,
+    "green_index": 1.9,
+    "hazard_index": 4.6,
+    "hazard_safe_index": 5.4,
+    "eco_score": 3.3,
+    "updated_at": "2026-06-01T15:26:48.189Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 6,
+  "fields": {
+    "district": 6,
+    "parks": 3,
+    "forests": 3,
+    "hazards_count": 0,
+    "green_index": 0.2,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 4.1,
+    "updated_at": "2026-06-01T15:26:48.190Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 7,
+  "fields": {
+    "district": 7,
+    "parks": 18,
+    "forests": 6,
+    "hazards_count": 13,
+    "green_index": 0.3,
+    "hazard_index": 5.6,
+    "hazard_safe_index": 4.4,
+    "eco_score": 1.9,
+    "updated_at": "2026-06-01T15:26:48.190Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 8,
+  "fields": {
+    "district": 8,
+    "parks": 6,
+    "forests": 14,
+    "hazards_count": 4,
+    "green_index": 0.5,
+    "hazard_index": 4.0,
+    "hazard_safe_index": 6.0,
+    "eco_score": 2.7,
+    "updated_at": "2026-06-01T15:26:48.190Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 9,
+  "fields": {
+    "district": 9,
+    "parks": 5,
+    "forests": 8,
+    "hazards_count": 0,
+    "green_index": 4.0,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 6.4,
+    "updated_at": "2026-06-01T15:26:48.191Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 10,
+  "fields": {
+    "district": 10,
+    "parks": 11,
+    "forests": 5,
+    "hazards_count": 1,
+    "green_index": 0.5,
+    "hazard_index": 1.8,
+    "hazard_safe_index": 8.2,
+    "eco_score": 3.5,
+    "updated_at": "2026-06-01T15:26:48.191Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 11,
+  "fields": {
+    "district": 11,
+    "parks": 8,
+    "forests": 9,
+    "hazards_count": 4,
+    "green_index": 1.2,
+    "hazard_index": 3.6,
+    "hazard_safe_index": 6.4,
+    "eco_score": 3.3,
+    "updated_at": "2026-06-01T15:26:48.191Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 12,
+  "fields": {
+    "district": 12,
+    "parks": 8,
+    "forests": 7,
+    "hazards_count": 0,
+    "green_index": 4.2,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 6.5,
+    "updated_at": "2026-06-01T15:26:48.192Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 13,
+  "fields": {
+    "district": 13,
+    "parks": 6,
+    "forests": 16,
+    "hazards_count": 4,
+    "green_index": 5.6,
+    "hazard_index": 2.7,
+    "hazard_safe_index": 7.3,
+    "eco_score": 6.3,
+    "updated_at": "2026-06-01T15:26:48.192Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 14,
+  "fields": {
+    "district": 14,
+    "parks": 7,
+    "forests": 12,
+    "hazards_count": 0,
+    "green_index": 2.1,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 5.2,
+    "updated_at": "2026-06-01T15:26:48.192Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 15,
+  "fields": {
+    "district": 15,
+    "parks": 8,
+    "forests": 7,
+    "hazards_count": 3,
+    "green_index": 1.0,
+    "hazard_index": 3.2,
+    "hazard_safe_index": 6.8,
+    "eco_score": 3.3,
+    "updated_at": "2026-06-01T15:26:48.193Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 16,
+  "fields": {
+    "district": 16,
+    "parks": 13,
+    "forests": 36,
+    "hazards_count": 30,
+    "green_index": 1.4,
+    "hazard_index": 1.6,
+    "hazard_safe_index": 8.4,
+    "eco_score": 4.2,
+    "updated_at": "2026-06-01T15:26:48.193Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 17,
+  "fields": {
+    "district": 17,
+    "parks": 10,
+    "forests": 5,
+    "hazards_count": 0,
+    "green_index": 4.0,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 6.4,
+    "updated_at": "2026-06-01T15:26:48.193Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 18,
+  "fields": {
+    "district": 18,
+    "parks": 6,
+    "forests": 6,
+    "hazards_count": 6,
+    "green_index": 0.2,
+    "hazard_index": 7.7,
+    "hazard_safe_index": 2.3,
+    "eco_score": 1.0,
+    "updated_at": "2026-06-01T15:26:48.194Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 19,
+  "fields": {
+    "district": 19,
+    "parks": 3,
+    "forests": 1,
+    "hazards_count": 2,
+    "green_index": 0.1,
+    "hazard_index": 6.7,
+    "hazard_safe_index": 3.3,
+    "eco_score": 1.4,
+    "updated_at": "2026-06-01T15:26:48.194Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 20,
+  "fields": {
+    "district": 20,
+    "parks": 21,
+    "forests": 10,
+    "hazards_count": 18,
+    "green_index": 0.9,
+    "hazard_index": 8.7,
+    "hazard_safe_index": 1.3,
+    "eco_score": 1.1,
+    "updated_at": "2026-06-01T15:26:48.194Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 21,
+  "fields": {
+    "district": 21,
+    "parks": 10,
+    "forests": 5,
+    "hazards_count": 23,
+    "green_index": 0.2,
+    "hazard_index": 8.8,
+    "hazard_safe_index": 1.2,
+    "eco_score": 0.6,
+    "updated_at": "2026-06-01T15:26:48.195Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 22,
+  "fields": {
+    "district": 22,
+    "parks": 13,
+    "forests": 13,
+    "hazards_count": 0,
+    "green_index": 2.1,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 5.3,
+    "updated_at": "2026-06-01T15:26:48.195Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 23,
+  "fields": {
+    "district": 23,
+    "parks": 4,
+    "forests": 1,
+    "hazards_count": 0,
+    "green_index": 1.6,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 4.9,
+    "updated_at": "2026-06-01T15:26:48.195Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 24,
+  "fields": {
+    "district": 24,
+    "parks": 15,
+    "forests": 18,
+    "hazards_count": 9,
+    "green_index": 1.2,
+    "hazard_index": 4.0,
+    "hazard_safe_index": 6.0,
+    "eco_score": 3.1,
+    "updated_at": "2026-06-01T15:26:48.196Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 25,
+  "fields": {
+    "district": 25,
+    "parks": 4,
+    "forests": 2,
+    "hazards_count": 0,
+    "green_index": 0.2,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 4.1,
+    "updated_at": "2026-06-01T15:26:48.196Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 26,
+  "fields": {
+    "district": 26,
+    "parks": 8,
+    "forests": 3,
+    "hazards_count": 3,
+    "green_index": 0.3,
+    "hazard_index": 4.2,
+    "hazard_safe_index": 5.8,
+    "eco_score": 2.5,
+    "updated_at": "2026-06-01T15:26:48.196Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 27,
+  "fields": {
+    "district": 27,
+    "parks": 9,
+    "forests": 3,
+    "hazards_count": 5,
+    "green_index": 0.4,
+    "hazard_index": 6.3,
+    "hazard_safe_index": 3.7,
+    "eco_score": 1.7,
+    "updated_at": "2026-06-01T15:26:48.197Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 28,
+  "fields": {
+    "district": 28,
+    "parks": 18,
+    "forests": 22,
+    "hazards_count": 1,
+    "green_index": 4.1,
+    "hazard_index": 1.8,
+    "hazard_safe_index": 8.2,
+    "eco_score": 5.8,
+    "updated_at": "2026-06-01T15:26:48.197Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 29,
+  "fields": {
+    "district": 29,
+    "parks": 8,
+    "forests": 3,
+    "hazards_count": 2,
+    "green_index": 0.8,
+    "hazard_index": 2.2,
+    "hazard_safe_index": 7.8,
+    "eco_score": 3.6,
+    "updated_at": "2026-06-01T15:26:48.197Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 30,
+  "fields": {
+    "district": 30,
+    "parks": 10,
+    "forests": 3,
+    "hazards_count": 0,
+    "green_index": 1.9,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 5.1,
+    "updated_at": "2026-06-01T15:26:48.198Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 31,
+  "fields": {
+    "district": 31,
+    "parks": 10,
+    "forests": 24,
+    "hazards_count": 8,
+    "green_index": 2.7,
+    "hazard_index": 4.0,
+    "hazard_safe_index": 6.0,
+    "eco_score": 4.0,
+    "updated_at": "2026-06-01T15:26:48.198Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 32,
+  "fields": {
+    "district": 32,
+    "parks": 8,
+    "forests": 9,
+    "hazards_count": 3,
+    "green_index": 3.4,
+    "hazard_index": 2.4,
+    "hazard_safe_index": 7.6,
+    "eco_score": 5.1,
+    "updated_at": "2026-06-01T15:26:48.198Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 33,
+  "fields": {
+    "district": 33,
+    "parks": 12,
+    "forests": 12,
+    "hazards_count": 4,
+    "green_index": 1.0,
+    "hazard_index": 2.5,
+    "hazard_safe_index": 7.5,
+    "eco_score": 3.6,
+    "updated_at": "2026-06-01T15:26:48.199Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 34,
+  "fields": {
+    "district": 34,
+    "parks": 15,
+    "forests": 2,
+    "hazards_count": 2,
+    "green_index": 1.8,
+    "hazard_index": 3.1,
+    "hazard_safe_index": 6.9,
+    "eco_score": 3.9,
+    "updated_at": "2026-06-01T15:26:48.199Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 35,
+  "fields": {
+    "district": 35,
+    "parks": 11,
+    "forests": 11,
+    "hazards_count": 0,
+    "green_index": 5.0,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 7.0,
+    "updated_at": "2026-06-01T15:26:48.199Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 36,
+  "fields": {
+    "district": 36,
+    "parks": 11,
+    "forests": 4,
+    "hazards_count": 5,
+    "green_index": 0.0,
+    "hazard_index": 6.8,
+    "hazard_safe_index": 3.2,
+    "eco_score": 1.3,
+    "updated_at": "2026-06-01T15:26:48.200Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 37,
+  "fields": {
+    "district": 37,
+    "parks": 5,
+    "forests": 4,
+    "hazards_count": 13,
+    "green_index": 0.5,
+    "hazard_index": 9.5,
+    "hazard_safe_index": 0.5,
+    "eco_score": 0.5,
+    "updated_at": "2026-06-01T15:26:48.200Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 38,
+  "fields": {
+    "district": 38,
+    "parks": 12,
+    "forests": 3,
+    "hazards_count": 9,
+    "green_index": 0.1,
+    "hazard_index": 5.6,
+    "hazard_safe_index": 4.4,
+    "eco_score": 1.8,
+    "updated_at": "2026-06-01T15:26:48.200Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 39,
+  "fields": {
+    "district": 39,
+    "parks": 8,
+    "forests": 0,
+    "hazards_count": 3,
+    "green_index": 0.7,
+    "hazard_index": 4.8,
+    "hazard_safe_index": 5.2,
+    "eco_score": 2.5,
+    "updated_at": "2026-06-01T15:26:48.201Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 40,
+  "fields": {
+    "district": 40,
+    "parks": 6,
+    "forests": 2,
+    "hazards_count": 9,
+    "green_index": 0.4,
+    "hazard_index": 5.6,
+    "hazard_safe_index": 4.4,
+    "eco_score": 2.0,
+    "updated_at": "2026-06-01T15:26:48.201Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 41,
+  "fields": {
+    "district": 41,
+    "parks": 9,
+    "forests": 7,
+    "hazards_count": 0,
+    "green_index": 2.9,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 5.7,
+    "updated_at": "2026-06-01T15:26:48.201Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 42,
+  "fields": {
+    "district": 42,
+    "parks": 13,
+    "forests": 23,
+    "hazards_count": 1,
+    "green_index": 2.8,
+    "hazard_index": 1.8,
+    "hazard_safe_index": 8.2,
+    "eco_score": 4.9,
+    "updated_at": "2026-06-01T15:26:48.202Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 43,
+  "fields": {
+    "district": 43,
+    "parks": 11,
+    "forests": 8,
+    "hazards_count": 2,
+    "green_index": 3.7,
+    "hazard_index": 1.8,
+    "hazard_safe_index": 8.2,
+    "eco_score": 5.5,
+    "updated_at": "2026-06-01T15:26:48.202Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 44,
+  "fields": {
+    "district": 44,
+    "parks": 26,
+    "forests": 4,
+    "hazards_count": 2,
+    "green_index": 2.7,
+    "hazard_index": 2.7,
+    "hazard_safe_index": 7.3,
+    "eco_score": 4.5,
+    "updated_at": "2026-06-01T15:26:48.202Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 45,
+  "fields": {
+    "district": 45,
+    "parks": 29,
+    "forests": 26,
+    "hazards_count": 4,
+    "green_index": 0.4,
+    "hazard_index": 4.3,
+    "hazard_safe_index": 5.7,
+    "eco_score": 2.5,
+    "updated_at": "2026-06-01T15:26:48.203Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 46,
+  "fields": {
+    "district": 46,
+    "parks": 9,
+    "forests": 0,
+    "hazards_count": 2,
+    "green_index": 0.7,
+    "hazard_index": 1.9,
+    "hazard_safe_index": 8.1,
+    "eco_score": 3.7,
+    "updated_at": "2026-06-01T15:26:48.203Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 47,
+  "fields": {
+    "district": 47,
+    "parks": 5,
+    "forests": 7,
+    "hazards_count": 19,
+    "green_index": 6.6,
+    "hazard_index": 6.8,
+    "hazard_safe_index": 3.2,
+    "eco_score": 5.3,
+    "updated_at": "2026-06-01T15:26:48.203Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 48,
+  "fields": {
+    "district": 48,
+    "parks": 7,
+    "forests": 2,
+    "hazards_count": 0,
+    "green_index": 3.9,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 6.4,
+    "updated_at": "2026-06-01T15:26:48.204Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 49,
+  "fields": {
+    "district": 49,
+    "parks": 7,
+    "forests": 20,
+    "hazards_count": 4,
+    "green_index": 0.9,
+    "hazard_index": 2.6,
+    "hazard_safe_index": 7.4,
+    "eco_score": 3.5,
+    "updated_at": "2026-06-01T15:26:48.204Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 50,
+  "fields": {
+    "district": 50,
+    "parks": 5,
+    "forests": 3,
+    "hazards_count": 6,
+    "green_index": 0.6,
+    "hazard_index": 2.0,
+    "hazard_safe_index": 8.0,
+    "eco_score": 3.5,
+    "updated_at": "2026-06-01T15:26:48.204Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 51,
+  "fields": {
+    "district": 51,
+    "parks": 37,
+    "forests": 24,
+    "hazards_count": 0,
+    "green_index": 2.9,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 5.7,
+    "updated_at": "2026-06-01T15:26:48.205Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 52,
+  "fields": {
+    "district": 52,
+    "parks": 14,
+    "forests": 11,
+    "hazards_count": 2,
+    "green_index": 5.5,
+    "hazard_index": 3.0,
+    "hazard_safe_index": 7.0,
+    "eco_score": 6.1,
+    "updated_at": "2026-06-01T15:26:48.205Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 53,
+  "fields": {
+    "district": 53,
+    "parks": 10,
+    "forests": 8,
+    "hazards_count": 2,
+    "green_index": 0.9,
+    "hazard_index": 2.7,
+    "hazard_safe_index": 7.3,
+    "eco_score": 3.5,
+    "updated_at": "2026-06-01T15:26:48.205Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 54,
+  "fields": {
+    "district": 54,
+    "parks": 6,
+    "forests": 1,
+    "hazards_count": 8,
+    "green_index": 3.4,
+    "hazard_index": 6.5,
+    "hazard_safe_index": 3.5,
+    "eco_score": 3.5,
+    "updated_at": "2026-06-01T15:26:48.206Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 55,
+  "fields": {
+    "district": 55,
+    "parks": 30,
+    "forests": 4,
+    "hazards_count": 4,
+    "green_index": 2.4,
+    "hazard_index": 2.5,
+    "hazard_safe_index": 7.5,
+    "eco_score": 4.4,
+    "updated_at": "2026-06-01T15:26:48.206Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 56,
+  "fields": {
+    "district": 56,
+    "parks": 3,
+    "forests": 4,
+    "hazards_count": 4,
+    "green_index": 3.9,
+    "hazard_index": 4.6,
+    "hazard_safe_index": 5.4,
+    "eco_score": 4.5,
+    "updated_at": "2026-06-01T15:26:48.206Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 57,
+  "fields": {
+    "district": 57,
+    "parks": 22,
+    "forests": 66,
+    "hazards_count": 3,
+    "green_index": 3.8,
+    "hazard_index": 2.4,
+    "hazard_safe_index": 7.6,
+    "eco_score": 5.3,
+    "updated_at": "2026-06-01T15:26:48.207Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 58,
+  "fields": {
+    "district": 58,
+    "parks": 11,
+    "forests": 10,
+    "hazards_count": 4,
+    "green_index": 5.0,
+    "hazard_index": 3.2,
+    "hazard_safe_index": 6.8,
+    "eco_score": 5.7,
+    "updated_at": "2026-06-01T15:26:48.207Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 59,
+  "fields": {
+    "district": 59,
+    "parks": 37,
+    "forests": 33,
+    "hazards_count": 5,
+    "green_index": 0.7,
+    "hazard_index": 3.8,
+    "hazard_safe_index": 6.2,
+    "eco_score": 2.9,
+    "updated_at": "2026-06-01T15:26:48.207Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 60,
+  "fields": {
+    "district": 60,
+    "parks": 9,
+    "forests": 13,
+    "hazards_count": 0,
+    "green_index": 9.0,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 9.4,
+    "updated_at": "2026-06-01T15:26:48.208Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 61,
+  "fields": {
+    "district": 61,
+    "parks": 10,
+    "forests": 1,
+    "hazards_count": 0,
+    "green_index": 5.4,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 7.2,
+    "updated_at": "2026-06-01T15:26:48.208Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 62,
+  "fields": {
+    "district": 62,
+    "parks": 7,
+    "forests": 1,
+    "hazards_count": 3,
+    "green_index": 0.9,
+    "hazard_index": 2.6,
+    "hazard_safe_index": 7.4,
+    "eco_score": 3.5,
+    "updated_at": "2026-06-01T15:26:48.208Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 63,
+  "fields": {
+    "district": 63,
+    "parks": 5,
+    "forests": 1,
+    "hazards_count": 0,
+    "green_index": 3.8,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 6.3,
+    "updated_at": "2026-06-01T15:26:48.209Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 64,
+  "fields": {
+    "district": 64,
+    "parks": 24,
+    "forests": 9,
+    "hazards_count": 1,
+    "green_index": 3.7,
+    "hazard_index": 0.5,
+    "hazard_safe_index": 9.5,
+    "eco_score": 6.0,
+    "updated_at": "2026-06-01T15:26:48.209Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 65,
+  "fields": {
+    "district": 65,
+    "parks": 11,
+    "forests": 2,
+    "hazards_count": 2,
+    "green_index": 0.7,
+    "hazard_index": 1.8,
+    "hazard_safe_index": 8.2,
+    "eco_score": 3.7,
+    "updated_at": "2026-06-01T15:26:48.209Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 66,
+  "fields": {
+    "district": 66,
+    "parks": 21,
+    "forests": 0,
+    "hazards_count": 4,
+    "green_index": 2.4,
+    "hazard_index": 2.3,
+    "hazard_safe_index": 7.7,
+    "eco_score": 4.5,
+    "updated_at": "2026-06-01T15:26:48.210Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 67,
+  "fields": {
+    "district": 67,
+    "parks": 12,
+    "forests": 1,
+    "hazards_count": 2,
+    "green_index": 0.5,
+    "hazard_index": 4.1,
+    "hazard_safe_index": 5.9,
+    "eco_score": 2.7,
+    "updated_at": "2026-06-01T15:26:48.210Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 68,
+  "fields": {
+    "district": 68,
+    "parks": 5,
+    "forests": 31,
+    "hazards_count": 7,
+    "green_index": 5.1,
+    "hazard_index": 6.1,
+    "hazard_safe_index": 3.9,
+    "eco_score": 4.6,
+    "updated_at": "2026-06-01T15:26:48.210Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 69,
+  "fields": {
+    "district": 69,
+    "parks": 11,
+    "forests": 6,
+    "hazards_count": 3,
+    "green_index": 1.7,
+    "hazard_index": 4.5,
+    "hazard_safe_index": 5.5,
+    "eco_score": 3.2,
+    "updated_at": "2026-06-01T15:26:48.211Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 70,
+  "fields": {
+    "district": 70,
+    "parks": 13,
+    "forests": 5,
+    "hazards_count": 3,
+    "green_index": 1.0,
+    "hazard_index": 4.8,
+    "hazard_safe_index": 5.2,
+    "eco_score": 2.7,
+    "updated_at": "2026-06-01T15:26:48.211Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 71,
+  "fields": {
+    "district": 71,
+    "parks": 4,
+    "forests": 3,
+    "hazards_count": 0,
+    "green_index": 2.3,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 5.4,
+    "updated_at": "2026-06-01T15:26:48.211Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 72,
+  "fields": {
+    "district": 72,
+    "parks": 14,
+    "forests": 4,
+    "hazards_count": 1,
+    "green_index": 1.2,
+    "hazard_index": 1.7,
+    "hazard_safe_index": 8.3,
+    "eco_score": 4.1,
+    "updated_at": "2026-06-01T15:26:48.211Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 73,
+  "fields": {
+    "district": 73,
+    "parks": 5,
+    "forests": 1,
+    "hazards_count": 0,
+    "green_index": 0.5,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 4.3,
+    "updated_at": "2026-06-01T15:26:48.212Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 74,
+  "fields": {
+    "district": 74,
+    "parks": 11,
+    "forests": 52,
+    "hazards_count": 6,
+    "green_index": 7.3,
+    "hazard_index": 5.3,
+    "hazard_safe_index": 4.7,
+    "eco_score": 6.2,
+    "updated_at": "2026-06-01T15:26:48.212Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 75,
+  "fields": {
+    "district": 75,
+    "parks": 9,
+    "forests": 3,
+    "hazards_count": 0,
+    "green_index": 2.2,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 5.3,
+    "updated_at": "2026-06-01T15:26:48.212Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 76,
+  "fields": {
+    "district": 76,
+    "parks": 3,
+    "forests": 0,
+    "hazards_count": 0,
+    "green_index": 0.4,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 4.3,
+    "updated_at": "2026-06-01T15:26:48.213Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 77,
+  "fields": {
+    "district": 77,
+    "parks": 13,
+    "forests": 64,
+    "hazards_count": 0,
+    "green_index": 10.0,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 10.0,
+    "updated_at": "2026-06-01T15:26:48.213Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 78,
+  "fields": {
+    "district": 78,
+    "parks": 26,
+    "forests": 21,
+    "hazards_count": 4,
+    "green_index": 1.6,
+    "hazard_index": 1.5,
+    "hazard_safe_index": 8.5,
+    "eco_score": 4.4,
+    "updated_at": "2026-06-01T15:26:48.213Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 79,
+  "fields": {
+    "district": 79,
+    "parks": 1,
+    "forests": 26,
+    "hazards_count": 14,
+    "green_index": 9.8,
+    "hazard_index": 2.0,
+    "hazard_safe_index": 8.0,
+    "eco_score": 9.0,
+    "updated_at": "2026-06-01T15:26:48.214Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 80,
+  "fields": {
+    "district": 80,
+    "parks": 7,
+    "forests": 0,
+    "hazards_count": 0,
+    "green_index": 0.7,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 4.4,
+    "updated_at": "2026-06-01T15:26:48.214Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 81,
+  "fields": {
+    "district": 81,
+    "parks": 5,
+    "forests": 8,
+    "hazards_count": 7,
+    "green_index": 5.4,
+    "hazard_index": 1.8,
+    "hazard_safe_index": 8.2,
+    "eco_score": 6.5,
+    "updated_at": "2026-06-01T15:26:48.214Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 82,
+  "fields": {
+    "district": 82,
+    "parks": 7,
+    "forests": 12,
+    "hazards_count": 3,
+    "green_index": 0.7,
+    "hazard_index": 5.2,
+    "hazard_safe_index": 4.8,
+    "eco_score": 2.4,
+    "updated_at": "2026-06-01T15:26:48.215Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 83,
+  "fields": {
+    "district": 83,
+    "parks": 19,
+    "forests": 19,
+    "hazards_count": 1,
+    "green_index": 3.6,
+    "hazard_index": 0.8,
+    "hazard_safe_index": 9.2,
+    "eco_score": 5.8,
+    "updated_at": "2026-06-01T15:26:48.215Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 84,
+  "fields": {
+    "district": 84,
+    "parks": 11,
+    "forests": 3,
+    "hazards_count": 12,
+    "green_index": 0.1,
+    "hazard_index": 7.5,
+    "hazard_safe_index": 2.5,
+    "eco_score": 1.1,
+    "updated_at": "2026-06-01T15:26:48.215Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 85,
+  "fields": {
+    "district": 85,
+    "parks": 10,
+    "forests": 15,
+    "hazards_count": 4,
+    "green_index": 1.2,
+    "hazard_index": 4.5,
+    "hazard_safe_index": 5.5,
+    "eco_score": 2.9,
+    "updated_at": "2026-06-01T15:26:48.216Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 86,
+  "fields": {
+    "district": 86,
+    "parks": 3,
+    "forests": 19,
+    "hazards_count": 2,
+    "green_index": 3.9,
+    "hazard_index": 1.8,
+    "hazard_safe_index": 8.2,
+    "eco_score": 5.6,
+    "updated_at": "2026-06-01T15:26:48.216Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 87,
+  "fields": {
+    "district": 87,
+    "parks": 17,
+    "forests": 7,
+    "hazards_count": 8,
+    "green_index": 1.4,
+    "hazard_index": 6.2,
+    "hazard_safe_index": 3.8,
+    "eco_score": 2.4,
+    "updated_at": "2026-06-01T15:26:48.216Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 88,
+  "fields": {
+    "district": 88,
+    "parks": 18,
+    "forests": 12,
+    "hazards_count": 6,
+    "green_index": 1.7,
+    "hazard_index": 5.1,
+    "hazard_safe_index": 4.9,
+    "eco_score": 3.0,
+    "updated_at": "2026-06-01T15:26:48.217Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 89,
+  "fields": {
+    "district": 89,
+    "parks": 6,
+    "forests": 6,
+    "hazards_count": 1,
+    "green_index": 2.1,
+    "hazard_index": 1.0,
+    "hazard_safe_index": 9.0,
+    "eco_score": 4.9,
+    "updated_at": "2026-06-01T15:26:48.217Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 90,
+  "fields": {
+    "district": 90,
+    "parks": 3,
+    "forests": 23,
+    "hazards_count": 6,
+    "green_index": 0.0,
+    "hazard_index": 8.0,
+    "hazard_safe_index": 2.0,
+    "eco_score": 0.8,
+    "updated_at": "2026-06-01T15:26:48.217Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 91,
+  "fields": {
+    "district": 91,
+    "parks": 6,
+    "forests": 7,
+    "hazards_count": 0,
+    "green_index": 3.2,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 5.9,
+    "updated_at": "2026-06-01T15:26:48.218Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 92,
+  "fields": {
+    "district": 92,
+    "parks": 3,
+    "forests": 0,
+    "hazards_count": 0,
+    "green_index": 1.1,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 4.7,
+    "updated_at": "2026-06-01T15:26:48.218Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 93,
+  "fields": {
+    "district": 93,
+    "parks": 22,
+    "forests": 41,
+    "hazards_count": 21,
+    "green_index": 3.6,
+    "hazard_index": 6.2,
+    "hazard_safe_index": 3.8,
+    "eco_score": 3.7,
+    "updated_at": "2026-06-01T15:26:48.218Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 94,
+  "fields": {
+    "district": 94,
+    "parks": 6,
+    "forests": 9,
+    "hazards_count": 2,
+    "green_index": 2.0,
+    "hazard_index": 1.7,
+    "hazard_safe_index": 8.3,
+    "eco_score": 4.5,
+    "updated_at": "2026-06-01T15:26:48.219Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 95,
+  "fields": {
+    "district": 95,
+    "parks": 6,
+    "forests": 10,
+    "hazards_count": 2,
+    "green_index": 0.7,
+    "hazard_index": 2.5,
+    "hazard_safe_index": 7.5,
+    "eco_score": 3.4,
+    "updated_at": "2026-06-01T15:26:48.219Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 96,
+  "fields": {
+    "district": 96,
+    "parks": 6,
+    "forests": 27,
+    "hazards_count": 6,
+    "green_index": 2.0,
+    "hazard_index": 8.0,
+    "hazard_safe_index": 2.0,
+    "eco_score": 2.0,
+    "updated_at": "2026-06-01T15:26:48.219Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 97,
+  "fields": {
+    "district": 97,
+    "parks": 9,
+    "forests": 9,
+    "hazards_count": 0,
+    "green_index": 2.7,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 5.6,
+    "updated_at": "2026-06-01T15:26:48.220Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 98,
+  "fields": {
+    "district": 98,
+    "parks": 20,
+    "forests": 11,
+    "hazards_count": 4,
+    "green_index": 1.8,
+    "hazard_index": 1.4,
+    "hazard_safe_index": 8.6,
+    "eco_score": 4.5,
+    "updated_at": "2026-06-01T15:26:48.220Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 99,
+  "fields": {
+    "district": 99,
+    "parks": 19,
+    "forests": 157,
+    "hazards_count": 5,
+    "green_index": 3.5,
+    "hazard_index": 2.5,
+    "hazard_safe_index": 7.5,
+    "eco_score": 5.1,
+    "updated_at": "2026-06-01T15:26:48.220Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 100,
+  "fields": {
+    "district": 100,
+    "parks": 4,
+    "forests": 1,
+    "hazards_count": 0,
+    "green_index": 0.3,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 4.2,
+    "updated_at": "2026-06-01T15:26:48.221Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 101,
+  "fields": {
+    "district": 101,
+    "parks": 13,
+    "forests": 57,
+    "hazards_count": 6,
+    "green_index": 7.7,
+    "hazard_index": 3.3,
+    "hazard_safe_index": 6.7,
+    "eco_score": 7.3,
+    "updated_at": "2026-06-01T15:26:48.221Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 102,
+  "fields": {
+    "district": 102,
+    "parks": 14,
+    "forests": 0,
+    "hazards_count": 0,
+    "green_index": 0.2,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 4.1,
+    "updated_at": "2026-06-01T15:26:48.221Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 103,
+  "fields": {
+    "district": 103,
+    "parks": 6,
+    "forests": 1,
+    "hazards_count": 3,
+    "green_index": 0.2,
+    "hazard_index": 5.9,
+    "hazard_safe_index": 4.1,
+    "eco_score": 1.8,
+    "updated_at": "2026-06-01T15:26:48.222Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 104,
+  "fields": {
+    "district": 104,
+    "parks": 14,
+    "forests": 14,
+    "hazards_count": 1,
+    "green_index": 3.4,
+    "hazard_index": 0.8,
+    "hazard_safe_index": 9.2,
+    "eco_score": 5.8,
+    "updated_at": "2026-06-01T15:26:48.222Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 105,
+  "fields": {
+    "district": 105,
+    "parks": 6,
+    "forests": 3,
+    "hazards_count": 0,
+    "green_index": 4.8,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 6.9,
+    "updated_at": "2026-06-01T15:26:48.222Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 106,
+  "fields": {
+    "district": 106,
+    "parks": 28,
+    "forests": 145,
+    "hazards_count": 6,
+    "green_index": 0.9,
+    "hazard_index": 5.8,
+    "hazard_safe_index": 4.2,
+    "eco_score": 2.2,
+    "updated_at": "2026-06-01T15:26:48.223Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 107,
+  "fields": {
+    "district": 107,
+    "parks": 6,
+    "forests": 3,
+    "hazards_count": 0,
+    "green_index": 1.3,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 4.8,
+    "updated_at": "2026-06-01T15:26:48.223Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 108,
+  "fields": {
+    "district": 108,
+    "parks": 9,
+    "forests": 5,
+    "hazards_count": 11,
+    "green_index": 0.7,
+    "hazard_index": 4.2,
+    "hazard_safe_index": 5.8,
+    "eco_score": 2.8,
+    "updated_at": "2026-06-01T15:26:48.223Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 109,
+  "fields": {
+    "district": 109,
+    "parks": 4,
+    "forests": 4,
+    "hazards_count": 1,
+    "green_index": 0.7,
+    "hazard_index": 1.9,
+    "hazard_safe_index": 8.1,
+    "eco_score": 3.7,
+    "updated_at": "2026-06-01T15:26:48.223Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 110,
+  "fields": {
+    "district": 110,
+    "parks": 6,
+    "forests": 7,
+    "hazards_count": 0,
+    "green_index": 6.4,
+    "hazard_index": 0.0,
+    "hazard_safe_index": 10.0,
+    "eco_score": 7.8,
+    "updated_at": "2026-06-01T15:26:48.224Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 111,
+  "fields": {
+    "district": 111,
+    "parks": 8,
+    "forests": 2,
+    "hazards_count": 2,
+    "green_index": 0.4,
+    "hazard_index": 1.6,
+    "hazard_safe_index": 8.4,
+    "eco_score": 3.6,
+    "updated_at": "2026-06-01T15:26:48.224Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 112,
+  "fields": {
+    "district": 112,
+    "parks": 9,
+    "forests": 3,
+    "hazards_count": 2,
+    "green_index": 2.7,
+    "hazard_index": 3.5,
+    "hazard_safe_index": 6.5,
+    "eco_score": 4.2,
+    "updated_at": "2026-06-01T15:26:48.224Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 113,
+  "fields": {
+    "district": 113,
+    "parks": 8,
+    "forests": 68,
+    "hazards_count": 1,
+    "green_index": 3.9,
+    "hazard_index": 1.9,
+    "hazard_safe_index": 8.1,
+    "eco_score": 5.6,
+    "updated_at": "2026-06-01T15:26:48.225Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 114,
+  "fields": {
+    "district": 114,
+    "parks": 7,
+    "forests": 14,
+    "hazards_count": 15,
+    "green_index": 0.6,
+    "hazard_index": 6.2,
+    "hazard_safe_index": 3.8,
+    "eco_score": 1.9,
+    "updated_at": "2026-06-01T15:26:48.225Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 115,
+  "fields": {
+    "district": 115,
+    "parks": 6,
+    "forests": 17,
+    "hazards_count": 7,
+    "green_index": 0.9,
+    "hazard_index": 3.7,
+    "hazard_safe_index": 6.3,
+    "eco_score": 3.0,
+    "updated_at": "2026-06-01T15:26:48.226Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 116,
+  "fields": {
+    "district": 116,
+    "parks": 7,
+    "forests": 8,
+    "hazards_count": 9,
+    "green_index": 1.4,
+    "hazard_index": 6.3,
+    "hazard_safe_index": 3.7,
+    "eco_score": 2.3,
+    "updated_at": "2026-06-01T15:26:48.226Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 117,
+  "fields": {
+    "district": 117,
+    "parks": 5,
+    "forests": 5,
+    "hazards_count": 7,
+    "green_index": 0.7,
+    "hazard_index": 7.3,
+    "hazard_safe_index": 2.7,
+    "eco_score": 1.5,
+    "updated_at": "2026-06-01T15:26:48.226Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 118,
+  "fields": {
+    "district": 118,
+    "parks": 36,
+    "forests": 3,
+    "hazards_count": 4,
+    "green_index": 0.6,
+    "hazard_index": 3.7,
+    "hazard_safe_index": 6.3,
+    "eco_score": 2.9,
+    "updated_at": "2026-06-01T15:26:48.227Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 119,
+  "fields": {
+    "district": 119,
+    "parks": 14,
+    "forests": 17,
+    "hazards_count": 2,
+    "green_index": 1.9,
+    "hazard_index": 1.0,
+    "hazard_safe_index": 9.0,
+    "eco_score": 4.7,
+    "updated_at": "2026-06-01T15:26:48.227Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 120,
+  "fields": {
+    "district": 120,
+    "parks": 7,
+    "forests": 3,
+    "hazards_count": 2,
+    "green_index": 1.6,
+    "hazard_index": 3.4,
+    "hazard_safe_index": 6.6,
+    "eco_score": 3.6,
+    "updated_at": "2026-06-01T15:26:48.227Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 121,
+  "fields": {
+    "district": 121,
+    "parks": 5,
+    "forests": 0,
+    "hazards_count": 1,
+    "green_index": 0.3,
+    "hazard_index": 0.7,
+    "hazard_safe_index": 9.3,
+    "eco_score": 3.9,
+    "updated_at": "2026-06-01T15:26:48.228Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 122,
+  "fields": {
+    "district": 122,
+    "parks": 7,
+    "forests": 10,
+    "hazards_count": 2,
+    "green_index": 4.7,
+    "hazard_index": 2.0,
+    "hazard_safe_index": 8.0,
+    "eco_score": 6.0,
+    "updated_at": "2026-06-01T15:26:48.228Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 123,
+  "fields": {
+    "district": 123,
+    "parks": 7,
+    "forests": 20,
+    "hazards_count": 10,
+    "green_index": 1.7,
+    "hazard_index": 7.8,
+    "hazard_safe_index": 2.2,
+    "eco_score": 1.9,
+    "updated_at": "2026-06-01T15:26:48.228Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 124,
+  "fields": {
+    "district": 124,
+    "parks": 18,
+    "forests": 20,
+    "hazards_count": 3,
+    "green_index": 6.4,
+    "hazard_index": 3.9,
+    "hazard_safe_index": 6.1,
+    "eco_score": 6.3,
+    "updated_at": "2026-06-01T15:26:48.228Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 125,
+  "fields": {
+    "district": 125,
+    "parks": 9,
+    "forests": 66,
+    "hazards_count": 3,
+    "green_index": 1.7,
+    "hazard_index": 1.3,
+    "hazard_safe_index": 8.7,
+    "eco_score": 4.5,
+    "updated_at": "2026-06-01T15:26:48.229Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 126,
+  "fields": {
+    "district": 126,
+    "parks": 46,
+    "forests": 489,
+    "hazards_count": 78,
+    "green_index": 9.2,
+    "hazard_index": 9.4,
+    "hazard_safe_index": 0.6,
+    "eco_score": 5.8,
+    "updated_at": "2025-12-14T13:30:46.837Z"
+  }
+},
+{
+  "model": "mapapi.ecodistrictstats",
+  "pk": 127,
+  "fields": {
+    "district": 127,
+    "parks": 20,
+    "forests": 223,
+    "hazards_count": 33,
+    "green_index": 8.4,
+    "hazard_index": 8.7,
+    "hazard_safe_index": 1.3,
+    "eco_score": 5.6,
+    "updated_at": "2025-12-14T13:30:46.838Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 1,
+  "fields": {
+    "district": 1,
+    "education": 6,
+    "health": 0,
+    "culture": 2,
+    "sport": 8,
+    "commerce": 423,
+    "social_score": 7.4,
+    "updated_at": "2026-06-01T15:26:48.362Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 2,
+  "fields": {
+    "district": 2,
+    "education": 3,
+    "health": 0,
+    "culture": 1,
+    "sport": 13,
+    "commerce": 659,
+    "social_score": 8.1,
+    "updated_at": "2026-06-01T15:26:48.363Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 3,
+  "fields": {
+    "district": 3,
+    "education": 4,
+    "health": 0,
+    "culture": 3,
+    "sport": 7,
+    "commerce": 287,
+    "social_score": 6.7,
+    "updated_at": "2026-06-01T15:26:48.363Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 4,
+  "fields": {
+    "district": 4,
+    "education": 7,
+    "health": 0,
+    "culture": 4,
+    "sport": 14,
+    "commerce": 391,
+    "social_score": 7.4,
+    "updated_at": "2026-06-01T15:26:48.364Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 5,
+  "fields": {
+    "district": 5,
+    "education": 3,
+    "health": 0,
+    "culture": 1,
+    "sport": 10,
+    "commerce": 287,
+    "social_score": 6.7,
+    "updated_at": "2026-06-01T15:26:48.364Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 6,
+  "fields": {
+    "district": 6,
+    "education": 5,
+    "health": 0,
+    "culture": 3,
+    "sport": 5,
+    "commerce": 247,
+    "social_score": 6.4,
+    "updated_at": "2026-06-01T15:26:48.364Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 7,
+  "fields": {
+    "district": 7,
+    "education": 5,
+    "health": 0,
+    "culture": 2,
+    "sport": 13,
+    "commerce": 2137,
+    "social_score": 9.3,
+    "updated_at": "2026-06-01T15:26:48.364Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 8,
+  "fields": {
+    "district": 8,
+    "education": 2,
+    "health": 0,
+    "culture": 1,
+    "sport": 8,
+    "commerce": 170,
+    "social_score": 5.5,
+    "updated_at": "2026-06-01T15:26:48.365Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 9,
+  "fields": {
+    "district": 9,
+    "education": 3,
+    "health": 0,
+    "culture": 1,
+    "sport": 11,
+    "commerce": 285,
+    "social_score": 6.7,
+    "updated_at": "2026-06-01T15:26:48.365Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 10,
+  "fields": {
+    "district": 10,
+    "education": 2,
+    "health": 2,
+    "culture": 3,
+    "sport": 12,
+    "commerce": 412,
+    "social_score": 7.4,
+    "updated_at": "2026-06-01T15:26:48.365Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 11,
+  "fields": {
+    "district": 11,
+    "education": 2,
+    "health": 1,
+    "culture": 3,
+    "sport": 15,
+    "commerce": 695,
+    "social_score": 8.2,
+    "updated_at": "2026-06-01T15:26:48.366Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 12,
+  "fields": {
+    "district": 12,
+    "education": 4,
+    "health": 0,
+    "culture": 1,
+    "sport": 6,
+    "commerce": 347,
+    "social_score": 7.0,
+    "updated_at": "2026-06-01T15:26:48.366Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 13,
+  "fields": {
+    "district": 13,
+    "education": 8,
+    "health": 0,
+    "culture": 2,
+    "sport": 10,
+    "commerce": 542,
+    "social_score": 7.9,
+    "updated_at": "2026-06-01T15:26:48.366Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 14,
+  "fields": {
+    "district": 14,
+    "education": 4,
+    "health": 0,
+    "culture": 4,
+    "sport": 10,
+    "commerce": 688,
+    "social_score": 8.2,
+    "updated_at": "2026-06-01T15:26:48.367Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 15,
+  "fields": {
+    "district": 15,
+    "education": 2,
+    "health": 0,
+    "culture": 0,
+    "sport": 10,
+    "commerce": 970,
+    "social_score": 8.6,
+    "updated_at": "2026-06-01T15:26:48.367Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 16,
+  "fields": {
+    "district": 16,
+    "education": 5,
+    "health": 1,
+    "culture": 2,
+    "sport": 11,
+    "commerce": 555,
+    "social_score": 7.9,
+    "updated_at": "2026-06-01T15:26:48.367Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 17,
+  "fields": {
+    "district": 17,
+    "education": 5,
+    "health": 0,
+    "culture": 3,
+    "sport": 9,
+    "commerce": 1209,
+    "social_score": 8.9,
+    "updated_at": "2026-06-01T15:26:48.368Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 18,
+  "fields": {
+    "district": 18,
+    "education": 1,
+    "health": 0,
+    "culture": 2,
+    "sport": 5,
+    "commerce": 751,
+    "social_score": 8.3,
+    "updated_at": "2026-06-01T15:26:48.368Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 19,
+  "fields": {
+    "district": 19,
+    "education": 1,
+    "health": 0,
+    "culture": 0,
+    "sport": 5,
+    "commerce": 99,
+    "social_score": 4.1,
+    "updated_at": "2026-06-01T15:26:48.368Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 20,
+  "fields": {
+    "district": 20,
+    "education": 5,
+    "health": 1,
+    "culture": 8,
+    "sport": 7,
+    "commerce": 611,
+    "social_score": 8.1,
+    "updated_at": "2026-06-01T15:26:48.369Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 21,
+  "fields": {
+    "district": 21,
+    "education": 1,
+    "health": 0,
+    "culture": 3,
+    "sport": 6,
+    "commerce": 405,
+    "social_score": 7.3,
+    "updated_at": "2026-06-01T15:26:48.369Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 22,
+  "fields": {
+    "district": 22,
+    "education": 4,
+    "health": 0,
+    "culture": 2,
+    "sport": 4,
+    "commerce": 279,
+    "social_score": 6.6,
+    "updated_at": "2026-06-01T15:26:48.369Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 23,
+  "fields": {
+    "district": 23,
+    "education": 3,
+    "health": 0,
+    "culture": 1,
+    "sport": 7,
+    "commerce": 224,
+    "social_score": 6.1,
+    "updated_at": "2026-06-01T15:26:48.370Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 24,
+  "fields": {
+    "district": 24,
+    "education": 3,
+    "health": 0,
+    "culture": 3,
+    "sport": 6,
+    "commerce": 472,
+    "social_score": 7.6,
+    "updated_at": "2026-06-01T15:26:48.370Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 25,
+  "fields": {
+    "district": 25,
+    "education": 4,
+    "health": 0,
+    "culture": 2,
+    "sport": 11,
+    "commerce": 421,
+    "social_score": 7.4,
+    "updated_at": "2026-06-01T15:26:48.370Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 26,
+  "fields": {
+    "district": 26,
+    "education": 3,
+    "health": 1,
+    "culture": 2,
+    "sport": 14,
+    "commerce": 998,
+    "social_score": 8.7,
+    "updated_at": "2026-06-01T15:26:48.371Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 27,
+  "fields": {
+    "district": 27,
+    "education": 3,
+    "health": 0,
+    "culture": 4,
+    "sport": 10,
+    "commerce": 297,
+    "social_score": 6.8,
+    "updated_at": "2026-06-01T15:26:48.371Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 28,
+  "fields": {
+    "district": 28,
+    "education": 3,
+    "health": 1,
+    "culture": 2,
+    "sport": 11,
+    "commerce": 225,
+    "social_score": 6.3,
+    "updated_at": "2026-06-01T15:26:48.371Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 29,
+  "fields": {
+    "district": 29,
+    "education": 5,
+    "health": 0,
+    "culture": 3,
+    "sport": 8,
+    "commerce": 333,
+    "social_score": 7.0,
+    "updated_at": "2026-06-01T15:26:48.372Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 30,
+  "fields": {
+    "district": 30,
+    "education": 3,
+    "health": 1,
+    "culture": 4,
+    "sport": 8,
+    "commerce": 374,
+    "social_score": 7.2,
+    "updated_at": "2026-06-01T15:26:48.372Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 31,
+  "fields": {
+    "district": 31,
+    "education": 5,
+    "health": 0,
+    "culture": 2,
+    "sport": 16,
+    "commerce": 424,
+    "social_score": 7.5,
+    "updated_at": "2026-06-01T15:26:48.372Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 32,
+  "fields": {
+    "district": 32,
+    "education": 3,
+    "health": 0,
+    "culture": 1,
+    "sport": 15,
+    "commerce": 391,
+    "social_score": 7.3,
+    "updated_at": "2026-06-01T15:26:48.373Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 33,
+  "fields": {
+    "district": 33,
+    "education": 6,
+    "health": 1,
+    "culture": 2,
+    "sport": 7,
+    "commerce": 461,
+    "social_score": 7.6,
+    "updated_at": "2026-06-01T15:26:48.373Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 34,
+  "fields": {
+    "district": 34,
+    "education": 2,
+    "health": 0,
+    "culture": 2,
+    "sport": 7,
+    "commerce": 559,
+    "social_score": 7.9,
+    "updated_at": "2026-06-01T15:26:48.373Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 35,
+  "fields": {
+    "district": 35,
+    "education": 9,
+    "health": 1,
+    "culture": 2,
+    "sport": 15,
+    "commerce": 636,
+    "social_score": 8.2,
+    "updated_at": "2026-06-01T15:26:48.374Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 36,
+  "fields": {
+    "district": 36,
+    "education": 3,
+    "health": 0,
+    "culture": 4,
+    "sport": 2,
+    "commerce": 600,
+    "social_score": 8.0,
+    "updated_at": "2026-06-01T15:26:48.374Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 37,
+  "fields": {
+    "district": 37,
+    "education": 2,
+    "health": 0,
+    "culture": 2,
+    "sport": 10,
+    "commerce": 468,
+    "social_score": 7.6,
+    "updated_at": "2026-06-01T15:26:48.374Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 38,
+  "fields": {
+    "district": 38,
+    "education": 4,
+    "health": 0,
+    "culture": 4,
+    "sport": 10,
+    "commerce": 329,
+    "social_score": 7.0,
+    "updated_at": "2026-06-01T15:26:48.375Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 39,
+  "fields": {
+    "district": 39,
+    "education": 2,
+    "health": 1,
+    "culture": 4,
+    "sport": 8,
+    "commerce": 424,
+    "social_score": 7.4,
+    "updated_at": "2026-06-01T15:26:48.375Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 40,
+  "fields": {
+    "district": 40,
+    "education": 6,
+    "health": 0,
+    "culture": 5,
+    "sport": 20,
+    "commerce": 429,
+    "social_score": 7.6,
+    "updated_at": "2026-06-01T15:26:48.375Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 41,
+  "fields": {
+    "district": 41,
+    "education": 3,
+    "health": 0,
+    "culture": 1,
+    "sport": 39,
+    "commerce": 448,
+    "social_score": 7.7,
+    "updated_at": "2026-06-01T15:26:48.376Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 42,
+  "fields": {
+    "district": 42,
+    "education": 7,
+    "health": 0,
+    "culture": 5,
+    "sport": 17,
+    "commerce": 510,
+    "social_score": 7.8,
+    "updated_at": "2026-06-01T15:26:48.376Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 43,
+  "fields": {
+    "district": 43,
+    "education": 4,
+    "health": 0,
+    "culture": 1,
+    "sport": 24,
+    "commerce": 385,
+    "social_score": 7.4,
+    "updated_at": "2026-06-01T15:26:48.376Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 44,
+  "fields": {
+    "district": 44,
+    "education": 4,
+    "health": 0,
+    "culture": 5,
+    "sport": 7,
+    "commerce": 667,
+    "social_score": 8.2,
+    "updated_at": "2026-06-01T15:26:48.377Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 45,
+  "fields": {
+    "district": 45,
+    "education": 7,
+    "health": 0,
+    "culture": 14,
+    "sport": 17,
+    "commerce": 809,
+    "social_score": 8.5,
+    "updated_at": "2026-06-01T15:26:48.377Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 46,
+  "fields": {
+    "district": 46,
+    "education": 5,
+    "health": 0,
+    "culture": 1,
+    "sport": 16,
+    "commerce": 517,
+    "social_score": 7.8,
+    "updated_at": "2026-06-01T15:26:48.377Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 47,
+  "fields": {
+    "district": 47,
+    "education": 1,
+    "health": 0,
+    "culture": 2,
+    "sport": 6,
+    "commerce": 214,
+    "social_score": 5.9,
+    "updated_at": "2026-06-01T15:26:48.378Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 48,
+  "fields": {
+    "district": 48,
+    "education": 2,
+    "health": 1,
+    "culture": 1,
+    "sport": 13,
+    "commerce": 239,
+    "social_score": 6.4,
+    "updated_at": "2026-06-01T15:26:48.378Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 49,
+  "fields": {
+    "district": 49,
+    "education": 2,
+    "health": 1,
+    "culture": 3,
+    "sport": 6,
+    "commerce": 334,
+    "social_score": 6.9,
+    "updated_at": "2026-06-01T15:26:48.378Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 50,
+  "fields": {
+    "district": 50,
+    "education": 1,
+    "health": 0,
+    "culture": 0,
+    "sport": 4,
+    "commerce": 82,
+    "social_score": 3.7,
+    "updated_at": "2026-06-01T15:26:48.379Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 51,
+  "fields": {
+    "district": 51,
+    "education": 4,
+    "health": 0,
+    "culture": 7,
+    "sport": 10,
+    "commerce": 500,
+    "social_score": 7.7,
+    "updated_at": "2026-06-01T15:26:48.379Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 52,
+  "fields": {
+    "district": 52,
+    "education": 5,
+    "health": 0,
+    "culture": 3,
+    "sport": 8,
+    "commerce": 524,
+    "social_score": 7.8,
+    "updated_at": "2026-06-01T15:26:48.379Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 53,
+  "fields": {
+    "district": 53,
+    "education": 4,
+    "health": 0,
+    "culture": 1,
+    "sport": 25,
+    "commerce": 542,
+    "social_score": 7.9,
+    "updated_at": "2026-06-01T15:26:48.380Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 54,
+  "fields": {
+    "district": 54,
+    "education": 2,
+    "health": 0,
+    "culture": 2,
+    "sport": 6,
+    "commerce": 183,
+    "social_score": 5.6,
+    "updated_at": "2026-06-01T15:26:48.380Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 55,
+  "fields": {
+    "district": 55,
+    "education": 6,
+    "health": 0,
+    "culture": 4,
+    "sport": 10,
+    "commerce": 734,
+    "social_score": 8.3,
+    "updated_at": "2026-06-01T15:26:48.380Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 56,
+  "fields": {
+    "district": 56,
+    "education": 4,
+    "health": 0,
+    "culture": 0,
+    "sport": 16,
+    "commerce": 80,
+    "social_score": 4.4,
+    "updated_at": "2026-06-01T15:26:48.381Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 57,
+  "fields": {
+    "district": 57,
+    "education": 9,
+    "health": 0,
+    "culture": 4,
+    "sport": 6,
+    "commerce": 1210,
+    "social_score": 8.9,
+    "updated_at": "2026-06-01T15:26:48.381Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 58,
+  "fields": {
+    "district": 58,
+    "education": 2,
+    "health": 0,
+    "culture": 3,
+    "sport": 7,
+    "commerce": 998,
+    "social_score": 8.7,
+    "updated_at": "2026-06-01T15:26:48.381Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 59,
+  "fields": {
+    "district": 59,
+    "education": 9,
+    "health": 0,
+    "culture": 16,
+    "sport": 16,
+    "commerce": 1070,
+    "social_score": 8.8,
+    "updated_at": "2026-06-01T15:26:48.382Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 60,
+  "fields": {
+    "district": 60,
+    "education": 4,
+    "health": 0,
+    "culture": 4,
+    "sport": 13,
+    "commerce": 720,
+    "social_score": 8.3,
+    "updated_at": "2026-06-01T15:26:48.382Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 61,
+  "fields": {
+    "district": 61,
+    "education": 6,
+    "health": 0,
+    "culture": 2,
+    "sport": 16,
+    "commerce": 437,
+    "social_score": 7.6,
+    "updated_at": "2026-06-01T15:26:48.382Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 62,
+  "fields": {
+    "district": 62,
+    "education": 3,
+    "health": 1,
+    "culture": 2,
+    "sport": 14,
+    "commerce": 151,
+    "social_score": 5.5,
+    "updated_at": "2026-06-01T15:26:48.383Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 63,
+  "fields": {
+    "district": 63,
+    "education": 2,
+    "health": 1,
+    "culture": 2,
+    "sport": 14,
+    "commerce": 152,
+    "social_score": 5.5,
+    "updated_at": "2026-06-01T15:26:48.383Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 64,
+  "fields": {
+    "district": 64,
+    "education": 5,
+    "health": 0,
+    "culture": 2,
+    "sport": 15,
+    "commerce": 689,
+    "social_score": 8.2,
+    "updated_at": "2026-06-01T15:26:48.383Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 65,
+  "fields": {
+    "district": 65,
+    "education": 6,
+    "health": 0,
+    "culture": 1,
+    "sport": 17,
+    "commerce": 358,
+    "social_score": 7.2,
+    "updated_at": "2026-06-01T15:26:48.384Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 66,
+  "fields": {
+    "district": 66,
+    "education": 8,
+    "health": 0,
+    "culture": 4,
+    "sport": 10,
+    "commerce": 1087,
+    "social_score": 8.8,
+    "updated_at": "2026-06-01T15:26:48.384Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 67,
+  "fields": {
+    "district": 67,
+    "education": 2,
+    "health": 0,
+    "culture": 3,
+    "sport": 6,
+    "commerce": 478,
+    "social_score": 7.6,
+    "updated_at": "2026-06-01T15:26:48.384Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 68,
+  "fields": {
+    "district": 68,
+    "education": 4,
+    "health": 0,
+    "culture": 1,
+    "sport": 3,
+    "commerce": 303,
+    "social_score": 6.7,
+    "updated_at": "2026-06-01T15:26:48.385Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 69,
+  "fields": {
+    "district": 69,
+    "education": 1,
+    "health": 0,
+    "culture": 1,
+    "sport": 9,
+    "commerce": 55,
+    "social_score": 3.3,
+    "updated_at": "2026-06-01T15:26:48.385Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 70,
+  "fields": {
+    "district": 70,
+    "education": 6,
+    "health": 0,
+    "culture": 3,
+    "sport": 5,
+    "commerce": 458,
+    "social_score": 7.6,
+    "updated_at": "2026-06-01T15:26:48.385Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 71,
+  "fields": {
+    "district": 71,
+    "education": 5,
+    "health": 0,
+    "culture": 2,
+    "sport": 6,
+    "commerce": 524,
+    "social_score": 7.8,
+    "updated_at": "2026-06-01T15:26:48.386Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 72,
+  "fields": {
+    "district": 72,
+    "education": 3,
+    "health": 0,
+    "culture": 6,
+    "sport": 7,
+    "commerce": 520,
+    "social_score": 7.8,
+    "updated_at": "2026-06-01T15:26:48.386Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 73,
+  "fields": {
+    "district": 73,
+    "education": 5,
+    "health": 0,
+    "culture": 1,
+    "sport": 8,
+    "commerce": 334,
+    "social_score": 7.0,
+    "updated_at": "2026-06-01T15:26:48.386Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 74,
+  "fields": {
+    "district": 74,
+    "education": 5,
+    "health": 1,
+    "culture": 4,
+    "sport": 4,
+    "commerce": 320,
+    "social_score": 6.9,
+    "updated_at": "2026-06-01T15:26:48.387Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 75,
+  "fields": {
+    "district": 75,
+    "education": 6,
+    "health": 0,
+    "culture": 3,
+    "sport": 10,
+    "commerce": 707,
+    "social_score": 8.3,
+    "updated_at": "2026-06-01T15:26:48.387Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 76,
+  "fields": {
+    "district": 76,
+    "education": 2,
+    "health": 0,
+    "culture": 1,
+    "sport": 7,
+    "commerce": 99,
+    "social_score": 4.3,
+    "updated_at": "2026-06-01T15:26:48.387Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 77,
+  "fields": {
+    "district": 77,
+    "education": 7,
+    "health": 0,
+    "culture": 2,
+    "sport": 30,
+    "commerce": 682,
+    "social_score": 8.3,
+    "updated_at": "2026-06-01T15:26:48.388Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 78,
+  "fields": {
+    "district": 78,
+    "education": 5,
+    "health": 1,
+    "culture": 3,
+    "sport": 14,
+    "commerce": 631,
+    "social_score": 8.1,
+    "updated_at": "2026-06-01T15:26:48.388Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 79,
+  "fields": {
+    "district": 79,
+    "education": 3,
+    "health": 0,
+    "culture": 1,
+    "sport": 0,
+    "commerce": 103,
+    "social_score": 4.2,
+    "updated_at": "2026-06-01T15:26:48.388Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 80,
+  "fields": {
+    "district": 80,
+    "education": 6,
+    "health": 1,
+    "culture": 5,
+    "sport": 14,
+    "commerce": 315,
+    "social_score": 7.0,
+    "updated_at": "2026-06-01T15:26:48.389Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 81,
+  "fields": {
+    "district": 81,
+    "education": 5,
+    "health": 0,
+    "culture": 3,
+    "sport": 11,
+    "commerce": 636,
+    "social_score": 8.1,
+    "updated_at": "2026-06-01T15:26:48.389Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 82,
+  "fields": {
+    "district": 82,
+    "education": 5,
+    "health": 0,
+    "culture": 1,
+    "sport": 4,
+    "commerce": 738,
+    "social_score": 8.3,
+    "updated_at": "2026-06-01T15:26:48.389Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 83,
+  "fields": {
+    "district": 83,
+    "education": 9,
+    "health": 0,
+    "culture": 1,
+    "sport": 15,
+    "commerce": 308,
+    "social_score": 7.0,
+    "updated_at": "2026-06-01T15:26:48.390Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 84,
+  "fields": {
+    "district": 84,
+    "education": 2,
+    "health": 2,
+    "culture": 3,
+    "sport": 14,
+    "commerce": 610,
+    "social_score": 8.0,
+    "updated_at": "2026-06-01T15:26:48.390Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 85,
+  "fields": {
+    "district": 85,
+    "education": 4,
+    "health": 0,
+    "culture": 2,
+    "sport": 8,
+    "commerce": 902,
+    "social_score": 8.5,
+    "updated_at": "2026-06-01T15:26:48.390Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 86,
+  "fields": {
+    "district": 86,
+    "education": 5,
+    "health": 0,
+    "culture": 3,
+    "sport": 12,
+    "commerce": 264,
+    "social_score": 6.6,
+    "updated_at": "2026-06-01T15:26:48.391Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 87,
+  "fields": {
+    "district": 87,
+    "education": 3,
+    "health": 0,
+    "culture": 1,
+    "sport": 5,
+    "commerce": 265,
+    "social_score": 6.4,
+    "updated_at": "2026-06-01T15:26:48.391Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 88,
+  "fields": {
+    "district": 88,
+    "education": 4,
+    "health": 1,
+    "culture": 5,
+    "sport": 7,
+    "commerce": 546,
+    "social_score": 7.9,
+    "updated_at": "2026-06-01T15:26:48.391Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 89,
+  "fields": {
+    "district": 89,
+    "education": 9,
+    "health": 0,
+    "culture": 3,
+    "sport": 17,
+    "commerce": 467,
+    "social_score": 7.7,
+    "updated_at": "2026-06-01T15:26:48.392Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 90,
+  "fields": {
+    "district": 90,
+    "education": 3,
+    "health": 1,
+    "culture": 4,
+    "sport": 5,
+    "commerce": 223,
+    "social_score": 6.2,
+    "updated_at": "2026-06-01T15:26:48.392Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 91,
+  "fields": {
+    "district": 91,
+    "education": 4,
+    "health": 0,
+    "culture": 1,
+    "sport": 17,
+    "commerce": 431,
+    "social_score": 7.5,
+    "updated_at": "2026-06-01T15:26:48.392Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 92,
+  "fields": {
+    "district": 92,
+    "education": 3,
+    "health": 0,
+    "culture": 1,
+    "sport": 7,
+    "commerce": 256,
+    "social_score": 6.4,
+    "updated_at": "2026-06-01T15:26:48.393Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 93,
+  "fields": {
+    "district": 93,
+    "education": 3,
+    "health": 1,
+    "culture": 4,
+    "sport": 9,
+    "commerce": 427,
+    "social_score": 7.5,
+    "updated_at": "2026-06-01T15:26:48.393Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 94,
+  "fields": {
+    "district": 94,
+    "education": 6,
+    "health": 0,
+    "culture": 2,
+    "sport": 6,
+    "commerce": 365,
+    "social_score": 7.2,
+    "updated_at": "2026-06-01T15:26:48.393Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 95,
+  "fields": {
+    "district": 95,
+    "education": 5,
+    "health": 0,
+    "culture": 3,
+    "sport": 8,
+    "commerce": 431,
+    "social_score": 7.5,
+    "updated_at": "2026-06-01T15:26:48.394Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 96,
+  "fields": {
+    "district": 96,
+    "education": 1,
+    "health": 0,
+    "culture": 1,
+    "sport": 4,
+    "commerce": 116,
+    "social_score": 4.5,
+    "updated_at": "2026-06-01T15:26:48.394Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 97,
+  "fields": {
+    "district": 97,
+    "education": 4,
+    "health": 0,
+    "culture": 1,
+    "sport": 4,
+    "commerce": 360,
+    "social_score": 7.1,
+    "updated_at": "2026-06-01T15:26:48.394Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 98,
+  "fields": {
+    "district": 98,
+    "education": 12,
+    "health": 0,
+    "culture": 3,
+    "sport": 11,
+    "commerce": 699,
+    "social_score": 8.3,
+    "updated_at": "2026-06-01T15:26:48.395Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 99,
+  "fields": {
+    "district": 99,
+    "education": 8,
+    "health": 2,
+    "culture": 4,
+    "sport": 12,
+    "commerce": 608,
+    "social_score": 8.1,
+    "updated_at": "2026-06-01T15:26:48.395Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 100,
+  "fields": {
+    "district": 100,
+    "education": 3,
+    "health": 0,
+    "culture": 2,
+    "sport": 7,
+    "commerce": 232,
+    "social_score": 6.2,
+    "updated_at": "2026-06-01T15:26:48.396Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 101,
+  "fields": {
+    "district": 101,
+    "education": 5,
+    "health": 0,
+    "culture": 3,
+    "sport": 2,
+    "commerce": 358,
+    "social_score": 7.1,
+    "updated_at": "2026-06-01T15:26:48.396Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 102,
+  "fields": {
+    "district": 102,
+    "education": 3,
+    "health": 0,
+    "culture": 4,
+    "sport": 3,
+    "commerce": 347,
+    "social_score": 7.0,
+    "updated_at": "2026-06-01T15:26:48.396Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 103,
+  "fields": {
+    "district": 103,
+    "education": 2,
+    "health": 1,
+    "culture": 2,
+    "sport": 12,
+    "commerce": 464,
+    "social_score": 7.6,
+    "updated_at": "2026-06-01T15:26:48.396Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 104,
+  "fields": {
+    "district": 104,
+    "education": 2,
+    "health": 0,
+    "culture": 1,
+    "sport": 10,
+    "commerce": 298,
+    "social_score": 6.7,
+    "updated_at": "2026-06-01T15:26:48.397Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 105,
+  "fields": {
+    "district": 105,
+    "education": 3,
+    "health": 1,
+    "culture": 2,
+    "sport": 12,
+    "commerce": 356,
+    "social_score": 7.1,
+    "updated_at": "2026-06-01T15:26:48.397Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 106,
+  "fields": {
+    "district": 106,
+    "education": 5,
+    "health": 1,
+    "culture": 14,
+    "sport": 8,
+    "commerce": 1229,
+    "social_score": 8.9,
+    "updated_at": "2026-06-01T15:26:48.397Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 107,
+  "fields": {
+    "district": 107,
+    "education": 6,
+    "health": 0,
+    "culture": 1,
+    "sport": 8,
+    "commerce": 342,
+    "social_score": 7.1,
+    "updated_at": "2026-06-01T15:26:48.398Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 108,
+  "fields": {
+    "district": 108,
+    "education": 4,
+    "health": 0,
+    "culture": 2,
+    "sport": 16,
+    "commerce": 224,
+    "social_score": 6.3,
+    "updated_at": "2026-06-01T15:26:48.398Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 109,
+  "fields": {
+    "district": 109,
+    "education": 2,
+    "health": 0,
+    "culture": 2,
+    "sport": 10,
+    "commerce": 295,
+    "social_score": 6.7,
+    "updated_at": "2026-06-01T15:26:48.398Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 110,
+  "fields": {
+    "district": 110,
+    "education": 4,
+    "health": 0,
+    "culture": 2,
+    "sport": 7,
+    "commerce": 364,
+    "social_score": 7.1,
+    "updated_at": "2026-06-01T15:26:48.399Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 111,
+  "fields": {
+    "district": 111,
+    "education": 5,
+    "health": 0,
+    "culture": 1,
+    "sport": 8,
+    "commerce": 288,
+    "social_score": 6.7,
+    "updated_at": "2026-06-01T15:26:48.399Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 112,
+  "fields": {
+    "district": 112,
+    "education": 4,
+    "health": 0,
+    "culture": 2,
+    "sport": 24,
+    "commerce": 286,
+    "social_score": 6.9,
+    "updated_at": "2026-06-01T15:26:48.399Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 113,
+  "fields": {
+    "district": 113,
+    "education": 2,
+    "health": 0,
+    "culture": 0,
+    "sport": 5,
+    "commerce": 451,
+    "social_score": 7.5,
+    "updated_at": "2026-06-01T15:26:48.400Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 114,
+  "fields": {
+    "district": 114,
+    "education": 4,
+    "health": 0,
+    "culture": 1,
+    "sport": 10,
+    "commerce": 475,
+    "social_score": 7.6,
+    "updated_at": "2026-06-01T15:26:48.400Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 115,
+  "fields": {
+    "district": 115,
+    "education": 5,
+    "health": 1,
+    "culture": 2,
+    "sport": 11,
+    "commerce": 628,
+    "social_score": 8.1,
+    "updated_at": "2026-06-01T15:26:48.400Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 116,
+  "fields": {
+    "district": 116,
+    "education": 7,
+    "health": 0,
+    "culture": 3,
+    "sport": 12,
+    "commerce": 438,
+    "social_score": 7.6,
+    "updated_at": "2026-06-01T15:26:48.401Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 117,
+  "fields": {
+    "district": 117,
+    "education": 5,
+    "health": 0,
+    "culture": 3,
+    "sport": 5,
+    "commerce": 194,
+    "social_score": 5.9,
+    "updated_at": "2026-06-01T15:26:48.401Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 118,
+  "fields": {
+    "district": 118,
+    "education": 8,
+    "health": 1,
+    "culture": 7,
+    "sport": 14,
+    "commerce": 692,
+    "social_score": 8.3,
+    "updated_at": "2026-06-01T15:26:48.401Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 119,
+  "fields": {
+    "district": 119,
+    "education": 6,
+    "health": 0,
+    "culture": 2,
+    "sport": 19,
+    "commerce": 540,
+    "social_score": 7.9,
+    "updated_at": "2026-06-01T15:26:48.402Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 120,
+  "fields": {
+    "district": 120,
+    "education": 5,
+    "health": 0,
+    "culture": 1,
+    "sport": 12,
+    "commerce": 230,
+    "social_score": 6.3,
+    "updated_at": "2026-06-01T15:26:48.402Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 121,
+  "fields": {
+    "district": 121,
+    "education": 1,
+    "health": 0,
+    "culture": 1,
+    "sport": 7,
+    "commerce": 26,
+    "social_score": 2.2,
+    "updated_at": "2026-06-01T15:26:48.402Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 122,
+  "fields": {
+    "district": 122,
+    "education": 8,
+    "health": 0,
+    "culture": 5,
+    "sport": 2,
+    "commerce": 444,
+    "social_score": 7.5,
+    "updated_at": "2026-06-01T15:26:48.403Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 123,
+  "fields": {
+    "district": 123,
+    "education": 5,
+    "health": 1,
+    "culture": 1,
+    "sport": 14,
+    "commerce": 334,
+    "social_score": 7.1,
+    "updated_at": "2026-06-01T15:26:48.403Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 124,
+  "fields": {
+    "district": 124,
+    "education": 4,
+    "health": 1,
+    "culture": 1,
+    "sport": 11,
+    "commerce": 168,
+    "social_score": 5.7,
+    "updated_at": "2026-06-01T15:26:48.403Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 125,
+  "fields": {
+    "district": 125,
+    "education": 1,
+    "health": 0,
+    "culture": 0,
+    "sport": 0,
+    "commerce": 54,
+    "social_score": 2.7,
+    "updated_at": "2026-06-01T15:26:48.404Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 126,
+  "fields": {
+    "district": 126,
+    "education": 0,
+    "health": 0,
+    "culture": 0,
+    "sport": 0,
+    "commerce": 0,
+    "social_score": 0.0,
+    "updated_at": "2026-06-01T15:26:48.404Z"
+  }
+},
+{
+  "model": "mapapi.socialdistrictstats",
+  "pk": 127,
+  "fields": {
+    "district": 127,
+    "education": 0,
+    "health": 0,
+    "culture": 0,
+    "sport": 0,
+    "commerce": 0,
+    "social_score": 0.0,
+    "updated_at": "2026-06-01T15:26:48.404Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 1,
+  "fields": {
+    "district": 1,
+    "total_complaints": 108,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 108,
+    "noise_score": 4.3,
+    "updated_at": "2026-06-01T15:26:48.704Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 2,
+  "fields": {
+    "district": 2,
+    "total_complaints": 166,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 166,
+    "noise_score": 3.3,
+    "updated_at": "2026-06-01T15:26:48.705Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 3,
+  "fields": {
+    "district": 3,
+    "total_complaints": 81,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 81,
+    "noise_score": 5.0,
+    "updated_at": "2026-06-01T15:26:48.705Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 4,
+  "fields": {
+    "district": 4,
+    "total_complaints": 92,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 92,
+    "noise_score": 4.7,
+    "updated_at": "2026-06-01T15:26:48.706Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 5,
+  "fields": {
+    "district": 5,
+    "total_complaints": 92,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 92,
+    "noise_score": 4.7,
+    "updated_at": "2026-06-01T15:26:48.706Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 6,
+  "fields": {
+    "district": 6,
+    "total_complaints": 33,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 33,
+    "noise_score": 7.1,
+    "updated_at": "2026-06-01T15:26:48.706Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 7,
+  "fields": {
+    "district": 7,
+    "total_complaints": 255,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 255,
+    "noise_score": 2.4,
+    "updated_at": "2026-06-01T15:26:48.707Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 8,
+  "fields": {
+    "district": 8,
+    "total_complaints": 33,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 33,
+    "noise_score": 7.1,
+    "updated_at": "2026-06-01T15:26:48.707Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 9,
+  "fields": {
+    "district": 9,
+    "total_complaints": 28,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 28,
+    "noise_score": 7.4,
+    "updated_at": "2026-06-01T15:26:48.707Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 10,
+  "fields": {
+    "district": 10,
+    "total_complaints": 120,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 120,
+    "noise_score": 4.0,
+    "updated_at": "2026-06-01T15:26:48.708Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 11,
+  "fields": {
+    "district": 11,
+    "total_complaints": 151,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 151,
+    "noise_score": 3.5,
+    "updated_at": "2026-06-01T15:26:48.708Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 12,
+  "fields": {
+    "district": 12,
+    "total_complaints": 145,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 145,
+    "noise_score": 3.6,
+    "updated_at": "2026-06-01T15:26:48.708Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 13,
+  "fields": {
+    "district": 13,
+    "total_complaints": 33,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 33,
+    "noise_score": 7.1,
+    "updated_at": "2026-06-01T15:26:48.709Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 14,
+  "fields": {
+    "district": 14,
+    "total_complaints": 76,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 76,
+    "noise_score": 5.1,
+    "updated_at": "2026-06-01T15:26:48.709Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 15,
+  "fields": {
+    "district": 15,
+    "total_complaints": 40,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 40,
+    "noise_score": 6.7,
+    "updated_at": "2026-06-01T15:26:48.709Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 16,
+  "fields": {
+    "district": 16,
+    "total_complaints": 195,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 195,
+    "noise_score": 2.9,
+    "updated_at": "2026-06-01T15:26:48.710Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 17,
+  "fields": {
+    "district": 17,
+    "total_complaints": 69,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 69,
+    "noise_score": 5.4,
+    "updated_at": "2026-06-01T15:26:48.710Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 18,
+  "fields": {
+    "district": 18,
+    "total_complaints": 163,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 163,
+    "noise_score": 3.3,
+    "updated_at": "2026-06-01T15:26:48.710Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 19,
+  "fields": {
+    "district": 19,
+    "total_complaints": 53,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 53,
+    "noise_score": 6.0,
+    "updated_at": "2026-06-01T15:26:48.711Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 20,
+  "fields": {
+    "district": 20,
+    "total_complaints": 177,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 177,
+    "noise_score": 3.1,
+    "updated_at": "2026-06-01T15:26:48.711Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 21,
+  "fields": {
+    "district": 21,
+    "total_complaints": 149,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 149,
+    "noise_score": 3.5,
+    "updated_at": "2026-06-01T15:26:48.711Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 22,
+  "fields": {
+    "district": 22,
+    "total_complaints": 85,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 85,
+    "noise_score": 4.8,
+    "updated_at": "2026-06-01T15:26:48.712Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 23,
+  "fields": {
+    "district": 23,
+    "total_complaints": 95,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 95,
+    "noise_score": 4.6,
+    "updated_at": "2026-06-01T15:26:48.712Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 24,
+  "fields": {
+    "district": 24,
+    "total_complaints": 202,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 202,
+    "noise_score": 2.8,
+    "updated_at": "2026-06-01T15:26:48.712Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 25,
+  "fields": {
+    "district": 25,
+    "total_complaints": 97,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 97,
+    "noise_score": 4.5,
+    "updated_at": "2026-06-01T15:26:48.713Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 26,
+  "fields": {
+    "district": 26,
+    "total_complaints": 75,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 75,
+    "noise_score": 5.2,
+    "updated_at": "2026-06-01T15:26:48.713Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 27,
+  "fields": {
+    "district": 27,
+    "total_complaints": 111,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 111,
+    "noise_score": 4.2,
+    "updated_at": "2026-06-01T15:26:48.713Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 28,
+  "fields": {
+    "district": 28,
+    "total_complaints": 95,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 95,
+    "noise_score": 4.6,
+    "updated_at": "2026-06-01T15:26:48.714Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 29,
+  "fields": {
+    "district": 29,
+    "total_complaints": 127,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 127,
+    "noise_score": 3.9,
+    "updated_at": "2026-06-01T15:26:48.714Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 30,
+  "fields": {
+    "district": 30,
+    "total_complaints": 99,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 99,
+    "noise_score": 4.5,
+    "updated_at": "2026-06-01T15:26:48.714Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 31,
+  "fields": {
+    "district": 31,
+    "total_complaints": 108,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 108,
+    "noise_score": 4.3,
+    "updated_at": "2026-06-01T15:26:48.715Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 32,
+  "fields": {
+    "district": 32,
+    "total_complaints": 60,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 60,
+    "noise_score": 5.7,
+    "updated_at": "2026-06-01T15:26:48.715Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 33,
+  "fields": {
+    "district": 33,
+    "total_complaints": 147,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 147,
+    "noise_score": 3.5,
+    "updated_at": "2026-06-01T15:26:48.715Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 34,
+  "fields": {
+    "district": 34,
+    "total_complaints": 107,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 107,
+    "noise_score": 4.3,
+    "updated_at": "2026-06-01T15:26:48.716Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 35,
+  "fields": {
+    "district": 35,
+    "total_complaints": 109,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 109,
+    "noise_score": 4.2,
+    "updated_at": "2026-06-01T15:26:48.716Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 36,
+  "fields": {
+    "district": 36,
+    "total_complaints": 143,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 143,
+    "noise_score": 3.6,
+    "updated_at": "2026-06-01T15:26:48.716Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 37,
+  "fields": {
+    "district": 37,
+    "total_complaints": 108,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 108,
+    "noise_score": 4.3,
+    "updated_at": "2026-06-01T15:26:48.717Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 38,
+  "fields": {
+    "district": 38,
+    "total_complaints": 170,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 170,
+    "noise_score": 3.2,
+    "updated_at": "2026-06-01T15:26:48.717Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 39,
+  "fields": {
+    "district": 39,
+    "total_complaints": 89,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 89,
+    "noise_score": 4.7,
+    "updated_at": "2026-06-01T15:26:48.717Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 40,
+  "fields": {
+    "district": 40,
+    "total_complaints": 145,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 145,
+    "noise_score": 3.6,
+    "updated_at": "2026-06-01T15:26:48.718Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 41,
+  "fields": {
+    "district": 41,
+    "total_complaints": 46,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 46,
+    "noise_score": 6.3,
+    "updated_at": "2026-06-01T15:26:48.718Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 42,
+  "fields": {
+    "district": 42,
+    "total_complaints": 195,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 195,
+    "noise_score": 2.9,
+    "updated_at": "2026-06-01T15:26:48.718Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 43,
+  "fields": {
+    "district": 43,
+    "total_complaints": 80,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 80,
+    "noise_score": 5.0,
+    "updated_at": "2026-06-01T15:26:48.719Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 44,
+  "fields": {
+    "district": 44,
+    "total_complaints": 153,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 153,
+    "noise_score": 3.4,
+    "updated_at": "2026-06-01T15:26:48.719Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 45,
+  "fields": {
+    "district": 45,
+    "total_complaints": 355,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 355,
+    "noise_score": 1.8,
+    "updated_at": "2026-06-01T15:26:48.719Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 46,
+  "fields": {
+    "district": 46,
+    "total_complaints": 31,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 31,
+    "noise_score": 7.2,
+    "updated_at": "2026-06-01T15:26:48.720Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 47,
+  "fields": {
+    "district": 47,
+    "total_complaints": 6,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 6,
+    "noise_score": 9.3,
+    "updated_at": "2026-06-01T15:26:48.720Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 48,
+  "fields": {
+    "district": 48,
+    "total_complaints": 119,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 119,
+    "noise_score": 4.0,
+    "updated_at": "2026-06-01T15:26:48.720Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 49,
+  "fields": {
+    "district": 49,
+    "total_complaints": 165,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 165,
+    "noise_score": 3.3,
+    "updated_at": "2026-06-01T15:26:48.721Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 50,
+  "fields": {
+    "district": 50,
+    "total_complaints": 16,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 16,
+    "noise_score": 8.3,
+    "updated_at": "2026-06-01T15:26:48.721Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 51,
+  "fields": {
+    "district": 51,
+    "total_complaints": 254,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 254,
+    "noise_score": 2.4,
+    "updated_at": "2026-06-01T15:26:48.721Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 52,
+  "fields": {
+    "district": 52,
+    "total_complaints": 83,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 83,
+    "noise_score": 4.9,
+    "updated_at": "2026-06-01T15:26:48.722Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 53,
+  "fields": {
+    "district": 53,
+    "total_complaints": 41,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 41,
+    "noise_score": 6.6,
+    "updated_at": "2026-06-01T15:26:48.722Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 54,
+  "fields": {
+    "district": 54,
+    "total_complaints": 10,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 10,
+    "noise_score": 8.9,
+    "updated_at": "2026-06-01T15:26:48.722Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 55,
+  "fields": {
+    "district": 55,
+    "total_complaints": 128,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 128,
+    "noise_score": 3.8,
+    "updated_at": "2026-06-01T15:26:48.723Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 56,
+  "fields": {
+    "district": 56,
+    "total_complaints": 21,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 21,
+    "noise_score": 7.9,
+    "updated_at": "2026-06-01T15:26:48.723Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 57,
+  "fields": {
+    "district": 57,
+    "total_complaints": 137,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 137,
+    "noise_score": 3.7,
+    "updated_at": "2026-06-01T15:26:48.723Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 58,
+  "fields": {
+    "district": 58,
+    "total_complaints": 204,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 204,
+    "noise_score": 2.8,
+    "updated_at": "2026-06-01T15:26:48.724Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 59,
+  "fields": {
+    "district": 59,
+    "total_complaints": 538,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 538,
+    "noise_score": 1.3,
+    "updated_at": "2026-06-01T15:26:48.724Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 60,
+  "fields": {
+    "district": 60,
+    "total_complaints": 110,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 110,
+    "noise_score": 4.2,
+    "updated_at": "2026-06-01T15:26:48.724Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 61,
+  "fields": {
+    "district": 61,
+    "total_complaints": 175,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 175,
+    "noise_score": 3.1,
+    "updated_at": "2026-06-01T15:26:48.725Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 62,
+  "fields": {
+    "district": 62,
+    "total_complaints": 21,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 21,
+    "noise_score": 7.9,
+    "updated_at": "2026-06-01T15:26:48.725Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 63,
+  "fields": {
+    "district": 63,
+    "total_complaints": 72,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 72,
+    "noise_score": 5.3,
+    "updated_at": "2026-06-01T15:26:48.725Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 64,
+  "fields": {
+    "district": 64,
+    "total_complaints": 168,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 168,
+    "noise_score": 3.2,
+    "updated_at": "2026-06-01T15:26:48.726Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 65,
+  "fields": {
+    "district": 65,
+    "total_complaints": 66,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 66,
+    "noise_score": 5.5,
+    "updated_at": "2026-06-01T15:26:48.726Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 66,
+  "fields": {
+    "district": 66,
+    "total_complaints": 76,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 76,
+    "noise_score": 5.1,
+    "updated_at": "2026-06-01T15:26:48.726Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 67,
+  "fields": {
+    "district": 67,
+    "total_complaints": 162,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 162,
+    "noise_score": 3.3,
+    "updated_at": "2026-06-01T15:26:48.727Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 68,
+  "fields": {
+    "district": 68,
+    "total_complaints": 125,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 125,
+    "noise_score": 3.9,
+    "updated_at": "2026-06-01T15:26:48.727Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 69,
+  "fields": {
+    "district": 69,
+    "total_complaints": 15,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 15,
+    "noise_score": 8.4,
+    "updated_at": "2026-06-01T15:26:48.727Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 70,
+  "fields": {
+    "district": 70,
+    "total_complaints": 155,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 155,
+    "noise_score": 3.4,
+    "updated_at": "2026-06-01T15:26:48.728Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 71,
+  "fields": {
+    "district": 71,
+    "total_complaints": 145,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 145,
+    "noise_score": 3.6,
+    "updated_at": "2026-06-01T15:26:48.728Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 72,
+  "fields": {
+    "district": 72,
+    "total_complaints": 121,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 121,
+    "noise_score": 4.0,
+    "updated_at": "2026-06-01T15:26:48.728Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 73,
+  "fields": {
+    "district": 73,
+    "total_complaints": 102,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 102,
+    "noise_score": 4.4,
+    "updated_at": "2026-06-01T15:26:48.729Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 74,
+  "fields": {
+    "district": 74,
+    "total_complaints": 100,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 100,
+    "noise_score": 4.4,
+    "updated_at": "2026-06-01T15:26:48.729Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 75,
+  "fields": {
+    "district": 75,
+    "total_complaints": 62,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 62,
+    "noise_score": 5.6,
+    "updated_at": "2026-06-01T15:26:48.729Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 76,
+  "fields": {
+    "district": 76,
+    "total_complaints": 28,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 28,
+    "noise_score": 7.4,
+    "updated_at": "2026-06-01T15:26:48.730Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 77,
+  "fields": {
+    "district": 77,
+    "total_complaints": 72,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 72,
+    "noise_score": 5.3,
+    "updated_at": "2026-06-01T15:26:48.730Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 78,
+  "fields": {
+    "district": 78,
+    "total_complaints": 182,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 182,
+    "noise_score": 3.1,
+    "updated_at": "2026-06-01T15:26:48.730Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 79,
+  "fields": {
+    "district": 79,
+    "total_complaints": 47,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 47,
+    "noise_score": 6.3,
+    "updated_at": "2026-06-01T15:26:48.731Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 80,
+  "fields": {
+    "district": 80,
+    "total_complaints": 102,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 102,
+    "noise_score": 4.4,
+    "updated_at": "2026-06-01T15:26:48.731Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 81,
+  "fields": {
+    "district": 81,
+    "total_complaints": 142,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 142,
+    "noise_score": 3.6,
+    "updated_at": "2026-06-01T15:26:48.731Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 82,
+  "fields": {
+    "district": 82,
+    "total_complaints": 150,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 150,
+    "noise_score": 3.5,
+    "updated_at": "2026-06-01T15:26:48.732Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 83,
+  "fields": {
+    "district": 83,
+    "total_complaints": 67,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 67,
+    "noise_score": 5.4,
+    "updated_at": "2026-06-01T15:26:48.732Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 84,
+  "fields": {
+    "district": 84,
+    "total_complaints": 126,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 126,
+    "noise_score": 3.9,
+    "updated_at": "2026-06-01T15:26:48.732Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 85,
+  "fields": {
+    "district": 85,
+    "total_complaints": 180,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 180,
+    "noise_score": 3.1,
+    "updated_at": "2026-06-01T15:26:48.733Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 86,
+  "fields": {
+    "district": 86,
+    "total_complaints": 52,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 52,
+    "noise_score": 6.1,
+    "updated_at": "2026-06-01T15:26:48.733Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 87,
+  "fields": {
+    "district": 87,
+    "total_complaints": 112,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 112,
+    "noise_score": 4.2,
+    "updated_at": "2026-06-01T15:26:48.733Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 88,
+  "fields": {
+    "district": 88,
+    "total_complaints": 163,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 163,
+    "noise_score": 3.3,
+    "updated_at": "2026-06-01T15:26:48.734Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 89,
+  "fields": {
+    "district": 89,
+    "total_complaints": 91,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 91,
+    "noise_score": 4.7,
+    "updated_at": "2026-06-01T15:26:48.734Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 90,
+  "fields": {
+    "district": 90,
+    "total_complaints": 134,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 134,
+    "noise_score": 3.7,
+    "updated_at": "2026-06-01T15:26:48.734Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 91,
+  "fields": {
+    "district": 91,
+    "total_complaints": 48,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 48,
+    "noise_score": 6.2,
+    "updated_at": "2026-06-01T15:26:48.735Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 92,
+  "fields": {
+    "district": 92,
+    "total_complaints": 11,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 11,
+    "noise_score": 8.8,
+    "updated_at": "2026-06-01T15:26:48.735Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 93,
+  "fields": {
+    "district": 93,
+    "total_complaints": 135,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 135,
+    "noise_score": 3.7,
+    "updated_at": "2026-06-01T15:26:48.735Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 94,
+  "fields": {
+    "district": 94,
+    "total_complaints": 63,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 63,
+    "noise_score": 5.6,
+    "updated_at": "2026-06-01T15:26:48.736Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 95,
+  "fields": {
+    "district": 95,
+    "total_complaints": 95,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 95,
+    "noise_score": 4.6,
+    "updated_at": "2026-06-01T15:26:48.736Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 96,
+  "fields": {
+    "district": 96,
+    "total_complaints": 90,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 90,
+    "noise_score": 4.7,
+    "updated_at": "2026-06-01T15:26:48.737Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 97,
+  "fields": {
+    "district": 97,
+    "total_complaints": 46,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 46,
+    "noise_score": 6.3,
+    "updated_at": "2026-06-01T15:26:48.737Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 98,
+  "fields": {
+    "district": 98,
+    "total_complaints": 166,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 166,
+    "noise_score": 3.3,
+    "updated_at": "2026-06-01T15:26:48.737Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 99,
+  "fields": {
+    "district": 99,
+    "total_complaints": 445,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 445,
+    "noise_score": 1.5,
+    "updated_at": "2026-06-01T15:26:48.738Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 100,
+  "fields": {
+    "district": 100,
+    "total_complaints": 62,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 62,
+    "noise_score": 5.6,
+    "updated_at": "2026-06-01T15:26:48.738Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 101,
+  "fields": {
+    "district": 101,
+    "total_complaints": 141,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 141,
+    "noise_score": 3.6,
+    "updated_at": "2026-06-01T15:26:48.738Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 102,
+  "fields": {
+    "district": 102,
+    "total_complaints": 56,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 56,
+    "noise_score": 5.9,
+    "updated_at": "2026-06-01T15:26:48.739Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 103,
+  "fields": {
+    "district": 103,
+    "total_complaints": 123,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 123,
+    "noise_score": 3.9,
+    "updated_at": "2026-06-01T15:26:48.739Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 104,
+  "fields": {
+    "district": 104,
+    "total_complaints": 39,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 39,
+    "noise_score": 6.7,
+    "updated_at": "2026-06-01T15:26:48.739Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 105,
+  "fields": {
+    "district": 105,
+    "total_complaints": 90,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 90,
+    "noise_score": 4.7,
+    "updated_at": "2026-06-01T15:26:48.740Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 106,
+  "fields": {
+    "district": 106,
+    "total_complaints": 205,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 205,
+    "noise_score": 2.8,
+    "updated_at": "2026-06-01T15:26:48.740Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 107,
+  "fields": {
+    "district": 107,
+    "total_complaints": 72,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 72,
+    "noise_score": 5.3,
+    "updated_at": "2026-06-01T15:26:48.740Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 108,
+  "fields": {
+    "district": 108,
+    "total_complaints": 106,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 106,
+    "noise_score": 4.3,
+    "updated_at": "2026-06-01T15:26:48.741Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 109,
+  "fields": {
+    "district": 109,
+    "total_complaints": 29,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 29,
+    "noise_score": 7.3,
+    "updated_at": "2026-06-01T15:26:48.741Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 110,
+  "fields": {
+    "district": 110,
+    "total_complaints": 92,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 92,
+    "noise_score": 4.7,
+    "updated_at": "2026-06-01T15:26:48.741Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 111,
+  "fields": {
+    "district": 111,
+    "total_complaints": 101,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 101,
+    "noise_score": 4.4,
+    "updated_at": "2026-06-01T15:26:48.742Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 112,
+  "fields": {
+    "district": 112,
+    "total_complaints": 88,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 88,
+    "noise_score": 4.8,
+    "updated_at": "2026-06-01T15:26:48.742Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 113,
+  "fields": {
+    "district": 113,
+    "total_complaints": 102,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 102,
+    "noise_score": 4.4,
+    "updated_at": "2026-06-01T15:26:48.742Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 114,
+  "fields": {
+    "district": 114,
+    "total_complaints": 150,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 150,
+    "noise_score": 3.5,
+    "updated_at": "2026-06-01T15:26:48.743Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 115,
+  "fields": {
+    "district": 115,
+    "total_complaints": 160,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 160,
+    "noise_score": 3.3,
+    "updated_at": "2026-06-01T15:26:48.743Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 116,
+  "fields": {
+    "district": 116,
+    "total_complaints": 95,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 95,
+    "noise_score": 4.6,
+    "updated_at": "2026-06-01T15:26:48.743Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 117,
+  "fields": {
+    "district": 117,
+    "total_complaints": 79,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 79,
+    "noise_score": 5.0,
+    "updated_at": "2026-06-01T15:26:48.744Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 118,
+  "fields": {
+    "district": 118,
+    "total_complaints": 173,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 173,
+    "noise_score": 3.2,
+    "updated_at": "2026-06-01T15:26:48.744Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 119,
+  "fields": {
+    "district": 119,
+    "total_complaints": 278,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 278,
+    "noise_score": 2.2,
+    "updated_at": "2026-06-01T15:26:48.744Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 120,
+  "fields": {
+    "district": 120,
+    "total_complaints": 99,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 99,
+    "noise_score": 4.5,
+    "updated_at": "2026-06-01T15:26:48.745Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 121,
+  "fields": {
+    "district": 121,
+    "total_complaints": 5,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 5,
+    "noise_score": 9.4,
+    "updated_at": "2026-06-01T15:26:48.745Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 122,
+  "fields": {
+    "district": 122,
+    "total_complaints": 116,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 116,
+    "noise_score": 4.1,
+    "updated_at": "2026-06-01T15:26:48.745Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 123,
+  "fields": {
+    "district": 123,
+    "total_complaints": 119,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 119,
+    "noise_score": 4.0,
+    "updated_at": "2026-06-01T15:26:48.746Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 124,
+  "fields": {
+    "district": 124,
+    "total_complaints": 18,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 18,
+    "noise_score": 8.2,
+    "updated_at": "2026-06-01T15:26:48.746Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 125,
+  "fields": {
+    "district": 125,
+    "total_complaints": 8,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 8,
+    "noise_score": 9.1,
+    "updated_at": "2026-06-01T15:26:48.746Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 126,
+  "fields": {
+    "district": 126,
+    "total_complaints": 0,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 0,
+    "noise_score": 10.0,
+    "updated_at": "2026-06-01T15:26:48.747Z"
+  }
+},
+{
+  "model": "mapapi.noisedistrictstats",
+  "pk": 127,
+  "fields": {
+    "district": 127,
+    "total_complaints": 0,
+    "construction_count": 0,
+    "road_repair_count": 0,
+    "ventilation_count": 0,
+    "loading_count": 0,
+    "other_count": 0,
+    "noise_score": 10.0,
+    "updated_at": "2026-06-01T15:26:48.747Z"
+  }
+}
+]
