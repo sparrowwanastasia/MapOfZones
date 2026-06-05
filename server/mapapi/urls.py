@@ -23,4 +23,8 @@ path(
     views.district_recommendation,
     name="district_recommendation",
 ),
+    path("api/admin/import-ecology/", views.admin_import_ecology),
+    path("api/admin/import-social/", views.admin_import_social),
+    path("api/admin/import-noise/", views.admin_import_noise),
+    path("api/admin/compute-stats/", views.admin_compute_stats),
 ]

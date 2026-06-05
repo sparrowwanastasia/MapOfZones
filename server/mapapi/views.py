@@ -487,3 +487,84 @@ def district_recommendation(request, slug: str):
         "scores": payload["scores"],
         "recommendation": data.get("recommendation", data),
     })
+
+import os
+from io import StringIO
+
+from django.core.management import call_command
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+
+
+def run_command(command_name, *args, **kwargs):
+    output = StringIO()
+    call_command(command_name, *args, stdout=output, stderr=output, **kwargs)
+    return output.getvalue()
+
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def admin_import_ecology(request):
+    api_key = os.environ.get("DATA_MOS_API_KEY")
+
+    if not api_key:
+        return Response({"error": "DATA_MOS_API_KEY is not set"}, status=500)
+
+    result = run_command("import_ecology", api_key=api_key)
+
+    return Response({
+        "status": "ok",
+        "step": "import_ecology",
+        "result": result,
+    })
+
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def admin_import_social(request):
+    api_key = os.environ.get("DATA_MOS_API_KEY")
+
+    if not api_key:
+        return Response({"error": "DATA_MOS_API_KEY is not set"}, status=500)
+
+    result = run_command("import_social", api_key=api_key)
+
+    return Response({
+        "status": "ok",
+        "step": "import_social",
+        "result": result,
+    })
+
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def admin_import_noise(request):
+    api_key = os.environ.get("DATA_MOS_API_KEY")
+
+    if not api_key:
+        return Response({"error": "DATA_MOS_API_KEY is not set"}, status=500)
+
+    result = run_command("import_noise", api_key=api_key)
+
+    return Response({
+        "status": "ok",
+        "step": "import_noise",
+        "result": result,
+    })
+
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def admin_compute_stats(request):
+    eco_result = run_command("compute_eco_stats")
+    social_result = run_command("compute_social_stats")
+    noise_result = run_command("compute_noise_stats")
+
+    return Response({
+        "status": "ok",
+        "step": "compute_stats",
+        "eco": eco_result,
+        "social": social_result,
+        "noise": noise_result,
+    })
