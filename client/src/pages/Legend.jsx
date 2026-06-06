@@ -1,17 +1,57 @@
 import React from "react";
-import Header from "../components/Header/Header";
+
+const pageStyle = {
+  minHeight: "100vh",
+  background:
+    "linear-gradient(180deg, #0c0c0f 0%, #121216 58%, #1f1207 100%)",
+  color: "#f3f3f3",
+  padding: "132px 24px 72px",
+};
+
+const containerStyle = {
+  width: "min(1120px, 100%)",
+  margin: "0 auto",
+};
+
+const heroStyle = {
+  borderRadius: "28px",
+  padding: "42px",
+  background:
+    "linear-gradient(135deg, rgba(255,255,255,0.075), rgba(255,255,255,0.03))",
+  border: "1px solid rgba(255,255,255,0.08)",
+  boxShadow: "0 18px 42px rgba(0,0,0,0.28)",
+  marginBottom: "28px",
+};
+
+const cardStyle = {
+  borderRadius: "24px",
+  padding: "28px",
+  background: "rgba(255,255,255,0.055)",
+  border: "1px solid rgba(255,255,255,0.08)",
+  boxShadow: "0 12px 30px rgba(0,0,0,0.2)",
+  marginBottom: "22px",
+};
+
+const mutedStyle = {
+  color: "rgba(255,255,255,0.72)",
+  lineHeight: 1.7,
+  fontSize: "18px",
+};
 
 function Formula({ children }) {
   return (
     <div
       style={{
-        background: "#f6f7f9",
-        border: "1px solid #e5e7eb",
-        borderRadius: "12px",
-        padding: "12px 16px",
-        margin: "12px 0",
-        fontFamily: "monospace",
-        fontSize: "15px",
+        background: "rgba(255,255,255,0.08)",
+        border: "1px solid rgba(255,255,255,0.12)",
+        borderRadius: "16px",
+        padding: "14px 18px",
+        margin: "14px 0",
+        fontFamily:
+          "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+        fontSize: "16px",
+        lineHeight: 1.55,
+        color: "#fff",
         overflowX: "auto",
       }}
     >
@@ -24,9 +64,10 @@ function SectionTitle({ children }) {
   return (
     <h2
       style={{
-        marginTop: "32px",
-        marginBottom: "12px",
-        fontSize: "22px",
+        margin: "0 0 16px",
+        fontSize: "32px",
+        lineHeight: 1.05,
+        letterSpacing: "-0.04em",
       }}
     >
       {children}
@@ -34,297 +75,452 @@ function SectionTitle({ children }) {
   );
 }
 
+function SmallTitle({ children }) {
+  return (
+    <h3
+      style={{
+        margin: "24px 0 10px",
+        fontSize: "22px",
+        lineHeight: 1.2,
+      }}
+    >
+      {children}
+    </h3>
+  );
+}
+
+function Text({ children }) {
+  return <p style={mutedStyle}>{children}</p>;
+}
+
+function List({ children }) {
+  return (
+    <ul
+      style={{
+        ...mutedStyle,
+        paddingLeft: "22px",
+        marginTop: "10px",
+        marginBottom: "10px",
+      }}
+    >
+      {children}
+    </ul>
+  );
+}
+
+function Step({ number, title, children }) {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "52px 1fr",
+        gap: "18px",
+        marginTop: "18px",
+      }}
+    >
+      <div
+        style={{
+          width: "52px",
+          height: "52px",
+          borderRadius: "16px",
+          background: "#fd8608",
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: "22px",
+          fontWeight: 800,
+        }}
+      >
+        {number}
+      </div>
+
+      <div>
+        <h3
+          style={{
+            margin: "0 0 8px",
+            fontSize: "22px",
+            lineHeight: 1.2,
+          }}
+        >
+          {title}
+        </h3>
+        <div>{children}</div>
+      </div>
+    </div>
+  );
+}
+
 function Legend() {
   return (
-    <div>
-      <Header />
-      <main style={{ maxWidth: "960px", margin: "0 auto", padding: "24px" }}>
-        <h1 style={{ marginBottom: "16px" }}>
-          Справка по экологическим слоям и индексам
-        </h1>
+    <main style={pageStyle}>
+      <div style={containerStyle}>
+        <section style={heroStyle}>
+          <h1
+            style={{
+              margin: "0 0 18px",
+              fontSize: "clamp(42px, 6vw, 82px)",
+              lineHeight: 0.95,
+              letterSpacing: "-0.07em",
+              fontWeight: 300,
+            }}
+          >
+            Легенда и методика оценки
+          </h1>
 
-        <section style={{ marginBottom: "24px" }}>
-          <p style={{ lineHeight: 1.7 }}>
-            Ниже приведена логика расчета экологической оценки района в сервисе.
-            Экологическая оценка строится из двух частей: зеленые территории и
-            опасные объекты.
+          <p
+            style={{
+              ...mutedStyle,
+              maxWidth: "920px",
+              fontSize: "21px",
+            }}
+          >
+            MAP OF ZONES — это веб-сервис для оценки районов жилой застройки.
+            Он объединяет городские данные, отображает районы на интерактивной
+            карте, рассчитывает тематические оценки и помогает сравнивать
+            территории между собой.
           </p>
         </section>
 
-        <SectionTitle>1. Общая логика расчета</SectionTitle>
-        <p style={{ lineHeight: 1.7 }}>
-          Экологическая оценка строится из двух частей:
-        </p>
-        <p style={{ lineHeight: 1.7 }}>
-          <b>1) Зелень</b> — насколько район покрыт парками и лесами.
-        </p>
-        <p style={{ lineHeight: 1.7 }}>
-          <b>2) Опасности</b> — насколько район попадает в зоны влияния опасных
-          объектов и сколько опасных объектов там вообще есть.
-        </p>
+        <section style={cardStyle}>
+          <SectionTitle>Актуальность работы</SectionTitle>
 
-        <SectionTitle>2. Что берется из данных</SectionTitle>
-        <p style={{ lineHeight: 1.7 }}>
-          <b>Из GeoJSON районов:</b> геометрия района.
-        </p>
-        <p style={{ lineHeight: 1.7 }}>
-          <b>Из таблицы Object:</b> парки, леса, опасные объекты.
-        </p>
+          <Text>
+            При выборе жилья человек оценивает не только квартиру, но и район:
+            наличие зеленых территорий, социальной инфраструктуры, уровень шума
+            и общее качество городской среды. Однако такая информация обычно
+            находится в разных источниках: на городских порталах, картах, в
+            справочниках и отдельных наборах открытых данных.
+          </Text>
 
-        <SectionTitle>3. Что считается для каждого района</SectionTitle>
+          <Text>
+            Из-за разрозненности данных пользователю сложно быстро понять,
+            насколько район подходит для жизни. Ему приходится самостоятельно
+            искать сведения, сопоставлять разные территории и делать выводы без
+            единой системы оценки.
+          </Text>
 
-        <h3 style={{ marginTop: "20px" }}>Шаг 1. Считается green_ratio</h3>
-        <Formula>
-          green_ratio = площадь парков и лесов внутри района / площадь района
-        </Formula>
-        <p style={{ lineHeight: 1.7 }}>
-          Это означает: если зелени много, то <b>green_ratio</b> выше; если
-          зелени мало — ниже.
-        </p>
+          <Text>
+            Разработанный сервис решает эту задачу за счет того, что район
+            рассматривается как аналитическая единица. Для каждого района
+            рассчитываются тематические показатели, которые затем переводятся в
+            понятную шкалу от 0 до 10 и отображаются на карте.
+          </Text>
+        </section>
 
-        <h3 style={{ marginTop: "20px" }}>
-          Шаг 2. Считается hazard_overlap_ratio
-        </h3>
-        <Formula>
-          hazard_overlap = площадь района, попавшая в буферы опасных объектов /
-          площадь района
-        </Formula>
-        <p style={{ lineHeight: 1.7 }}>
-          Для каждого опасного объекта строится буфер радиусом 1000 м. Затем
-          определяется, какая часть района попала в эти зоны. Если зона влияния
-          покрывает большой участок района, показатель становится выше.
-        </p>
+        <section style={cardStyle}>
+          <SectionTitle>Общий алгоритм оценивания</SectionTitle>
 
-        <h3 style={{ marginTop: "20px" }}>
-          Шаг 3. Считается hazard_count_density
-        </h3>
-        <Formula>
-          hazard_count_density = количество опасных объектов / площадь района
-        </Formula>
-        <p style={{ lineHeight: 1.7 }}>
-          Это плотность опасных объектов. Она нужна для того, чтобы учитывать не
-          только количество, но и размер района.
-        </p>
+          <Step number="1" title="Загрузка данных">
+            <Text>
+              Система использует границы районов Москвы и пространственные
+              объекты тематических слоев: зеленые территории, неблагоприятные
+              объекты, объекты социальной инфраструктуры и обращения по шуму.
+            </Text>
+          </Step>
 
-        <SectionTitle>4. Что такое нормировка</SectionTitle>
-        <p style={{ lineHeight: 1.7 }}>
-          После вычисления сырых значений:
-        </p>
-        <ul style={{ lineHeight: 1.7 }}>
-          <li>green_ratio</li>
-          <li>hazard_overlap</li>
-          <li>hazard_count_density</li>
-        </ul>
-        <p style={{ lineHeight: 1.7 }}>
-          сервис сравнивает их по всем районам и приводит к шкале от 0 до 1.
-        </p>
-        <Formula>x_norm = (x - min) / (max - min)</Formula>
-        <p style={{ lineHeight: 1.7 }}>
-          <b>0</b> — худшее значение среди всех районов, <b>1</b> — лучшее.
-        </p>
-        <p style={{ lineHeight: 1.7 }}>
-          Нормировка нужна для того, чтобы можно было складывать разные
-          показатели между собой, так как у них изначально разный масштаб.
-        </p>
+          <Step number="2" title="Привязка объектов к району">
+            <Text>
+              Для объектов с координатами определяется, к какому району они
+              относятся. Это позволяет считать показатели не по городу в целом,
+              а отдельно для каждой территории.
+            </Text>
+          </Step>
 
-        <SectionTitle>5. Как считается зеленый индекс</SectionTitle>
-        <Formula>green_index = 10 × green_norm</Formula>
-        <p style={{ lineHeight: 1.7 }}>
-          После нормировки зеленый показатель переводится в шкалу от 0 до 10.
-        </p>
+          <Step number="3" title="Расчет частных оценок">
+            <Text>
+              Для каждого района отдельно рассчитываются экологическая,
+              социальная и шумовая оценки. Каждая оценка переводится в шкалу от
+              0 до 10, где большее значение означает более благоприятную
+              ситуацию.
+            </Text>
+          </Step>
 
-        <SectionTitle>6. Как считается штраф опасности</SectionTitle>
-        <p style={{ lineHeight: 1.7 }}>
-          Сначала берутся два нормированных показателя:
-        </p>
-        <ul style={{ lineHeight: 1.7 }}>
-          <li>hazard_overlap_norm</li>
-          <li>hazard_count_norm</li>
-        </ul>
-        <p style={{ lineHeight: 1.7 }}>
-          Затем они объединяются в общий штраф:
-        </p>
-        <Formula>
-          hazard_penalty = 0.7 × hazard_overlap_norm + 0.3 × hazard_count_norm
-        </Formula>
-        <p style={{ lineHeight: 1.7 }}>
-          Это означает, что опасность района зависит:
-        </p>
-        <ul style={{ lineHeight: 1.7 }}>
-          <li>на 70% — от покрытия района зонами влияния опасных объектов</li>
-          <li>на 30% — от плотности опасных объектов</li>
-        </ul>
+          <Step number="4" title="Формирование общей оценки">
+            <Text>
+              После расчета частных оценок сервис формирует итоговый показатель
+              района как среднее значение доступных тематических оценок.
+            </Text>
+          </Step>
 
-        <SectionTitle>7. Как считается hazard_index</SectionTitle>
-        <Formula>hazard_index = 10 × hazard_penalty</Formula>
-        <p style={{ lineHeight: 1.7 }}>
-          Чем выше этот показатель, тем район опаснее.
-        </p>
+          <Step number="5" title="Отображение результата">
+            <Text>
+              Полученные оценки используются для окраски районов на карте.
+              Пользователь может выбрать слой, посмотреть статистику района,
+              добавить район в сравнение и сформировать отчет.
+            </Text>
+          </Step>
+        </section>
 
-        <SectionTitle>8. Как считается hazard_safe_index</SectionTitle>
-        <Formula>hazard_safe_index = 10 - hazard_index</Formula>
-        <p style={{ lineHeight: 1.7 }}>
-          Это обратный показатель:
-        </p>
-        <ul style={{ lineHeight: 1.7 }}>
-          <li>если опасность высокая — безопасность низкая</li>
-          <li>если опасность низкая — безопасность высокая</li>
-        </ul>
+        <section style={cardStyle}>
+          <SectionTitle>Шкала оценки</SectionTitle>
 
-        <SectionTitle>9. Как считается итоговый eco_score</SectionTitle>
-        <Formula>
-          eco_score = 10 × (0.6 × green_norm + 0.4 × (1 - hazard_penalty))
-        </Formula>
-        <p style={{ lineHeight: 1.7 }}>
-          Итоговая экологическая оценка:
-        </p>
-        <ul style={{ lineHeight: 1.7 }}>
-          <li>на 60% зависит от зелени</li>
-          <li>на 40% зависит от того, насколько район безопасен</li>
-        </ul>
+          <Text>
+            Все тематические показатели приводятся к единой шкале от 0 до 10.
+            Это нужно для того, чтобы пользователь мог сравнивать районы между
+            собой по понятной системе.
+          </Text>
 
-        <SectionTitle>10. Что означают веса</SectionTitle>
-        <ul style={{ lineHeight: 1.7 }}>
-          <li>
-            <b>GREEN_WEIGHT = 0.6</b> — зелень важнее
-          </li>
-          <li>
-            <b>HAZARD_WEIGHT = 0.4</b> — опасности тоже важны, но чуть меньше
-          </li>
-          <li>
-            <b>HAZARD_OVERLAP_WEIGHT = 0.7</b> — важнее, насколько район
-            реально попадает в зоны влияния
-          </li>
-          <li>
-            <b>HAZARD_COUNT_WEIGHT = 0.3</b> — количество опасных объектов тоже
-            учитывается, но слабее
-          </li>
-        </ul>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+              gap: "12px",
+              marginTop: "18px",
+            }}
+          >
+            {[
+              ["1–2", "Критично", "#8E3B5B"],
+              ["3–4", "Плохо", "#C06A6A"],
+              ["5–6", "Средне", "#D8BF6A"],
+              ["7–8", "Хорошо", "#7EB7D8"],
+              ["9–10", "Отлично", "#5D88D8"],
+            ].map(([range, label, color]) => (
+              <div
+                key={range}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  padding: "14px",
+                  borderRadius: "16px",
+                  background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                <span
+                  style={{
+                    width: "22px",
+                    height: "22px",
+                    borderRadius: "7px",
+                    background: color,
+                    flex: "0 0 auto",
+                  }}
+                />
+                <span style={{ color: "rgba(255,255,255,0.82)" }}>
+                  <b style={{ color: "#fff" }}>{range}</b> — {label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
 
-        <SectionTitle>11. Что делает радиус 1000 м</SectionTitle>
-        <Formula>DEFAULT_HAZARD_RADIUS_M = 1000.0</Formula>
-        <p style={{ lineHeight: 1.7 }}>
-          Это значит, что вокруг каждого опасного объекта строится зона влияния
-          радиусом 1000 метров. Это нужно для того, чтобы объект влиял не только
-          в том случае, если он расположен внутри района, но и на соседние
-          территории рядом с ним.
-        </p>
+        <section style={cardStyle}>
+          <SectionTitle>Экологическая оценка района</SectionTitle>
 
+          <Text>
+            Экологическая оценка показывает, насколько район благоприятен с
+            точки зрения зеленых территорий и неблагоприятных объектов. В
+            расчете учитываются два компонента: зеленый индекс и индекс
+            экологической безопасности относительно опасных объектов.
+          </Text>
 
+          <SmallTitle>1. Зеленый индекс</SmallTitle>
 
-        <section style={{ marginTop: "48px" }}>
-  <h1 style={{ marginBottom: "16px" }}>
-    Справка по социальному слою и индексам
-  </h1>
+          <Text>
+            Для каждого района учитывается количество зеленых территорий. В
+            расчете зеленый показатель переводится в шкалу от 0 до 10 с помощью
+            формулы сглаживания.
+          </Text>
 
-  <p style={{ lineHeight: 1.7 }}>
-    Ниже приведена логика расчета социальной оценки района в сервисе.
-    Социальная оценка показывает, насколько район обеспечен
-    повседневной и социальной инфраструктурой.
-  </p>
+          <Formula>green_index = 10 × greenRaw / (greenRaw + 50)</Formula>
 
-  <SectionTitle>1. Общая логика расчета</SectionTitle>
-  <p style={{ lineHeight: 1.7 }}>
-    Социальная оценка строится из пяти групп объектов:
-  </p>
-  <ul style={{ lineHeight: 1.7 }}>
-    <li><b>Образование</b></li>
-    <li><b>Здравоохранение</b></li>
-    <li><b>Культура</b></li>
-    <li><b>Спорт</b></li>
-    <li><b>Коммерция</b></li>
-  </ul>
-  <p style={{ lineHeight: 1.7 }}>
-    При расчете учитывается не только количество объектов, но и размер района.
-    Поэтому используется не абсолютное число объектов, а их плотность на площадь района.
-  </p>
+          <Text>
+            Здесь greenRaw — исходный показатель зеленых территорий района.
+            Коэффициент 50 используется для сглаживания: оценка растет при
+            увеличении количества зеленых объектов, но не становится
+            бесконечной и постепенно приближается к 10.
+          </Text>
 
-  <SectionTitle>2. Что берется из данных</SectionTitle>
-  <p style={{ lineHeight: 1.7 }}>
-    <b>Из GeoJSON районов:</b> геометрия района.
-  </p>
-  <p style={{ lineHeight: 1.7 }}>
-    <b>Из таблицы Object:</b> объекты категорий education, health,
-    culture, sport и commerce.
-  </p>
+          <SmallTitle>2. Индекс неблагоприятного воздействия</SmallTitle>
 
-  <SectionTitle>3. Что считается для каждого района</SectionTitle>
+          <Text>
+            Для учета неблагоприятных объектов рассчитывается показатель
+            экологической нагрузки. Чем больше таких объектов и чем сильнее их
+            влияние, тем выше значение hazardRisk.
+          </Text>
 
-  <h3 style={{ marginTop: "20px" }}>Шаг 1. Считается площадь района</h3>
-  <Formula>district_area = area(district)</Formula>
-  <p style={{ lineHeight: 1.7 }}>
-    Площадь района нужна для того, чтобы учитывать размер территории.
-  </p>
+          <Formula>hazard_index = 10 × hazardRisk / (hazardRisk + 5)</Formula>
 
-  <h3 style={{ marginTop: "20px" }}>
-    Шаг 2. Считается количество объектов по категориям
-  </h3>
-  <p style={{ lineHeight: 1.7 }}>
-    Для каждого района определяется число объектов категорий:
-    education, health, culture, sport, commerce.
-  </p>
+          <Text>
+            Коэффициент 5 также используется для сглаживания, чтобы отдельные
+            высокие значения не делали расчет слишком резким. Чем выше
+            hazard_index, тем больше неблагоприятное воздействие.
+          </Text>
 
-  <h3 style={{ marginTop: "20px" }}>
-    Шаг 3. Считается плотность объектов каждой категории
-  </h3>
-  <Formula>density = count / district_area</Formula>
-  <p style={{ lineHeight: 1.7 }}>
-    Для каждой категории вычисляется плотность объектов на площадь района.
-    Это позволяет сравнивать между собой районы разного размера.
-  </p>
+          <SmallTitle>3. Обратный показатель безопасности</SmallTitle>
 
-  <h3 style={{ marginTop: "20px" }}>
-    Шаг 4. Считается raw-социальный показатель
-  </h3>
-  <Formula>
-    social_raw = 2.0 × education_density + 2.0 × health_density + 1.0 × culture_density + 1.0 × sport_density + 0.5 × commerce_density
-  </Formula>
-  <p style={{ lineHeight: 1.7 }}>
-    Это взвешенная сумма плотностей объектов по категориям.
-  </p>
+          <Text>
+            Так как hazard_index показывает не положительное качество, а
+            нагрузку, его нельзя напрямую складывать с зеленым индексом. Для
+            итоговой оценки используется обратный показатель безопасности.
+          </Text>
 
-  <SectionTitle>4. Что означают веса</SectionTitle>
-  <ul style={{ lineHeight: 1.7 }}>
-    <li><b>education = 2.0</b> — высокий приоритет</li>
-    <li><b>health = 2.0</b> — высокий приоритет</li>
-    <li><b>culture = 1.0</b> — средний вклад</li>
-    <li><b>sport = 1.0</b> — средний вклад</li>
-    <li><b>commerce = 0.5</b> — меньший вклад</li>
-  </ul>
-  <p style={{ lineHeight: 1.7 }}>
-    Более высокие веса у образования и здравоохранения, так как они являются
-    базовыми элементами городской среды. Культура и спорт также учитываются,
-    но слабее. Коммерция влияет на итоговый балл меньше остальных категорий.
-  </p>
+          <Formula>hazard_safe_index = 10 - hazard_index</Formula>
 
-  <SectionTitle>5. Что такое нормировка</SectionTitle>
-  <p style={{ lineHeight: 1.7 }}>
-    После вычисления значения <b>social_raw</b> по всем районам
-    показатель приводится к шкале от 0 до 1.
-  </p>
-  <Formula>x_norm = (x - min) / (max - min)</Formula>
-  <p style={{ lineHeight: 1.7 }}>
-    <b>0</b> означает худшее значение среди всех районов, <b>1</b> — лучшее.
-    Нормировка нужна для того, чтобы итоговые оценки районов были сопоставимыми.
-  </p>
+          <Text>
+            Если неблагоприятное воздействие низкое, hazard_safe_index будет
+            высоким. Если нагрузка высокая, показатель безопасности снижается.
+            Так оба компонента начинают работать в одном направлении: чем
+            больше значение, тем лучше район.
+          </Text>
 
-  <SectionTitle>6. Как считается итоговый social_score</SectionTitle>
-  <Formula>social_score = 10 × social_norm</Formula>
-  <p style={{ lineHeight: 1.7 }}>
-    После нормировки показатель переводится в шкалу от 0 до 10.
-  </p>
+          <SmallTitle>4. Итоговая экологическая оценка</SmallTitle>
 
-  <SectionTitle>7. Что это значит простыми словами</SectionTitle>
-  <p style={{ lineHeight: 1.7 }}>
-    Если в районе много школ, поликлиник, культурных, спортивных и коммерческих
-    объектов относительно его площади, социальная оценка будет выше.
-    Если район большой, но инфраструктуры в нем недостаточно,
-    итоговый social_score будет ниже.
-  </p>
-</section>
+          <Formula>
+            eco_score = 0.6 × green_index + 0.4 × hazard_safe_index
+          </Formula>
 
-      </main>
-    </div>
+          <Text>
+            Итоговая экологическая оценка на 60% зависит от зеленого индекса и
+            на 40% — от безопасного компонента. Такой подход позволяет учитывать
+            не только наличие зеленых территорий, но и экологические риски.
+          </Text>
+        </section>
+
+        <section style={cardStyle}>
+          <SectionTitle>Социальная оценка района</SectionTitle>
+
+          <Text>
+            Социальная оценка показывает обеспеченность района объектами
+            повседневной и социальной инфраструктуры. В расчет входят пять
+            категорий: образование, здравоохранение, культура, спорт и
+            коммерция.
+          </Text>
+
+          <SmallTitle>1. Подсчет объектов по категориям</SmallTitle>
+
+          <Text>
+            Сначала система считает количество объектов каждой категории в
+            пределах района. Категория объекта определяется заранее при загрузке
+            данных в базу.
+          </Text>
+
+          <List>
+            <li>education — образовательные объекты;</li>
+            <li>health — объекты здравоохранения;</li>
+            <li>culture — объекты культуры и досуга;</li>
+            <li>sport — спортивные объекты;</li>
+            <li>commerce — коммерческие объекты.</li>
+          </List>
+
+          <SmallTitle>2. Взвешенная сумма</SmallTitle>
+
+          <Text>
+            Категории имеют разную значимость. Образование и здравоохранение
+            получают повышенный вес, так как относятся к базовым условиям
+            повседневной жизни. Культура и спорт учитываются со средним весом,
+            а коммерция — с меньшим.
+          </Text>
+
+          <Formula>
+            X = 2 × education + 2 × health + culture + sport + 0.5 × commerce
+          </Formula>
+
+          <Text>
+            X — это обобщенный показатель обеспеченности района социальной
+            инфраструктурой до перевода в десятибалльную шкалу.
+          </Text>
+
+          <SmallTitle>3. Формальная запись</SmallTitle>
+
+          <Formula>X = Σ wi × xi, i = 1...5</Formula>
+
+          <Text>
+            В этой записи xi — количество объектов i-й категории, wi — весовой
+            коэффициент категории. Верхняя граница суммы равна 5, потому что в
+            социальном слое используется пять категорий объектов.
+          </Text>
+
+          <SmallTitle>4. Перевод в шкалу от 0 до 10</SmallTitle>
+
+          <Formula>social_score = 10 × X / (X + 80)</Formula>
+
+          <Text>
+            Коэффициент 80 используется для сглаживания. Это нужно, чтобы оценка
+            росла постепенно и оставалась в диапазоне от 0 до 10. Если объектов
+            мало, оценка будет низкой. Если объектов становится больше, оценка
+            растет, но постепенно замедляется и приближается к 10.
+          </Text>
+        </section>
+
+        <section style={cardStyle}>
+          <SectionTitle>Шумовая оценка района</SectionTitle>
+
+          <Text>
+            Шумовая оценка показывает, насколько район благоприятен с точки
+            зрения шумовой ситуации. В расчете используется количество обращений
+            по шуму, относящихся к территории района.
+          </Text>
+
+          <SmallTitle>1. Количество обращений</SmallTitle>
+
+          <Text>
+            Для каждого района считается общее количество обращений по шуму.
+            Они могут быть связаны с транспортом, строительными и ремонтными
+            работами, вентиляционными системами, погрузочно-разгрузочными
+            работами, кафе, музыкой и другими источниками.
+          </Text>
+
+          <Formula>N = total_complaints</Formula>
+
+          <SmallTitle>2. Расчет шумовой оценки</SmallTitle>
+
+          <Formula>noise_score = 10 × (1 - N / (N + 20))</Formula>
+
+          <Text>
+            Чем больше обращений по шуму, тем ниже итоговая оценка района. Если
+            обращений нет, район получает максимальную оценку 10.
+          </Text>
+
+          <Text>
+            Коэффициент 20 используется как параметр сглаживания. Он нужен,
+            чтобы несколько обращений не обнуляли оценку сразу, а показатель
+            снижался постепенно.
+          </Text>
+        </section>
+
+        <section style={cardStyle}>
+          <SectionTitle>Итоговая оценка района</SectionTitle>
+
+          <Text>
+            Итоговая оценка объединяет частные оценки района по доступным
+            тематическим слоям. Она нужна для быстрого сравнения районов между
+            собой.
+          </Text>
+
+          <Formula>
+            total_score = average(eco_score, social_score, noise_score)
+          </Formula>
+
+          <Text>
+            Если доступны все три слоя, итоговый показатель рассчитывается как
+            среднее значение экологической, социальной и шумовой оценок. Если
+            часть данных отсутствует, система может рассчитывать общую оценку
+            по доступным показателям.
+          </Text>
+        </section>
+
+        <section style={cardStyle}>
+          <SectionTitle>Как пользоваться картой</SectionTitle>
+
+          <List>
+            <li>Откройте карту районов Москвы.</li>
+            <li>Выберите тематический слой: экология, социальность или шум.</li>
+            <li>Цвет района покажет уровень оценки по выбранному слою.</li>
+            <li>Нажмите на район, чтобы увидеть подробную статистику.</li>
+            <li>Добавьте районы в сравнение, чтобы сопоставить их между собой.</li>
+            <li>Скачайте отчет, если нужно сохранить результат анализа.</li>
+          </List>
+
+          <Text>
+            Сервис не заменяет профессиональное градостроительное исследование,
+            но помогает быстро получить первичное представление о районе и
+            сравнить несколько вариантов по единой методике.
+          </Text>
+        </section>
+      </div>
+    </main>
   );
 }
 
